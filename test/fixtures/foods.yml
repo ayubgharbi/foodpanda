@@ -11,3 +11,19 @@ two:
   description: MyText
   image_url: MyString
   price: 9.99
+
+pizza:
+  title: 'Pan Pizza - Margarita'
+  description:
+       Here is the archetype of a thin-crust pizza pie, a pizza margherita
+       adorned simply in the colors of the Italian flag green from basil,
+       white from mozzarella, red from tomato sauce. This pizza is adapted
+       from the recipe used by the staff at Roberta’s restaurant in Brooklyn,
+       who make their tomato sauce simply by whizzing together canned tomatoes,
+       a drizzle of olive oil and a pinch of salt. The ingredients offer in their
+       proportions what appears to be a kind of austerity — not even 3 ounces of
+       cheese! But the result is home-cooked pizza to beat the band, exactly the
+       sort of recipe to start a career in home pizza-making, and to return to
+       again and again
+  image_url: 'Pizza_Hut_Margherita_Pizza.jpg'
+  price: 40.26
