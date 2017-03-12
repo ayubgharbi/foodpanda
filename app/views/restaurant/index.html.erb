@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<h1>Menu</h1>
+
+<% cache @foods do %>
+	<% @foods.each do |food| %>
+		<% cache food do %>
+			<div class="entry">
+				<%= image_tag(food.image_url) %>
+				<h3><%= food.title %></h3>
+				<%= sanitize(food.description) %>
+				<div class="price_line">
+					<span class="price"><%= number_to_currency(food.price) %></span>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>
+
