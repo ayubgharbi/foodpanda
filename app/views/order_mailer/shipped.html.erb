@@ -1,0 +1,14 @@
+<h3>justEat Order Shipped</h3>
+<p>
+	This is just to let you know we've shipped your recent order:
+</p>
+<table>
+	<tr><th colspan="2">Qty</th><th>Description</th></tr>
+<%= render @order.line_items -%>
+</table>
+
+<h1>Order#shipped</h1>
+
+<p>
+  <%= @greeting %>, find me in app/views/order_mailer/shipped.html.erb
+</p>

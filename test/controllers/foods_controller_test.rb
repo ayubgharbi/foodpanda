@@ -44,6 +44,14 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to food_url(@food)
   end
 
+  test "can't delete food in cart" do 
+    assert_difference('Food.count', 0) do 
+      delete food_url(foods(:two))
+    end 
+
+    assert_redirected_to foods_url
+  end
+
   test "should destroy food" do
     assert_difference('Food.count', -1) do
       delete food_url(@food)
