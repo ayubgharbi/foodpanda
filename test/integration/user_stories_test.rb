@@ -58,9 +58,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
 		assert_equal 'Sam Rubyy <justeat@example.com>', mail[:from].value
 		assert_equal "justEat Order Confirmation", mail.subject
 	end
-
   end
-
 end
 
 

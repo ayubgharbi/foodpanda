@@ -18,6 +18,14 @@
                   <%= render @cart %>
                 <% end %>
               <% end %>
+              <% if session[:user_id] %>
+                <ul>
+                  <li><%= link_to 'Orders',   orders_path   %></li>
+                  <li><%= link_to 'Products', foods_path %></li>
+                  <li><%= link_to 'Users',    users_path    %></li>
+                </ul>
+                <%= button_to 'Logout', logout_path, method: :delete %>
+              <% end %>
             </div>
           </div>
         </div>
