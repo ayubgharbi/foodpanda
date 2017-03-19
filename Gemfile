@@ -19,6 +19,7 @@ gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'rename'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'paperclip', '~> 5.1'
 
 
 group :development, :test do

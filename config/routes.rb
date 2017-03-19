@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   get 'admin' => 'admin#index'
 
   controller :sessions do 
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
   resources :orders
   resources :line_items
   resources :carts
+  resources :restaurants 
+
+
+  
   root 'restaurant#index', as: 'restaurant_index'
 
   resources :foods do

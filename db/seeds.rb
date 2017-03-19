@@ -25,3 +25,4 @@ Food.create(title: 'Pan Pizza - Super Supreme ',
       </p>},
   image_url: 'pizza-hut-trinidad-and-tobago-super-supreme.png',
   price: 58.85 )
+

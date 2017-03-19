@@ -16,18 +16,26 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+@mixin box-shadow {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
+
+$red: #DB6161;
  
 #order-heading {
 	margin: 0;
 	padding-bottom: 0.5em;
 	font: 150% sans-serif;
 	color: #226;
+	position: relative;
+	right: 420px;
 }
 
-#order-cart {
-	position: relative;
-	top: 20px;
-}
+
 
 .depot_form {
 	fieldset {
@@ -68,3 +76,83 @@
 		}
 	}
 }
+
+.navbar {
+	background-color: #FFF;
+	@include box-shadow;
+	border: none;
+	.navbar-brand {
+		text-transform: uppercase;
+		letter-spacing: -1px;
+		font-weight: bold;
+		font-size: 25px;
+		a {
+			color: $red;
+			&:hover {
+				color: $red;
+				background-color: white;
+				text-decoration: underline;
+			}
+		}
+	}
+	li {
+		a {
+			&:hover {
+				background-color: #FFF;
+			}
+		}
+	}
+}
+
+.restaurant {
+	background: white;
+	border-radius: 5px;
+	margin-bottom: 40px;
+	@include box-shadow;
+	.image_wrapper {
+		max-width: 100%;
+		border-radius: 5px 5px 0 0;
+		overflow: hidden;
+	}
+	img {
+		width: 100%;
+		-webkit-transition: all .3s ease-out;
+	  	-moz-transition: all .3s ease-out;
+	 	-o-transition: all .3s ease-out;
+    	transition: all .3s ease-out;
+		&:hover {
+			transform: scale(1.075);
+		}
+	}
+	h2 {
+		padding: 15px 5%;
+		margin: 0;
+		font-size: 20px;
+		font-weight: normal;
+		line-height: 1.5;
+		text-align: center;
+		a {
+			text-decoration: none;
+			color: black;
+			font-weight: bold;
+			&:hover {
+				background-color: white;
+				text-decoration: none;
+				color: black;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.review_title {
+	margin: 0 0 20px 0;
+}
+.reviews {
+	padding: 15px 0;
+	border-bottom: 1px solid #EAEAEA;
+	.star-rating {
+		padding-bottom: 8px;
+	}
+}
+

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Restaurants</h1>
+
+
+<% @restaurants.each_slice(4) do |restaurant| %>
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-md-3">
+        <div class="restaurant">
+          <div class="image_wrapper">
+            <%= link_to restaurant do %>
+              <%= image_tag restaurant.image.url(:large) %>
+            <% end %>
+            <h2><%= link_to restaurant.name, restaurant %></h2>
+            <% if session[:user_id] %>
+              <%= link_to 'Edit', edit_restaurant_path(restaurant) %><br/>
+              <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?'} %>
+            <% end %>
+          </div>    
+        </div>
+      </div> 
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'New Restaurant', new_restaurant_path %>
