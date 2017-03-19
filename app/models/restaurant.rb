@@ -1,6 +1,8 @@
 class Restaurant < ApplicationRecord
 	has_many :foods
 	has_many :orders
+	has_many :reviews
+	
 
 	validates :name, :address, presence: true
 
