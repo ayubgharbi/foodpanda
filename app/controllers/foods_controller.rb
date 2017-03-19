@@ -1,11 +1,12 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant
 
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all
-  end
+    @foods = Food.all  
+  end 
 
   # GET /foods/1
   # GET /foods/1.json
@@ -25,10 +26,12 @@ class FoodsController < ApplicationController
   # POST /foods.json
   def create
     @food = Food.new(food_params)
+    @food.user_id = current_user.id 
+    @food.restaurant_id = @restaurant.id
 
     respond_to do |format|
       if @food.save
-        format.html { redirect_to @food, notice: 'Food was successfully created.' }
+        format.html { redirect_to @restaurant, notice: 'Food was successfully created.' }
         format.json { render :show, status: :created, location: @food }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class FoodsController < ApplicationController
   def update
     respond_to do |format|
       if @food.update(food_params)
-        format.html { redirect_to @food, notice: 'Food was successfully updated.' }
+        format.html { redirect_to @restaurant, notice: 'Food was successfully updated.' }
         format.json { render :show, status: :ok, location: @food }
 
         @foods = Food.all 
@@ -69,7 +72,7 @@ class FoodsController < ApplicationController
   def destroy
     @food.destroy
     respond_to do |format|
-      format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
+      format.html { redirect_to @restaurant, notice: 'Food was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -78,6 +81,10 @@ class FoodsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_food
       @food = Food.find(params[:id])
+    end
+
+    def set_restaurant 
+      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

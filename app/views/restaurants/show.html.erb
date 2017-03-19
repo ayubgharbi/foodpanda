@@ -45,10 +45,42 @@
   </div>
 </div>
 
+<% if session[:user_id] %>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %>
+<% end %>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<div class="menu">
+<p id="notice"><%= notice %></p>
+<h1>Menu</h1>
 
+<% if @foods.blank? %>
+      <h3>No foods just yet, would you like to add the first!</h3>
+      <%= link_to "Add Food", new_restaurant_food_path(@restaurant), class: "btn btn-danger" %>
+<% else %>
+<% cache @foods do %>
+  <% @foods.each do |food| %>
+    <% cache food do %>
+      <div class="entry">
+        <%= image_tag(food.image_url) %>
+        <h3><%= food.title %></h3>
+        <p><%= sanitize(food.description) %></p>
+        <div class="price_line">
+          <span class="price"><%= number_to_currency(food.price) %></span>
+          <%= button_to 'Add to Cart', line_items_path(food_id: food), remote: true %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+<% end %>
+
+
+<% if session[:user_id] %>
+  <%= link_to "Add new Food", new_restaurant_food_path(@restaurant) %>
+<% end %>
+
+</div>
 
 
 <script>

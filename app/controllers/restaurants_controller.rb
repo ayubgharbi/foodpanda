@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authorize, only: [:index, :show]
 	before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  include CurrentCart
+  before_action :set_cart, except: :index
 
 
   def index
@@ -13,6 +15,7 @@ class RestaurantsController < ApplicationController
 
 	def show    
     @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
+    @foods = Food.where(restaurant_id: @restaurant.id).order("created_at DESC")
 
     if @reviews.blank?
       @avg_review = 0

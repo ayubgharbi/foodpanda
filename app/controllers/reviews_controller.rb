@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
-  def edit
+  def edit  
   end
 
   def create

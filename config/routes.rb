@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :restaurants do 
       resources :reviews, except: [:show, :index]
+      resources :foods
   end
 
   root 'restaurant#index', as: 'restaurant_index'
