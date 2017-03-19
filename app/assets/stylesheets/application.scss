@@ -18,6 +18,7 @@
 @import "bootstrap";
 
 
+
 @mixin box-shadow {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
 	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
@@ -31,56 +32,13 @@ $red: #DB6161;
 	padding-bottom: 0.5em;
 	font: 150% sans-serif;
 	color: #226;
-	position: relative;
-	right: 420px;
-}
-
-
-
-.depot_form {
-	fieldset {
-		background: #efe;
-
-		legend {
-			color: #dfd;
-			background: #141;
-			font-family: sans-serif;
-			padding: 0.2em 1em;
-		}
-
-		div {
-			margin-bottom: 0.3em;
-		}
-	}
-
-	form {
-		label {
-			width: 5em;
-			float: left;
-			text-align: right;
-			padding-top: 0,2em;
-			margin-right: 0.1em;
-			display: block;
-		}
-
-		select, textarea, input {
-			margin-left: 0.5em;
-		}
-
-		.submit {
-			margin-left: 4em;
-		}
-
-		br {
-			display: none;
-		}
-	}
 }
 
 .navbar {
 	background-color: #FFF;
 	@include box-shadow;
 	border: none;
+	margin-bottom : 0px;
 	.navbar-brand {
 		text-transform: uppercase;
 		letter-spacing: -1px;
@@ -206,4 +164,66 @@ $red: #DB6161;
 		}
 	}
 
+}
+
+.jumbotron {
+	height: 483px;
+	background: url(bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: calc(100% - 0px) calc(100% + 70px); 
+	text-align: center;
+	h1 {
+		font-size: 50px;
+		font-weight: 900;
+		color: #FFF;
+		position: relative;
+		top: 50px;
+	}
+	h2 {
+		font-weight: bold;
+		color: #FFF;
+		font-size: 24px;
+		position: relative;
+		top: 40px;
+	}
+}
+
+.order-steps-container {
+	border-bottom: 1px solid #EDEDED;
+	background: #FFF none repeat scroll 0% 0%;
+	.order-steps {
+		.container {
+			ul {
+				position: relative;
+				margin: 20px 0px;
+				padding: 0px;
+				list-style: outside none none;
+				li {
+					float: left;
+					width: 25%;
+					padding-left: 10px;
+					padding-right: 10px;
+					text-align: center;
+					color: #333;
+					word-break: break-all;
+					position: relative;
+					min-height: 83px;
+					margin: 20px 0px;
+					.title {
+						font-size: 18px;
+						margin: 0px 0px 10px;
+						font-weight: 700;
+					}
+					.description {
+						font-size: 16px;
+						color: #444;
+						margin: 0px;
+						line-height: 1.6;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+	}
 }

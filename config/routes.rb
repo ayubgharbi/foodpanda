@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'welcome/index'
+
   get 'admin' => 'admin#index'
 
   controller :sessions do 
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
       resources :foods
   end
 
-  root 'restaurant#index', as: 'restaurant_index'
+  root 'welcome#index'
 
   resources :foods do
   	get :who_bought, on: :member

@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <h1>Restaurants</h1>
@@ -24,4 +25,7 @@
   </div>
 <% end %>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<% if session[:user_id] %>
+  <%= link_to 'New Restaurant', new_restaurant_path %>
+<% end %>
+</div>
