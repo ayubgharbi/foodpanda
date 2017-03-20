@@ -2,6 +2,7 @@ class Restaurant < ApplicationRecord
 	has_many :foods
 	has_many :orders
 	has_many :reviews
+	has_many :opening_hours
 
 
 	validates :name, :address, presence: true

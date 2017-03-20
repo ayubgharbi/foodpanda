@@ -26,6 +26,11 @@
     <%= f.text_area :address, rows: 3, cols: 40 %>
   </div>
 
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
   <small class="text-muted">You can also enter IP. Your IP is <%= request.ip %></small>
 
   <div class="field">

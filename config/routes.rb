@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   get 'welcome/index'
 
   get 'admin' => 'admin#index'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   resources :restaurants do 
       resources :reviews, except: [:show, :index]
       resources :foods
+      resources :opening_hours
   end
 
   root 'welcome#index'

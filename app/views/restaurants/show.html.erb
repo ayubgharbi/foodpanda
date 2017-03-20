@@ -19,6 +19,10 @@
                 <td><%= @restaurant.address %></td>
               </tr>
               <tr>
+                <td><strong>City:</strong></td>
+                <td><%= @restaurant.city %></td>
+              </tr>
+              <tr>
                 <td><strong>Coordinates:</strong></td>
                 <td><%= @restaurant.latitude %> <%= @restaurant.longitude %></td>
               </tr>
@@ -26,10 +30,26 @@
                 <td><strong>Rating:</strong></td>
                 <td><%= @restaurant.rating %></td>
               </tr>
-              <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@restaurant.latitude},#{@restaurant.longitude}&markers=#{@restaurant.latitude},#{@restaurant.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
-              class: 'img-fluid img-rounded', alt: "#{@restaurant.name} on the map" %>
+              
             </tbody>
           </table>
+          <p>
+  <strong>Opening Hours:</strong>
+  <table>
+    <tr>
+      <th>Day</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+    <% @restaurant.opening_hours.each do |opening_hour| %>
+      <tr>
+        <td><%= Date::DAYNAMES[opening_hour.day] %></td>
+        <td><%= opening_hour.start_time.strftime("%l:%M%P") %></td>
+        <td><%= opening_hour.end_time.strftime("%l:%M%P") %></td>
+      </tr>
+    <% end %>
+  </table>
+</p>
           <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
         </div>
       </div>
