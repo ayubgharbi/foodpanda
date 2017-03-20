@@ -21,6 +21,7 @@ gem 'rename'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'paperclip', '~> 5.1'
 gem 'geocoder', '~> 1.4', '>= 1.4.3'
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :development, :test do
