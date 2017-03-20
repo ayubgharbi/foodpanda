@@ -22,10 +22,17 @@
 				</li>
 				<li class="step-four">
 					<h3 class="title">4. Enjoy</h3>
-					<p>Food is prepared & deliered to <br> your door</p>
+					<p>Food is prepared & delivered to <br> your door</p>
 				</li>
 			</ul>
 		</div>
 	</div>
 </div>
 </div>
+
+<%= form_tag restaurants_path, method: :get do %>
+  <%= label :address, "Search restaurants near : " %>
+  <%= text_field_tag :address, params[:address] %>
+
+  <%= submit_tag "Search" %>
+<% end %>

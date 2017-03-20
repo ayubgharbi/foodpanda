@@ -7,6 +7,11 @@ class RestaurantsController < ApplicationController
 
   def index
 		@restaurants = Restaurant.all
+    if params[:address].present?
+      @restaurants = Restaurant.near(params[:address])
+    else
+      @restaurants = Restaurant.all
+    end
 	end
 
 	def new
@@ -33,7 +38,7 @@ class RestaurantsController < ApplicationController
 
     	respond_to do |format|
       		if @restaurant.save
-        		format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
+        		format.html { redirect_to restaurants_path, notice: 'Restaurant was successfully created.' }
         		format.json { render :show, status: :created, location: @restaurant }
      		else
         		format.html { render :new }

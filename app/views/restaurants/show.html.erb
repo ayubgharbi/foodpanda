@@ -19,9 +19,15 @@
                 <td><%= @restaurant.address %></td>
               </tr>
               <tr>
+                <td><strong>Coordinates:</strong></td>
+                <td><%= @restaurant.latitude %> <%= @restaurant.longitude %></td>
+              </tr>
+              <tr>
                 <td><strong>Rating:</strong></td>
                 <td><%= @restaurant.rating %></td>
               </tr>
+              <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@restaurant.latitude},#{@restaurant.longitude}&markers=#{@restaurant.latitude},#{@restaurant.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
+              class: 'img-fluid img-rounded', alt: "#{@restaurant.name} on the map" %>
             </tbody>
           </table>
           <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>

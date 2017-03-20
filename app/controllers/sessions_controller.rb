@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
   	session[:user_id] = nil 
-  	redirect_to restaurant_index_url
+  	redirect_to root_url
   end
 end
