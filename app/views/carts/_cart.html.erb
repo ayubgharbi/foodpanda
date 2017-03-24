@@ -1,12 +1,69 @@
-<h2 id="order-heading">My order</h2>
-<table>
-	<%= render(cart.line_items) %>
-
-	<tr class="total_line">
-		<td colspan="2">Total</td>
-		<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
-	</tr>
-</table>
-
-<%= button_to "Checkout", new_order_path, method: :get %>
-<%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="cart-container cart-container--vendor">
+          <div class="cart cart--vendor">
+            <div class="cart__inner">
+              <div class="cart__content">
+                <div class="cart__header__head">
+                  <div class="cart__header__head__delivery-time">
+                    <div class="cart__header__head__delivery-time__label">Estimated delivery time</div>
+                    <div class="cart__header__head__delivery-time__time">
+                      <span class="delivery_time_minutes">60</span>
+                      <span class="delivery_time_label">minutes</span>
+                      <div class="clear"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart__header">
+                    <h1>Your order</h1>
+                    <div class="clear"></div>
+                </div>
+                <div class="cart__products" style="max-height: none;">
+                  <table>
+                    <tbody>
+                      <%= render(cart.line_items) %>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="cart__summary">
+                  <table>
+                    <tbody>
+                      <tr class="subtotal">
+                        <td></td>
+                        <td>Subtotal</td>
+                        <td class="price"><%= number_to_currency(cart.total_price) %></td>
+                      </tr>
+                      <tr class="deliverey-fee">
+                        <td></td>
+                        <td class="title">Delivery fee</td>
+                        <td class="price">9.29</td>
+                      </tr>
+                      <tr class="vat">
+                        <td></td>
+                        <td class="title">+ Vat</td>
+                        <td class="price">3.11</td>
+                      </tr>
+                      <tr class="total">
+                        <td></td>
+                        <td class="title">Total</td>
+                        <td class="total-price"><%= number_to_currency(cart.total_price + 9.29) %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="cart__checkout">
+                  <%= link_to "Proceed to checkout", new_order_path, method: :get, class: "btn btn-primary btn-block" %>
+                </div>
+                <div class="cart__empty cart__empty--outside">
+                  <ul class="cart__empty__elements">
+                    <li>
+                      <span class="title">Delivery fee:</span>
+                      <span class="value">EGP9.29</span>
+                    </li>
+                    <li>
+                      <span class="title">Accepts Vouchers</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

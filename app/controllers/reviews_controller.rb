@@ -1,8 +1,18 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurant
+  include CurrentCart
+  before_action :set_cart
 
-
+  def index 
+    @reviews = Review.all
+    if @reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
+    end
+  end
+  
   def new
     @review = Review.new
   end

@@ -1,11 +1,19 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurant
+  before_action :set_reviews
+  include CurrentCart
+  before_action :set_cart
 
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all  
+    @foods = Food.where(restaurant_id: @restaurant.id).order("created_at DESC")
+    if @reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
+    end
   end 
 
   # GET /foods/1
@@ -79,6 +87,11 @@ class FoodsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    
+    def set_reviews
+      @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
+    end
+
     def set_food
       @food = Food.find(params[:id])
     end

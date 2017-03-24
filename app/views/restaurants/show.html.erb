@@ -1,111 +1,175 @@
-<p id="notice"><%= notice %></p>
-
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-4">
-        <%= image_tag @restaurant.image.url(:medium) %>
-        <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        <em><%= "#{@reviews.length} reviews" %></em>
-        <div class="table-responsive">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td><strong>Name:</strong></td>
-                <td><%= @restaurant.name %></td>
-              </tr>
-              <tr>
-                <td><strong>Address:</strong></td>
-                <td><%= @restaurant.address %></td>
-              </tr>
-              <tr>
-                <td><strong>City:</strong></td>
-                <td><%= @restaurant.city %></td>
-              </tr>
-              <tr>
-                <td><strong>Coordinates:</strong></td>
-                <td><%= @restaurant.latitude %> <%= @restaurant.longitude %></td>
-              </tr>
-              <tr>
-                <td><strong>Rating:</strong></td>
-                <td><%= @restaurant.rating %></td>
-              </tr>
-              
-            </tbody>
-          </table>
-          <p>
-  <strong>Opening Hours:</strong>
-  <table>
-    <tr>
-      <th>Day</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-    </tr>
-    <% @restaurant.opening_hours.each do |opening_hour| %>
-      <tr>
-        <td><%= Date::DAYNAMES[opening_hour.day] %></td>
-        <td><%= opening_hour.start_time.strftime("%l:%M%P") %></td>
-        <td><%= opening_hour.end_time.strftime("%l:%M%P") %></td>
-      </tr>
-    <% end %>
-  </table>
-</p>
-          <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
-        </div>
+<div class="vendors-heading-container">
+  <div class="container">
+    <div class="vendor-heading">
+      <div class="vendor-image">
+        <%= image_tag @restaurant.image.url(:thumb) , class: "vendor-image" %>
       </div>
-      <div class="col-md-7 col-md-offset-1">
-        <h1 class="review_title"><%= @restaurant.name %></h1>
-        <% if @reviews.blank? %>
-          <h3>No reviews just yet, would you like to add the first!</h3>
-          <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-danger" %>
-        <% else %>
-          <% @reviews.each do |review| %>
-            <div class="reviews">
-              <div class="star-rating" data-score= <%= review.rating %> ></div>
-              <p><%= review.comment %></p>
+      <div class="vendor-heading-details-box-container">
+        <div class="vendor-heading-details-box">
+          <div class="vendor__title">
+            <h1 itemprop="name"><%= @restaurant.name %></h1>
+          </div>
+          <ul class="vendor__cuisines">
+            <li itemprop="servesCuisine">
+              <a href="#">Pizza</a>
+            </li>
+          </ul>
+          <div class="vendor__ratings-container">
+            <div class="vendor__ratings">
+              <div class="rating">
+                <div class="star-rating" data-score= <%= @avg_review %> ></div>
+                <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
+              </div>
             </div>
-          <% end %>
-        <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<% if session[:user_id] %>
-  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-  <%= link_to 'Back', restaurants_path %>
-<% end %>
+<div class="breadcrumbs">
+  <div class="container">
+    <ul class="breadcrumbs__pages">
+      <li class="breadcrumbs__pages__item">
+        <%= link_to 'Home', root_url %> 
+      </li>
+      <li class="breadcrumbs__pages__item">
+        <span>Restaurants</span>
+      </li>
+      <li class="breadcrumbs__pages__item">
+        <span><%= @restaurant.name %></span>
+      </li>
+    </ul>
+  </div>
+</div>
 
-<div class="menu">
-<p id="notice"><%= notice %></p>
-<h1>Menu</h1>
+<div class="container">
+  <div class="vendor-view-container">
+    <div class="row">
+      <div class="col-md-9">
+          <ul class="nav nav-tabs vendor-tabs">
+            <li>
+              <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
+            </li>
+            <li>
+              <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
+            </li>
+          </ul>
+            <div class="vendor-menu">
+              <aside class="vendor-menu__categories">
+                <ul class="categories__list">
+                  <li class="categories__list__item">
+                    <a href="#">Most Popular Items</a>
+                  </li>
+                </ul>
+                <ul class="categories__list">
+                  <li class="categories__list__item">
+                    <a href="#">HOT DEALS</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">SALADS</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">APPETIZERS</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">SANDWICHES</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">BAKED PASTA</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">PAN PIZZAS</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">Classic Pizza</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">THIN 'N CRISPY PIZZAS</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">SPICY PERI PERI CHEESY TWIST PIZZA</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">BBQ CHEESY TWIST PIZZA</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">RANCH CHEESY TWIST PIZZA</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">STUFFED CRUST</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">BEEF N’ CHEDDAR STUFFED CRUST PIZZAS</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">CHEESY GARLIC TWIST</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">CHEESY BITES</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">P`ZONE</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">ADDITIONAL TOPPINGS</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">DESSERTS</a>
+                  </li>
+                  <li class="categories__list__item">
+                    <a href="#">DRINKS</a>
+                  </li>
+                </ul>
+              </aside>
+              </div>
+              <div class="vendor-menu__menus">
+                <section class="menu">                   
+              <% if @foods.blank? %>
+                <h3>No foods just yet, would you like to add the first!</h3>
+                <%= link_to "Add Food", new_restaurant_food_path(@restaurant), class: "btn btn-danger", id: "btn-danger2" %>
+              <% else %>
+                <% cache @foods do %>
+                  <% @foods.each do |food| %>
+                    <% cache food do %>
+                      <div class="entry">
+                        <%= image_tag(food.image_url) %>
+                        <h3><%= food.title %></h3>
+                        <p><%= sanitize(food.description) %></p>
+                        <div class="price_line">
+                          <span class="price"><%= number_to_currency(food.price) %></span>
+                          <%= button_to 'Add to Cart', line_items_path(food_id: food), remote: true %>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
 
-<% if @foods.blank? %>
-      <h3>No foods just yet, would you like to add the first!</h3>
-      <%= link_to "Add Food", new_restaurant_food_path(@restaurant), class: "btn btn-danger" %>
-<% else %>
-<% cache @foods do %>
-  <% @foods.each do |food| %>
-    <% cache food do %>
-      <div class="entry">
-        <%= image_tag(food.image_url) %>
-        <h3><%= food.title %></h3>
-        <p><%= sanitize(food.description) %></p>
-        <div class="price_line">
-          <span class="price"><%= number_to_currency(food.price) %></span>
-          <%= button_to 'Add to Cart', line_items_path(food_id: food), remote: true %>
+              <% if session[:user_id] %>
+              <%= link_to "Add new Food", new_restaurant_food_path(@restaurant) %>
+              <% end %>
+                  
+                </section>
+                </div>
+                </div>
+         
+      <div class="col-md-3">
+        <% if @cart %>
+            <div id="cart">
+              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+              <%= render @cart %>
+            </div>
+        <% end %>
+              
+                    
+
+              <% end %>
         </div>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>
-<% end %>
-
-
-<% if session[:user_id] %>
-  <%= link_to "Add new Food", new_restaurant_food_path(@restaurant) %>
-<% end %>
-
+    
+    </div>
+  </div>
 </div>
 
 
@@ -118,3 +182,5 @@
       }
     });
 </script>
+
+

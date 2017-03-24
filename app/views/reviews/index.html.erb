@@ -1,0 +1,115 @@
+<div class="vendors-heading-container">
+  <div class="container">
+    <div class="vendor-heading">
+      <div class="vendor-image">
+        <%= image_tag @restaurant.image.url(:thumb) , class: "vendor-image" %>
+      </div>
+      <div class="vendor-heading-details-box-container">
+        <div class="vendor-heading-details-box">
+          <div class="vendor__title">
+            <h1 itemprop="name"><%= @restaurant.name %></h1>
+          </div>
+          <ul class="vendor__cuisines">
+            <li itemprop="servesCuisine">
+              <a href="#">Pizza</a>
+            </li>
+          </ul>
+          <div class="vendor__ratings-container">
+            <div class="vendor__ratings">
+              <div class="rating">
+                <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em class="reviews_length"><%= "(#{@reviews.length}) " %></em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumbs">
+  <div class="container">
+    <ul class="breadcrumbs__pages">
+      <li class="breadcrumbs__pages__item">
+        <%= link_to 'Home', root_url %> 
+      </li>
+      <li class="breadcrumbs__pages__item">
+        <span>Restaurants</span>
+      </li>
+      <li class="breadcrumbs__pages__item">
+        <span><%= @restaurant.name %></span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="vendor-view-container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="vendor-body-container">
+          <ul class="nav nav-tabs vendor-tabs">
+            <li>
+              <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
+            </li>
+            <li>
+              <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
+            </li>
+          </ul>
+          <div class="container">
+            <p id="notice"><%= notice %></p>
+            <h1 class="review_title"><%= @restaurant.name %></h1>
+            <% if @reviews.blank? %>
+              <h3>No reviews just yet, would you like to add the first!</h3>
+              <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-danger", id: "btn-danger2" %>
+            <% else %>
+              <% @reviews.each do |review| %>
+                <div class="reviews">
+                  <div class="star-rating" data-score= <%= review.rating %> ></div>
+                  <p><%= review.comment %></p>
+                </div>
+              <% end %>
+              <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <% if @cart %>
+            <div id="cart">
+              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+              <%= render @cart %>
+            </div>
+        <% end %>
+              
+                    
+
+              <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+</script>

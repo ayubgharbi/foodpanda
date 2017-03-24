@@ -1,9 +1,16 @@
 <% if line_item == @current_item %>
-	<tr id="current_item">
+	<tr id="current_item" class="product">
 <% else %> 
-	<tr>
+	<tr class="product">
 <% end %>
-	<td><%= line_item.quantity %>&times;</td>
-	<td><%= line_item.food.title %></td>
-	<td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+	<td class="product__quantity">
+		<div class="product__amount-controls">
+			<span class="product__quantity__wrapper"><%= line_item.quantity %>&times;</span>
+		</div>
+		
+	</td>
+	<td class="product__title">
+		<span class="product__title__name"><%= line_item.food.title %></span>
+	</td>
+	<td class="product__price"><%= number_to_currency(line_item.total_price) %></td>
 </tr>

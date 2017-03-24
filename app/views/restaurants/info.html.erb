@@ -1,0 +1,100 @@
+<div class="vendors-heading-container">
+  <div class="container">
+    <div class="vendor-heading">
+      <div class="vendor-image">
+        <%= image_tag @restaurant.image.url(:thumb) , class: "vendor-image" %>
+      </div>
+      <div class="vendor-heading-details-box-container">
+        <div class="vendor-heading-details-box">
+          <div class="vendor__title">
+            <h1 itemprop="name"><%= @restaurant.name %></h1>
+          </div>
+          <ul class="vendor__cuisines">
+            <li itemprop="servesCuisine">
+              <a href="#">Pizza</a>
+            </li>
+          </ul>
+          <div class="vendor__ratings-container">
+            <div class="vendor__ratings">
+              <div class="rating">
+                <div class="star-rating" data-score= <%= @avg_review %> ></div>
+                <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Name:</strong></td>
+                <td><%= @restaurant.name %></td>
+              </tr>
+              <tr>
+                <td><strong>Address:</strong></td>
+                <td><%= @restaurant.address %></td>
+              </tr>
+              <tr>
+                <td><strong>City:</strong></td>
+                <td><%= @restaurant.city %></td>
+              </tr>
+              <tr>
+                <td><strong>Coordinates:</strong></td>
+                <td><%= @restaurant.latitude %> <%= @restaurant.longitude %></td>
+              </tr>
+              <tr>
+                <td><strong>Rating:</strong></td>
+                <td><%= @restaurant.rating %></td>
+              </tr>
+              
+            </tbody>
+          </table>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p>
+  <strong>Opening Hours:</strong>
+  <table>
+    <tr>
+      <th>Day</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+    <% @restaurant.opening_hours.each do |opening_hour| %>
+      <tr>
+        <td><%= Date::DAYNAMES[opening_hour.day] %></td>
+        <td><%= opening_hour.start_time.strftime("%l:%M%P") %></td>
+        <td><%= opening_hour.end_time.strftime("%l:%M%P") %></td>
+      </tr>
+    <% end %>
+  </table>
+</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+</script>

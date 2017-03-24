@@ -16,3 +16,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$('.vendor-tabs li').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.vendor-tabs li').removeClass('active');
+    $(this).addClass('active');
+});
+                                  

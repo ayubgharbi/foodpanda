@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  ActiveAdmin.routes(self)
   get 'welcome/index'
 
   get 'admin' => 'admin#index'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   resources :restaurants do 
-      resources :reviews, except: [:show, :index]
+      resources :reviews, except: [:show]
       resources :foods
       resources :opening_hours
   end
