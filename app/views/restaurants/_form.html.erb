@@ -2,7 +2,6 @@
   <% if restaurant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
-
       <ul>
       <% restaurant.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -31,11 +30,21 @@
     <%= f.text_field :city %>
   </div>
 
+  <div class="field">
+    <%= f.label :area %>
+    <%= f.text_field :area %>
+  </div>
+
   <small class="text-muted">You can also enter IP. Your IP is <%= request.ip %></small>
 
   <div class="field">
     <%= f.label :rating %><br>
     <%= f.text_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estimated_delivery_time %><br>
+    <%= f.number_field :estimated_delivery_time %>
   </div>
 
   <div class="actions">

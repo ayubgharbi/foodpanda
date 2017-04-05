@@ -53,25 +53,33 @@
             <li>
               <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
             </li>
-            <li>
+            <li class="<%=is_active('index')%>">
               <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
             </li>
           </ul>
           <div class="container">
             <p id="notice"><%= notice %></p>
-            <h1 class="review_title"><%= @restaurant.name %></h1>
-            <% if @reviews.blank? %>
-              <h3>No reviews just yet, would you like to add the first!</h3>
-              <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-danger", id: "btn-danger2" %>
-            <% else %>
-              <% @reviews.each do |review| %>
-                <div class="reviews">
-                  <div class="star-rating" data-score= <%= review.rating %> ></div>
-                  <p><%= review.comment %></p>
-                </div>
-              <% end %>
+              <div id="reviews">
+  <div class="vendor-reviews">
+    <div class="vendor-reviews__inner">
+      <ul class="reviews">
+        <% @restaurant.reviews.each do |review| %>
+        <li class="reviews__review">
+          <div class="reviews__review__date">
+            <span class="reviews__review__date__date"><%= review.created_at.to_date %></span>
+            <span class="reviews__review__date__author"><%= review.user.name %></span>
+          </div>
+          <div class="reviews__review__review">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p class="reviews__review__review__title"><%= review.comment %></p>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
               <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
-              <% end %>
           </div>
         </div>
       </div>
@@ -91,13 +99,6 @@
   </div>
 </div>
 
-<div class="container">
-
-
-
-
-
-</div>
 
 
 

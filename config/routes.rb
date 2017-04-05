@@ -11,14 +11,22 @@ Rails.application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
-  resources :classifieds
+
+  get  '/signup',  to: 'users#new'
+  post '/signup',  to: 'users#create'
+
   resources :users
   resources :orders
-  resources :line_items
+  resources :line_items do 
+    match :qty, action: :qty, via: [:post, :delete], on: :member #-> url.com/line_items/qty
+  end
+
   resources :carts
   resources :restaurants do 
       resources :reviews, except: [:show]
+      resources :categories do 
+        resources :foods
+      end
       resources :foods
       resources :opening_hours
   end

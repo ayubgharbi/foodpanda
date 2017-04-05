@@ -6,9 +6,8 @@ class RestaurantsController < ApplicationController
 
 
   def index
-		@restaurants = Restaurant.all
-    if params[:address].present?
-      @restaurants = Restaurant.near(params[:address])
+    if params[:full_street_address].present?
+      @restaurants = Restaurant.near(params[:full_street_address], 1000)
     else
       @restaurants = Restaurant.all
     end
@@ -19,8 +18,10 @@ class RestaurantsController < ApplicationController
  	end
 
 	def show    
+    @restaurants = Restaurant.all
     @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @foods = Food.where(restaurant_id: @restaurant.id).order("created_at DESC")
+    @categories = Category.where(restaurant_id: @restaurant.id).order("created_at DESC")
 
     if @reviews.blank?
       @avg_review = 0
@@ -38,7 +39,7 @@ class RestaurantsController < ApplicationController
 
     	respond_to do |format|
       		if @restaurant.save
-        		format.html { redirect_to restaurants_path, notice: 'Restaurant was successfully created.' }
+        		format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
         		format.json { render :show, status: :created, location: @restaurant }
      		else
         		format.html { render :new }
@@ -75,6 +76,6 @@ class RestaurantsController < ApplicationController
     	end
 
     	def restaurant_params
-     		params.require(:restaurant).permit(:name, :address, :city, :image, :rating)
+     		params.require(:restaurant).permit(:name, :address, :city, :area, :image, :rating, :estimated_delivery_time)
    		end
 end

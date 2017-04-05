@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320223518) do
+ActiveRecord::Schema.define(version: 20170402075929) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20170320223518) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
+  end
+
   create_table "foods", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -40,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170320223518) do
     t.datetime "updated_at",                            null: false
     t.integer  "user_id"
     t.integer  "restaurant_id"
+    t.integer  "category_id"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -69,15 +77,16 @@ ActiveRecord::Schema.define(version: 20170320223518) do
     t.text     "address"
     t.string   "email"
     t.integer  "pay_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -86,6 +95,8 @@ ActiveRecord::Schema.define(version: 20170320223518) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "city"
+    t.integer  "estimated_delivery_time"
+    t.string   "area"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -102,6 +113,11 @@ ActiveRecord::Schema.define(version: 20170320223518) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "email"
+    t.string   "remember_digest"
+    t.string   "role"
+    t.integer  "restaurant_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

@@ -30,9 +30,59 @@
 </div>
 </div>
 
-<%= form_tag restaurants_path, method: :get do %>
-  <%= label :address, "Search restaurants near : " %>
-  <%= text_field_tag :address, params[:address] %>
+<div class="popular-restaurants">
+	<h3 class="txtHead">Popular Restaurants</h3>
+	<ul class="Innul">
+		<li>
+			<%= link_to welcome_index_path do %>
+            <%= image_tag('PizzaHut.png') %>
+          	<% end %>
+		</li>
+		<li>
+			<%= link_to welcome_index_path do %>
+            <%= image_tag('Mcdonalds.svg.png') %>
+          	<% end %>
+		</li>
+		<li>
+			<%= link_to welcome_index_path do %>
+            <%= image_tag('PizzaHut.png') %>
+          	<% end %>
+		</li>
+		<li>
+			<%= link_to welcome_index_path do %>
+            <%= image_tag('PizzaHut.png') %>
+          	<% end %>
+		</li>
+		<li>
+			<%= link_to welcome_index_path do %>
+            <%= image_tag('PizzaHut.png') %>
+          	<% end %>
+		</li>
+		
+		<li>
+			<%= link_to welcome_index_path do %>
+            <%= image_tag('PizzaHut.png') %>
+          	<% end %>
+		</li>
+		
+		<li>
+			<%= link_to welcome_index_path do %>
+            <%= image_tag('PizzaHut.png') %>
+          	<% end %>
+		</li>
+		
+		<li>
+			<%= link_to welcome_index_path do %>
+            <%= image_tag('PizzaHut.png') %>
+          	<% end %>
+		</li>
+	</ul>
+	<div class="clr"></div>
+</div>
 
+<%= form_tag restaurants_path, method: :get do %>
+  <%= label :full_street_address, "Search restaurants near : " %>
+  <%= text_field_tag :full_street_address, params[:full_street_address] %>
   <%= submit_tag "Search" %>
 <% end %>
+

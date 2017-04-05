@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  skip_before_action :authorize, only: :index
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurant
   include CurrentCart

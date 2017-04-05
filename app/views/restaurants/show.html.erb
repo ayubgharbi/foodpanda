@@ -49,7 +49,7 @@
     <div class="row">
       <div class="col-md-9">
           <ul class="nav nav-tabs vendor-tabs">
-            <li>
+            <li class="<%=is_active('show')%>">
               <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
             </li>
             <li>
@@ -57,95 +57,53 @@
             </li>
           </ul>
             <div class="vendor-menu">
-              <aside class="vendor-menu__categories">
+              <div class="row">
+              <aside class="vendor-menu__categories col-md-3">
                 <ul class="categories__list">
-                  <li class="categories__list__item">
-                    <a href="#">Most Popular Items</a>
-                  </li>
-                </ul>
-                <ul class="categories__list">
-                  <li class="categories__list__item">
-                    <a href="#">HOT DEALS</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">SALADS</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">APPETIZERS</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">SANDWICHES</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">BAKED PASTA</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">PAN PIZZAS</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">Classic Pizza</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">THIN 'N CRISPY PIZZAS</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">SPICY PERI PERI CHEESY TWIST PIZZA</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">BBQ CHEESY TWIST PIZZA</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">RANCH CHEESY TWIST PIZZA</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">STUFFED CRUST</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">BEEF N’ CHEDDAR STUFFED CRUST PIZZAS</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">CHEESY GARLIC TWIST</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">CHEESY BITES</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">P`ZONE</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">ADDITIONAL TOPPINGS</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">DESSERTS</a>
-                  </li>
-                  <li class="categories__list__item">
-                    <a href="#">DRINKS</a>
-                  </li>
-                </ul>
+                <li class="categories__list__item"><%= link_to "All", restaurant_path(@restaurant) %></li>
+              <% @categories.each do |category| %>
+                <li class="categories__list__item">
+                  <%= link_to category.name, restaurant_category_foods_path(@restaurant, category)  %>
+                </li>
+              <% end %>
+              </ul>
               </aside>
-              </div>
-              <div class="vendor-menu__menus">
-                <section class="menu">                   
+              <div class="vendor-menu__menus col-md-9">
+                <section class="menu">   
+                                
               <% if @foods.blank? %>
+              <% if session[:user_id] %>
                 <h3>No foods just yet, would you like to add the first!</h3>
                 <%= link_to "Add Food", new_restaurant_food_path(@restaurant), class: "btn btn-danger", id: "btn-danger2" %>
+                <% end %>
               <% else %>
-                <% cache @foods do %>
-                  <% @foods.each do |food| %>
-                    <% cache food do %>
-                      <div class="entry">
-                        <%= image_tag(food.image_url) %>
-                        <h3><%= food.title %></h3>
-                        <p><%= sanitize(food.description) %></p>
-                        <div class="price_line">
-                          <span class="price"><%= number_to_currency(food.price) %></span>
-                          <%= button_to 'Add to Cart', line_items_path(food_id: food), remote: true %>
+
+       <% @categories.each do |category| %>
+        <h3 class="menu__category__title"><%= category.name %></h3>
+          <% cache @foods do %>
+              <% category.foods.each do |food| %>                  
+                      <div class="entry" style="opacity: 1;">
+                        <div class="menu-item__content-container">
+                          <div class="menu-item__content has-image">
+                            <%= image_tag(food.image_url) %>
+                            <h3><%= food.title %></h3>
+                            <p><%= sanitize(food.description) %></p>
+                          </div>
                         </div>
+                        <div class="menu-item__variations-container">
+                          <div class="price_line">
+                            <span class="price"><%= number_to_currency(food.price, unit: "MAD ") %></span>
+                            <%= button_to 'Add to Cart', line_items_path(food_id: food), remote: true %>
+                          </div>
+                        </div>
+                        
+                        
                       </div>
                     <% end %>
                   <% end %>
                 <% end %>
-              <% end %>
+                <% end %>
+               
 
               <% if session[:user_id] %>
               <%= link_to "Add new Food", new_restaurant_food_path(@restaurant) %>
@@ -154,22 +112,34 @@
                 </section>
                 </div>
                 </div>
-         
-      <div class="col-md-3">
+                </div>
+    </div>
+     <div class="col-md-3">
         <% if @cart %>
             <div id="cart">
               <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
               <%= render @cart %>
             </div>
+        <% end %>    
         <% end %>
-              
-                    
-
-              <% end %>
         </div>
-    
-    </div>
   </div>
+</div>
+
+
+<div class="popular-restaurants">
+  <h3>Nearby Restaurants</h3>
+    <ul class="Innul">
+    <% for restaurant in @restaurant.nearbys(1000) %>
+      <li>
+       <%= link_to restaurant do %>
+          <%= image_tag restaurant.image.url(:medium) %>
+        <% end %>
+        <p><%= link_to restaurant.name, restaurant %> (<%= restaurant.distance.round(2) %> km)</p>
+      </li>
+    <div class="clr"></div>
+    <% end %>
+    </ul>
 </div>
 
 

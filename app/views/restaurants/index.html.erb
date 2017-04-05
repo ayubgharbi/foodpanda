@@ -1,10 +1,6 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
-
 <h1>Restaurants</h1>
-
-
-<% @restaurants.each_slice(4) do |restaurant| %>
   <div class="row">
     <% @restaurants.each do |restaurant| %>
       <div class="col-md-3">
@@ -23,8 +19,6 @@
       </div> 
     <% end %>
   </div>
-<% end %>
-
 <% if session[:user_id] %>
   <%= link_to 'New Restaurant', new_restaurant_path %>
 <% end %>

@@ -5,17 +5,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	user = User.find_by(name: params[:name])
-  	if user.try(:authenticate, params[:password])
-  		session[:user_id] = user.id 
-  		redirect_to admin_url
+  	user = User.find_by(email: params[:session][:email].downcase)
+  	if user && user.authenticate(params[:session][:password])
+      log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      redirect_to user 
   	else 
   		redirect_to login_url, alert: "Invalid user/password combination"
   	end
   end
 
   def destroy
-  	session[:user_id] = nil 
+    log_out  if logged_in?
   	redirect_to root_url
   end
 end
