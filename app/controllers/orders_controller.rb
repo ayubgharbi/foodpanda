@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         OrderMailer.received(@order).deliver_later
-        format.html { redirect_to restaurant_index_url, notice: 'Thank you for your order.' }
+        format.html { redirect_to @order, notice: 'Thank you for your order.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -74,6 +74,7 @@ class OrdersController < ApplicationController
     def set_order
       @order = Order.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params

@@ -13,6 +13,9 @@ class RestaurantsController < ApplicationController
     end
 	end
 
+  def info 
+  end
+
 	def new
     	@restaurant = Restaurant.new
  	end
@@ -36,6 +39,7 @@ class RestaurantsController < ApplicationController
 
 	def create
     	@restaurant = Restaurant.new(restaurant_params)
+      @restaurant.restaurant_id = @restaurant.id
 
     	respond_to do |format|
       		if @restaurant.save
@@ -72,7 +76,7 @@ class RestaurantsController < ApplicationController
 
 	private
     	def set_restaurant
-      		@restaurant = Restaurant.find(params[:id])
+      		@restaurant = Restaurant.find(params[:id]) 
     	end
 
     	def restaurant_params

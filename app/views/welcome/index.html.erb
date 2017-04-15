@@ -1,88 +1,109 @@
-<div class="jumbotron">
-	<h1>Order Your Favorite Food Online Now</h1>
-	<h2>From more than 500 restaurants in Morocco</h2>
-</div>
 
-<div class="container">
-<div class="order-steps-container open">
-	<div class="order-steps" style="display: block;">
-		<div class="container">
-			<ul>
-				<li class="step-one">
-					<h3 class="title">1. Search</h3>
-					<p>Find restaurants that deliver to<br> you by entering your address<p>
-				</li>
-				<li class="step-two">
-					<h3 class="title">2. Choose</h3>
-					<p>Browse hundreds of menus to find<br> the food you like</p>
-				</li>
-				<li class="step-three">
-					<h3 class="title">3. Pay</h3>
-					<p>Pay with Cash on Delivery!</p>
-				</li>
-				<li class="step-four">
-					<h3 class="title">4. Enjoy</h3>
-					<p>Food is prepared & delivered to <br> your door</p>
-				</li>
-			</ul>
+<div class="centerDisplay" style="background-color: white;">
+	
+	<div class="gor-meny-head">
+		<ul id="nav">
+			<li class="live">
+				<a href="#">
+					<span>Call : 04-366 9 222</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>Restaurant Registration</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>Contact Us</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-xs-8">
+
+                <!-- Slider -->
+                <div class="row" style="height: 620px;">
+                    <div class="col-md-12 col-xs-12" id="slider">
+                        <!-- Top part of the slider -->
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12" id="carousel-bounding-box">
+                                <div class="carousel slide" id="myCarousel">
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+                                        <div class="active item" data-slide-number="0">
+                                        <%= image_tag("car1.png")%>
+                                      	</div>
+
+                                        <div class="item" data-slide-number="1">
+                                        <%= image_tag("car2.png")%></div>
+
+                                        <div class="item" data-slide-number="2">
+                                        <%= image_tag("car3.jpg")%></div>
+
+                                        <div class="item" data-slide-number="3">
+                                        <%= image_tag("car4.png")%></div>
+
+                                        <div class="item" data-slide-number="4">
+                                        <%= image_tag("car5.jpg")%></div>
+
+                                        <div class="item" data-slide-number="5">
+                                        <%= image_tag("car6.jpg")%></div>
+                                    </div><!-- Carousel nav -->                             
+                                    </div>
+
+                            </div>
+
+                            <div class="col-sm-4" id="carousel-text"></div>
+
+                        </div>
+                    </div>
+                </div><!--/Slider-->
+
+                
+
+		</div>
+		<div class="col-md-4 col-xs-4">
+			<div class="join">
+				<div class="what24">
+					<h4>What is 24h.ae?</h4>
+					<p>24h.ae is an online food delivery site which allows customers to conveniently and securely place an order from any of the hundreds of restaurants within our network. Users simply specify their neighborhood and their preferred cuisine and they are immediately provided with a list of restaurants able to deliver to their location.</p>
+				</div>
+				<div class="knopka">
+					<div style="height:73px;">
+						<span class="knopka sign-up">Join Us Now!</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="restaurant-popular">
+		<div class="row">
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
 		</div>
 	</div>
 </div>
-</div>
 
-<div class="popular-restaurants">
-	<h3 class="txtHead">Popular Restaurants</h3>
-	<ul class="Innul">
-		<li>
-			<%= link_to welcome_index_path do %>
-            <%= image_tag('PizzaHut.png') %>
-          	<% end %>
-		</li>
-		<li>
-			<%= link_to welcome_index_path do %>
-            <%= image_tag('Mcdonalds.svg.png') %>
-          	<% end %>
-		</li>
-		<li>
-			<%= link_to welcome_index_path do %>
-            <%= image_tag('PizzaHut.png') %>
-          	<% end %>
-		</li>
-		<li>
-			<%= link_to welcome_index_path do %>
-            <%= image_tag('PizzaHut.png') %>
-          	<% end %>
-		</li>
-		<li>
-			<%= link_to welcome_index_path do %>
-            <%= image_tag('PizzaHut.png') %>
-          	<% end %>
-		</li>
-		
-		<li>
-			<%= link_to welcome_index_path do %>
-            <%= image_tag('PizzaHut.png') %>
-          	<% end %>
-		</li>
-		
-		<li>
-			<%= link_to welcome_index_path do %>
-            <%= image_tag('PizzaHut.png') %>
-          	<% end %>
-		</li>
-		
-		<li>
-			<%= link_to welcome_index_path do %>
-            <%= image_tag('PizzaHut.png') %>
-          	<% end %>
-		</li>
-	</ul>
-	<div class="clr"></div>
-</div>
-
-<%= form_tag restaurants_path, method: :get do %>
-  <%= label :full_street_address, "Search restaurants near : " %>
-  <%= text_field_tag :full_street_address, params[:full_street_address] %>
-  <%= submit_tag "Search" %>
-<% end %>
 

@@ -1,141 +1,65 @@
-<div class="vendors-heading-container">
-  <div class="container">
-    <div class="vendor-heading">
-      <div class="vendor-image">
-        <%= image_tag @restaurant.image.url(:thumb) , class: "vendor-image" %>
-      </div>
-      <div class="vendor-heading-details-box-container">
-        <div class="vendor-heading-details-box">
-          <div class="vendor__title">
-            <h1 itemprop="name"><%= @restaurant.name %></h1>
-          </div>
-          <ul class="vendor__cuisines">
-            <li itemprop="servesCuisine">
-              <a href="#">Pizza</a>
-            </li>
-          </ul>
-          <div class="vendor__ratings-container">
-            <div class="vendor__ratings">
-              <div class="rating">
-                <div class="star-rating" data-score= <%= @avg_review %> ></div>
-                <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="breadcrumbs">
-  <div class="container">
-    <ul class="breadcrumbs__pages">
-      <li class="breadcrumbs__pages__item">
-        <%= link_to 'Home', root_url %> 
-      </li>
-      <li class="breadcrumbs__pages__item">
-        <span>Restaurants</span>
-      </li>
-      <li class="breadcrumbs__pages__item">
-        <span><%= @restaurant.name %></span>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<div class="container">
-  <div class="vendor-view-container">
-    <div class="row">
-      <div class="col-md-9">
-        <ul class="nav nav-tabs vendor-tabs">
+<div class="centerDisplay">
+  <div class="row">
+    <div class="col-md-7 col-xs-7">
+      <h1><%= @restaurant.name %></h1>
+      <div class="clear"></div>
+      <div class="vendor-tabs">
+      <ul class="nav nav-tabs vendor-tabs">
           <li class="<%=is_active('index')%>">
             <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
           </li>
           <li>
             <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
           </li>
-        </ul>
-        <div class="vendor-menu">
-          <div class="row">
-            <aside class="vendor-menu__categories col-md-3">
-              <ul class="categories__list">
-                <li class="categories__list__item"><%= link_to "All", restaurant_path(@restaurant) %></li>
-                <% @categories.each do |category| %>
-                <li class="categories__list__item">
-                  <%= link_to category.name, restaurant_category_foods_path(@restaurant, category)  %>
-                </li>
-                <% end %>
-              </ul>
-            </aside>
-            <div class="vendor-menu__menus col-md-9">
-              <section class="menu">   
-                <% if @foods.blank? %>
-                  <% if session[:user_id] %>
-                  <h3>No foods just yet, would you like to add the first!</h3>
-                  <%= link_to "Add Food", new_restaurant_food_path(@restaurant), class: "btn btn-danger", id: "btn-danger2" %>
-                <% end %>
-                <% else %>
-                  <% @categories.each do |category| %>
-                    <h3 class="menu__category__title"><%= category.name %></h3>
-                      <% cache @foods do %>
-                        <% category.foods.each do |food| %>                  
-                          <div class="entry" style="opacity: 1;">
-                            <div class="menu-item__content-container">
-                              <div class="menu-item__content has-image">
-                                <%= image_tag(food.image_url) %>
-                                <h3><%= food.title %></h3>
-                                <p><%= sanitize(food.description) %></p>
-                              </div>
-                            </div>
-                            <div class="menu-item__variations-container">
-                              <div class="price_line">
-                                <span class="price"><%= number_to_currency(food.price, unit: "MAD ") %></span>
-                                <%= button_to 'Add to Cart', line_items_path(food_id: food), remote: true %>
-                              </div>
-                            </div>
-                          </div>
-                        <% end %>
-                      <% end %>
-                  <% end %>
-                <% end %>
-                <% if session[:user_id] %>
-                  <%= link_to "Add new Food", new_restaurant_food_path(@restaurant) %>
-                <% end %> 
-              </section>
-            </div>
-          </div>
-        </div>
+          <li>
+            <%= link_to 'Info', restaurant_reviews_path(@restaurant) %> 
+          </li>
+      </ul>
       </div>
-      <div class="col-md-3">
-        <% if @cart %>
-          <div id="cart">
-            <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+      <% @categories.each do |category| %>
+        <% if !category.foods.blank? %>
+        <h3 class="menu-category-title"><%= category.name %></h3>
+        <table class="table">
+          <tbody class="tbody">
+          <% category.foods.each do |food| %>   
+            <tr>
+              <td class="picture-product td" style="width:80px; vertical-align:top;">
+                <%= image_tag(food.image_url) %>
+              </td>
+              <td class="name-tovar td" style="vertical-align:top; width: 330px; text-align: left">
+                <span class="tovar-title" style="color: white; font-weight: bold;"><%= food.title %></span>
+                <br>
+                <p style="color: #FFF;"><%= sanitize(food.description) %></p>
+              </td>
+              <td class="tovar-price td" style="text-align: right;vertical-align:top; color: #FFF">
+                <span style="font-weight: bold"><%= number_to_currency(food.price, unit: "MAD ") %></span>
+                <%= button_to '+', line_items_path(food_id: food), remote: true, :style => "border-radius: 50%; margin-top: 10px; border: 3px solid #fff; background: transparent; color: #fff; "%>
+              </td>
+            </tr>
+          <% end %>   
+          </tbody>
+        </table>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-5 col-xs-5">
+      <div class="logo-restaurant">
+        <%= image_tag @restaurant.image.url(:medium) , class: "vendor-image" %>
+      </div>
+      <div class="rating">
+        <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
+      </div>
+      <% if @cart %>
+        <div id="cart">
+          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
             <%= render @cart %>
-            <% end %>
-          </div>
-        <% end %>    
-      </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-
-
-<div class="popular-restaurants">
-  <h3>Nearby Restaurants</h3>
-    <ul class="Innul">
-    <% for restaurant in @restaurant.nearbys(1000) %>
-      <li>
-       <%= link_to restaurant do %>
-          <%= image_tag restaurant.image.url(:medium) %>
-        <% end %>
-        <p><%= link_to restaurant.name, restaurant %> (<%= restaurant.distance.round(2) %> km)</p>
-      </li>
-    <div class="clr"></div>
-    <% end %>
-    </ul>
-</div>
-
 
 <script>
     $('.star-rating').raty({

@@ -1,110 +1,63 @@
-<div class="vendors-heading-container">
-  <div class="container">
-    <div class="vendor-heading">
-      <div class="vendor-image">
-        <%= image_tag @restaurant.image.url(:thumb) , class: "vendor-image" %>
-      </div>
-      <div class="vendor-heading-details-box-container">
-        <div class="vendor-heading-details-box">
-          <div class="vendor__title">
-            <h1 itemprop="name"><%= @restaurant.name %></h1>
-          </div>
-          <ul class="vendor__cuisines">
-            <li itemprop="servesCuisine">
-              <a href="#">Pizza</a>
-            </li>
-          </ul>
-          <div class="vendor__ratings-container">
-            <div class="vendor__ratings">
-              <div class="rating">
-                <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        <em class="reviews_length"><%= "(#{@reviews.length}) " %></em>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="breadcrumbs">
-  <div class="container">
-    <ul class="breadcrumbs__pages">
-      <li class="breadcrumbs__pages__item">
-        <%= link_to 'Home', root_url %> 
-      </li>
-      <li class="breadcrumbs__pages__item">
-        <span>Restaurants</span>
-      </li>
-      <li class="breadcrumbs__pages__item">
-        <span><%= @restaurant.name %></span>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<div class="container">
-  <div class="vendor-view-container">
-    <div class="row">
-      <div class="col-md-9">
-        <div class="vendor-body-container">
-          <ul class="nav nav-tabs vendor-tabs">
-            <li>
-              <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
-            </li>
-            <li class="<%=is_active('index')%>">
-              <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
-            </li>
-          </ul>
-          <div class="container">
-            <p id="notice"><%= notice %></p>
-              <div id="reviews">
-  <div class="vendor-reviews">
-    <div class="vendor-reviews__inner">
-      <ul class="reviews">
-        <% @restaurant.reviews.each do |review| %>
-        <li class="reviews__review">
-          <div class="reviews__review__date">
-            <span class="reviews__review__date__date"><%= review.created_at.to_date %></span>
-            <span class="reviews__review__date__author"><%= review.user.name %></span>
-          </div>
-          <div class="reviews__review__review">
-              <div class="star-rating" data-score= <%= review.rating %> ></div>
-              <p class="reviews__review__review__title"><%= review.comment %></p>
-          </div>
-        </li>
-        <% end %>
+<div class="centerDisplay">
+  <div class="row">
+    <div class="col-md-7 col-xs-7">
+      <h1><%= @restaurant.name %></h1>
+      <div class="clear"></div>
+      <div class="vendor-tabs">
+      <ul class="nav nav-tabs vendor-tabs">
+          <li>
+            <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
+          </li>
+          <li class="<%=is_active('index')%>">
+            <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
+          </li>
+          <li>
+            <%= link_to 'Info', restaurant_reviews_path(@restaurant) %> 
+          </li>
       </ul>
-    </div>
-  </div>
-</div>
-              <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
+      </div>
+      <div id="reviews">
+        <div class="vendor-reviews">
+          <div class="vendor-reviews__inner">
+            <ul class="reviews">
+              <% @restaurant.reviews.each do |review| %>
+                <li class="reviews__review">
+                  <div class="reviews__review__date">
+                    <span class="reviews__review__date__date"><%= review.created_at.to_date %></span>
+                    <span class="reviews__review__date__author"><%= review.user.name %></span>
+                  </div>
+                  <div class="reviews__review__review">
+                    <div class="star-rating" data-score= <%= review.rating %> ></div>
+                    <p class="reviews__review__review__title"><%= review.comment %></p>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
           </div>
         </div>
+         <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
       </div>
-      <div class="col-md-3">
-        <% if @cart %>
-            <div id="cart">
-              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-              <%= render @cart %>
-            </div>
-        <% end %>
-              
-                    
-
-              <% end %>
+     
+    </div>
+    <div class="col-md-5 col-xs-5">
+      <div class="logo-restaurant">
+        <%= image_tag @restaurant.image.url(:medium) , class: "vendor-image" %>
       </div>
+      <div class="rating">
+        <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
+      </div>
+      <% if @cart %>
+        <div id="cart">
+          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= render @cart %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-</div>
 <script>
     $('.star-rating').raty({
       path: '/assets/',
@@ -114,3 +67,4 @@
       }
     });
 </script>
+

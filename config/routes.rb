@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
+  get  '/info',  to: 'restaurants#info'
+
   resources :users
   resources :orders
   resources :line_items do 
