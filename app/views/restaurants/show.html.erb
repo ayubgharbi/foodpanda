@@ -32,8 +32,8 @@
                 <p style="color: #FFF;"><%= sanitize(food.description) %></p>
               </td>
               <td class="tovar-price td" style="text-align: right;vertical-align:top; color: #FFF">
-                <span style="font-weight: bold"><%= number_to_currency(food.price, unit: "MAD ") %></span>
-                <%= button_to '+', line_items_path(food_id: food), remote: true, :style => "border-radius: 50%; margin-top: 10px; border: 5px solid #fff; background: transparent; color: #E32523; "%>
+                <span style="font-weight: bold"><%= number_to_currency(food.price, unit: "DH ") %></span>
+                <%= button_to '+', restaurant_line_items_path(@restaurant, food_id: food), remote: true, class: "btn-plus"%>
               </td>
             </tr>
           <% end %>   
@@ -52,9 +52,8 @@
       </div>
       <% if @cart %>
         <div id="cart">
-          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+        
             <%= render @cart %>
-          <% end %>
         </div>
       <% end %>
     </div>

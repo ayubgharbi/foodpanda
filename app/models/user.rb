@@ -5,7 +5,9 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :foods  
-  has_many :orders
+  has_many :orders, dependent: :destroy
+  has_many :line_items
+  has_one :cart
   belongs_to :restaurant
   accepts_nested_attributes_for :restaurant
 	

@@ -6,7 +6,8 @@ class ReviewsController < ApplicationController
   before_action :set_cart
 
   def index 
-    @reviews = Review.all
+    @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
+    @cart = Cart.where(restaurant_id: @restaurant.id)
     if @reviews.blank?
       @avg_review = 0
     else

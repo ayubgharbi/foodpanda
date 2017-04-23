@@ -1,5 +1,5 @@
 
-<%= form_for(order) do |f| %>
+<%= form_for([@restaurant, @order]) do |f| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -13,18 +13,8 @@
   <% end %>
   <div class="panel-body">
     <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name, size: 40, class: "form-control" %>
-    </div>
-
-    <div class="field">
       <%= f.label :address %>
       <%= f.text_area :address, rows: 3, cols: 40, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.text_field :email, size: 40, class: "form-control" %>
     </div>
 
     <div class="field">
@@ -33,7 +23,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit 'Place Order', class: "btn btn-primary" %>
+      <%= f.submit 'Place Order', class: "btn btn-search" %>
     </div>
   </div>
 <% end %>

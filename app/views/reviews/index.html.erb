@@ -27,8 +27,8 @@
                     <span class="reviews__review__date__author"><%= review.user.name %></span>
                   </div>
                   <div class="reviews__review__review">
-                    <div class="star-rating" data-score= <%= review.rating %> ></div>
-                    <p class="reviews__review__review__title"><%= review.comment %></p>
+                    <div class="star-rating" data-score= <%= @avg_review %> ></div>
+                    <em class="reviews__review__review__title"><%= review.comment %></em>
                   </div>
                 </li>
               <% end %>
@@ -49,9 +49,7 @@
       </div>
       <% if @cart %>
         <div id="cart">
-          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
             <%= render @cart %>
-          <% end %>
         </div>
       <% end %>
     </div>

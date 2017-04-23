@@ -115,7 +115,6 @@ $red: #E32523;
 	margin: 0 0 20px 0;
 }
 .reviews {
-	border-bottom: 1px solid #EAEAEA;
 	.star-rating {
 		padding-bottom: 8px;
 	}
@@ -241,7 +240,7 @@ footer {
 	background-color: rgba(30, 25, 25, 0.8);
 	position: relative;
 	padding: 40px 20px 30px;
-	min-height: 420px;
+	min-height: 440px;
 	h1 {
 		margin-top: -5px;
 		float: left;
@@ -276,11 +275,13 @@ footer {
 
 						.reviews__review__date__date { 
 							display: block; 
-							color: #FFF; 
+							color: #E32523;
+							font-weight: bold; 
 						} 
 						.reviews__review__date__author { 
 							display: block; 
-							color: #FFF; 
+							color: #808080; 
+					
 						} 
 					} 
 				.reviews__review:first-of-type { 
@@ -397,8 +398,7 @@ footer {
 		}
 	}
 	#cart {
-		position: relative;
-		left: 50px;	
+		
 		font-size: smaller;
 		color: white;
 		table {
@@ -441,7 +441,6 @@ footer {
 .cart__header__head__delivery-time { 
 	font-size: 12px; 
 	position: relative;
-	right: 50px;
 	top: 10px;
 	.cart__header__head__delivery-time__label { 
 		float: left; 
@@ -454,7 +453,7 @@ footer {
 		float: right; 
 		text-align: center; 
 		position: relative;
-		right: 100px;
+		right: 40px;
 		.delivery_time_minutes { 
 			display: block; 
 			margin: auto; 
@@ -496,7 +495,7 @@ footer {
 	} 
 	.btn-block { 
 		display: block; 
-		width: 260px; 
+		width: 330px; 
 	} 
 }  
 						
@@ -526,7 +525,7 @@ footer {
 			color: #FFF;
 			line-height: 30px;
 			span.knopka {
-				background-color: #C2191C;
+				background-color: rgba(161, 23, 23, 0.9);
 				width: 212px;
 				height: 47px;
 				display: block;
@@ -538,6 +537,12 @@ footer {
 				border-radius: 10px;
 				cursor: pointer;
 			}
+			a {
+				&:hover {
+					text-decoration: none;
+				}	
+			}	
+			
 		}
 }
 
@@ -564,7 +569,7 @@ footer {
 	position: relative;
 	top: -80px;
 	height: 40px;
-	right: 40px;
+	right: 60px;
 	#nav {
 		margin: 0px;
 		display: table;
@@ -572,7 +577,7 @@ footer {
 		position: relative;
 		left: -2px;
 		top: -2px;
-		width: 944px;
+		width: 964px;
 		height: 40px;
 		border: medium none;
 		border-spacing: 2px;
@@ -582,7 +587,7 @@ footer {
 			float: none;
 			height: 40px;
 			border: medium none;
-			background-color: #E32523;
+			background-color: rgba(161, 23, 23, 0.9);
 			margin-right: 2px;
 			display: table-cell;
 			text-align: center;
@@ -603,7 +608,7 @@ footer {
 					text-align: center;
 				}
 				&:hover {
-				background-color: #E32523;
+				background-color: rgba(161, 23, 23, 0.9);
 			};
 			}
 			
@@ -623,6 +628,17 @@ footer {
 	width: 70px;
 	height: 70px;
 	margin-bottom: 20px;
+	position: relative;
+	left: 20px;
+	background: transparent !important;
+}
+
+.img-pub {
+	width: 280px;
+	height: 280px;
+	margin-bottom: 40px;
+	position: relative;
+	bottom: 40px;
 }
 
 .restaurant-popular {
@@ -632,17 +648,24 @@ footer {
 .main-page-search {
 	top: -350px;
 	.main-search {
-		background-color: rgba(0, 0, 0, 0.5);
-		padding: 30px 40px;
+		background-color: transparent;
+		padding-left: 20px;
 		width: 100%;	
 		p {
 			    color: #FFF;
 		    	font-size: 24px;
-		    	margin-bottom: 10px;
+		    	margin-bottom: 20px;
 		}
-		.input.neighborhood {
+		.neighborhood {
 			padding: 8px 5px;
 			margin-right: 20px;
+			border: medium none;
+			font-family: "myriad-pro",sans-serif;
+			font-size: 23px;
+			padding: 0px 0px 2px 5px;
+			color: #A0410D;
+			margin-top: 1px;
+
 		}	
 		.ui-helper-hidden-accessibl {
 			    border: 0px none;
@@ -666,4 +689,271 @@ footer {
 		    text-align: center;
 		}
 	}
+}
+
+
+.cart__products { 
+						overflow: visible; 
+						padding-right: 30px;	 
+						table { 
+							width: 100%; 
+							font-size: 13px; 
+							line-height: 16px; 
+							background-color: transparent; 
+							.product { 
+								td { 
+									height: 40px; 
+								} 
+								.product__quantity { 
+									position: relative;
+									left: 5px;
+									.product__amount-controls { 
+										transition: border 0.25s ease-in-out 0s; 
+										.product__quantity__wrapper { 
+											display: block; 
+											color: #E32523 !important; 
+											padding: 1.5px 5px; 
+											text-align: center; 
+										} 
+									} 
+								} 
+								.product__title { 
+									width: 100%; 
+									padding-left: 10px; 
+									padding-right: 5px; 
+									position: relative;
+									left: 5px;
+									.product__title__name { 
+										font-weight: 300; 
+									} 
+								} 
+								.product__price { 
+									text-align: right; 
+									font-weight: 300; 
+									white-space: nowrap; 
+								} 
+							} 
+						} 
+					} 
+
+
+.centerDisplay1 {
+	width: 920px;
+	margin: 180px auto 200px;
+	height: auto !important;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: relative;
+	padding: 40px 20px 30px;
+	min-height: 150px;
+}
+
+.btn-search {
+	font-size: 30px;
+    font-family: "myriad-pro",sans-serif;
+    background-color: rgba(161, 23, 23, 0.9);
+    border: medium none;
+    color: #FFF;
+    cursor: pointer;
+    width: 220px;
+    text-align: center;
+    width: 221px;
+    height: 51px;
+   	&:hover {
+   		background-color: rgba(161, 23, 23, 0.9);
+   	};
+}
+
+
+.cart__empty { 
+	-moz-user-select: none; 
+	margin-top: 20px; 
+	.cart__empty__elements { 
+		margin: 0px; 
+		padding-left: 10px; 
+		padding-right: 10px; 
+		list-style: outside none none; 
+		li { 
+			margin-bottom: 5px; 
+			color: #8E969D; 
+			font-size: 12px; 
+			.title { 
+				display: block; 
+				font-weight: 700; 
+			} 
+			.value { 
+				display: block; 
+				font-weight: 300; 
+			} 
+		} 
+	} 
+} 
+
+.btn-search {
+	font-size: 30px;
+    font-family: "myriad-pro",sans-serif;
+    background-color: rgba(161, 23, 23, 0.9);
+    border: medium none;
+    color: #FFF;
+    cursor: pointer;
+    width: 220px;
+    text-align: center;
+    width: 221px;
+    height: 51px;
+   	&:hover {
+   		background-color: rgba(161, 23, 23, 0.9);
+   		color: #fff;
+   	};
+}
+
+.btn-plus {
+	position: relative;
+	left: 6px;
+    font-weight: bold;
+    background: transparent;
+    border: 3px solid #FFF;
+	color: #FFF;
+	border-radius: 50%;
+	font-weight: bold;
+	&:hover {
+		border: 3px solid #E32523;
+		color: #E32523;
+	};
+}
+
+.cart__summary { 
+	padding: 10px; 
+	font-weight: 300; 
+	color: #fff;
+	position: relative;
+	right: 10px; 
+	table { 
+		width: 100%; 
+		font-size: 13px; 
+		line-height: 16px; 
+		tr { 
+			td:first-of-type { 
+				display: none; 
+			} 
+			font-weight: 300; 
+			td { 
+				padding: 7px; 
+			} 
+			.price { 
+				white-space: nowrap; 
+				text-align: right; 
+				padding-left: 5px; 
+			} 
+			.total-price { 
+				text-align: center; 
+				font-size: 25px; 
+				text-align: right; 
+			} 
+		} 
+	} 
+} 
+
+.btn-qty1 {
+	position: relative;
+	left: 3px;
+	bottom: 5px;
+	font-size: 18px;
+	color: #808080;
+	&:hover {
+		background: transparent;
+		color: green;
+		text-decoration: none;
+	};
+
+
+}
+
+.btn-qty2 {
+	position: relative;
+	top: 5px;
+	right: 6px;	
+	font-size: 18px;
+	color: #808080;
+	&:hover {
+		background: transparent;
+		color: #E32523;
+		text-decoration: none;
+	};
+	
+}
+
+.btn-x {
+	position: relative;
+	left: 10px;
+	top: 2px;
+    font-weight: bold;
+    background: transparent;
+    border: 0px;
+	color: #E32523;
+	font-weight: bold;
+	font-size: 15px;
+	&:hover {
+		border: 0px;
+		color: #BA1715;
+	};
+}
+
+
+.check-sentence {
+	color: #fff;
+	font-weight: bold;
+	position: relative;
+	left: 15px;
+	a {
+		background: transparent;
+	}
+}
+
+
+.btn-order {
+	padding: 10px; 
+	background-color: #E32523; 
+		border-color: #CF110F; 
+		color: #FFF; 
+		text-decoration: none; 
+
+
+		font-size: 14px; 
+		border: 0px none; 
+		border-radius:  3px; 
+		text-transform: uppercase; 
+		letter-spacing: 2px; 
+		font-weight: 500; 
+		border-radius: 2px; 
+		border-width: 0px; 
+
+ 
+		display: block; 
+		width: 230px;
+		&:hover { 
+			color: #FFF;
+			background-color: #CF110F; 
+		}; 
+ 
+
+		 	
+}
+
+
+
+
+#error_explanation {
+	li {
+		color: black;
+	}
+}
+
+.centerDisplay2 {
+	width: 920px;
+	margin: 45px auto 45px;
+	height: auto !important;
+	background-color: rgba(30, 25, 25, 0.8);
+	position: relative;
+	padding: 40px 20px 30px;
+	min-height: 540px;
+
 }

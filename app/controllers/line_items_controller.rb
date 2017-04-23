@@ -1,5 +1,6 @@
 class LineItemsController < ApplicationController
   skip_before_action :authorize, only: [:create, :destroy]
+  before_action :set_restaurant
   include CurrentCart
   before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
@@ -29,6 +30,9 @@ class LineItemsController < ApplicationController
   def create
     food = Food.find(params[:food_id])
     @line_item = @cart.add_food(food) 
+    @line_item.user_id = current_user.id
+    @line_item.restaurant_id = @restaurant.id
+    
 
     respond_to do |format|
       if @line_item.save
@@ -61,40 +65,23 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to current_cart, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to @restaurant, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 
-  def qty
-      @cart = current_cart
-      @item = @cart.line_items.find params[:id]
-
-      if request.post? #-> increment
-         method = "increment"
-      elsif request.delete? #-> decrement
-         method = "decrement"
-      end
-
-      @item.send(method, :qty, params[:qty])
-
-      respond_to do |format|
-          if @item.save
-             format.html { redirect_to store_path, notice: 'Item was successfully updated.' }
-             format.js   { @current_item = @line_item }
-             format.json { head :ok }
-          else
-             format.html { render action: "edit" }
-             format.json { render json: @line_item.errors, status: :unprocessable_entity}
-         end
-     end
-   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item
       @line_item = LineItem.find(params[:id])
     end
+
+    def set_restaurant 
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params

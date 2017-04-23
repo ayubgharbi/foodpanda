@@ -1,5 +1,33 @@
-<%= form_for(restaurant, html: { multipart: true }) do |f| %>
-  <% if restaurant.errors.any? %>
+<%= form_for :user do |f| %>
+  
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control", :placeholder => "User name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control", :placeholder => "Email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control", :placeholder => "Password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "Password Confirmation" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :role %>
+      <%= f.text_field :role, class: "form-control", :placeholder => "Role" %>
+    </div>
+
+
+    <%= f.fields_for :restaurant  do |p| %>
+    <% if restaurant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
       <ul>
@@ -9,45 +37,52 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image%>
+      <div class="field">
+    <%= p.label :image %>
+    <%= p.file_field :image %>
   </div>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, size: 40 %>
+    <%= p.label :name %>
+    <%= p.text_field :name, size: 40, class: "form-control", :placeholder => "Restaurant Name" %>
   </div>
 
   <div class="field">
-    <%= f.label :address %>
-    <%= f.text_area :address, rows: 3, cols: 40 %>
+    <%= p.label :address %>
+    <%= p.text_area :address, rows: 3, cols: 40, class: "form-control", :placeholder => "Restaurant Address" %>
   </div>
 
   <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= p.label :city %>
+    <%= p.text_field :city, class: "form-control", :placeholder => "City" %>
   </div>
 
   <div class="field">
-    <%= f.label :area %>
-    <%= f.text_field :area %>
-  </div>
-
-  <small class="text-muted">You can also enter IP. Your IP is <%= request.ip %></small>
-
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
+    <%= p.label :area %>
+    <%= p.text_field :area, class: "form-control", :placeholder => "Area" %>
   </div>
 
   <div class="field">
-    <%= f.label :estimated_delivery_time %><br>
-    <%= f.number_field :estimated_delivery_time %>
+    <%= p.label :estimated_delivery_time %><br>
+    <%= p.number_field :estimated_delivery_time, class: "form-control", :placeholder => "Estimated Delivery Time" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= p.label :delivery_fee %><br>
+    <%= p.text_field :delivery_fee, class: "form-control", :placeholder => "Delivery Fee" %>
   </div>
+
+  <div class="field">
+    <%= p.label :delivery_minimum %><br>
+    <%= p.text_field :delivery_minimum, class: "form-control", :placeholder => "Delivery Minimum" %>
+  </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Sign Up", class: "btn btn-search" %>
+    </div>
 <% end %>
+
+
+
+

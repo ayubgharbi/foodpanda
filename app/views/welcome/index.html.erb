@@ -1,4 +1,17 @@
 
+<div class="centerDisplay1">
+	<div class="main-page-search">
+		<div class="main-search">
+			<p id="search-header">
+				Type in your area to see restaurants delivering to you
+			</p>
+			<%= form_tag(restaurants_path, :method => "get", id: "search-form") do %>
+		    <%= text_field_tag :search, params[:search], placeholder: "Type your area", id:"search", class: "neighborhood", :style => "width: 536px" %>
+		    <%= submit_tag "Search", :name => nil, class: "btn-search" %>
+		<% end %>
+		</div>
+	</div>
+</div>
 <div class="centerDisplay" style="background-color: white;">
 	
 	<div class="gor-meny-head">
@@ -9,9 +22,9 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
-					<span>Restaurant Registration</span>
-				</a>
+				<%= link_to  new_restaurant_path, :class => 'button white' do %>
+	    			<span id="span">Restaurant Registration</span>
+				<% end %>
 			</li>
 			<li>
 				<a href="#">
@@ -29,7 +42,7 @@
                         <!-- Top part of the slider -->
                         <div class="row">
                             <div class="col-md-12 col-sm-12" id="carousel-bounding-box">
-                                <div class="carousel slide" id="myCarousel">
+                                <div class="carousel slide" id="myCarousel" data-interval="1000">>
                                     <!-- Carousel items -->
                                     <div class="carousel-inner">
                                         <div class="active item" data-slide-number="0">
@@ -72,7 +85,9 @@
 				</div>
 				<div class="knopka">
 					<div style="height:73px;">
-						<span class="knopka sign-up">Join Us Now!</span>
+					<%= link_to new_user_path, :class => 'button white' do %>
+    					<span class="knopka sign-up">Join Us Now!</span>
+					<% end %>
 					</div>
 				</div>
 			</div>
@@ -80,28 +95,28 @@
 	</div>
 	<div class="restaurant-popular">
 		<div class="row">
+			<div class="col-md-2 col-xs-2"><%= image_tag("p1.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p2.png", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p3.png", class: "img-res") %></div>
 			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p5.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p6.jpeg", class: "img-res") %></div>
 		</div>
 		<div class="row">
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p7.jpeg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p8.png", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p9.jpeg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p10.jpeg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p11.jpeg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p12.png", class: "img-res") %></div>
 		</div>
 		<div class="row">
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
-			<div class="col-md-2 col-xs-2"><%= image_tag("burger.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p13.jpeg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p14.jpeg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p15.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p16.jpg", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p17.png", class: "img-res") %></div>
+			<div class="col-md-2 col-xs-2"><%= image_tag("p18.png", class: "img-res") %></div>
 		</div>
 	</div>
 </div>

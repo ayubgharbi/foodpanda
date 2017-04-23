@@ -4,12 +4,18 @@ class Restaurant < ApplicationRecord
 	has_many :orders
 	has_many :reviews
 	has_many :opening_hours
-	has_one :user 
+	has_one :user
+	has_many :line_items
+	has_many :carts
 
-	validates :name, :address, :city, :area, :estimated_delivery_time, presence: true
+	validates :name, :address, :city, :area, :estimated_delivery_time,  presence: true
 
 	has_attached_file :image, styles: { large: "600x600>", medium: "180x195>", thumb: "100x100#" }
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  	def self.search(search)
+  		where("name LIKE ? OR city LIKE ? OR area LIKE ?", "%#{search}%","%#{search}%", "%#{search}%") 
+	end
 
   	geocoded_by :full_street_address
   	after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
@@ -18,3 +24,4 @@ class Restaurant < ApplicationRecord
   		[area, address, city].join(', ')
 	end
 end
+ 

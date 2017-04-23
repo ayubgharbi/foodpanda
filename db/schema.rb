@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409220204) do
+ActiveRecord::Schema.define(version: 20170422075058) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20170409220204) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -53,10 +55,12 @@ ActiveRecord::Schema.define(version: 20170409220204) do
   create_table "line_items", force: :cascade do |t|
     t.integer  "food_id"
     t.integer  "cart_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "quantity",   default: 1
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "quantity",      default: 1
     t.integer  "order_id"
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["food_id"], name: "index_line_items_on_food_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
@@ -98,7 +102,8 @@ ActiveRecord::Schema.define(version: 20170409220204) do
     t.string   "city"
     t.integer  "estimated_delivery_time"
     t.string   "area"
-    t.integer  "restaurant_id"
+    t.decimal  "delivery_fee"
+    t.decimal  "delivery_minimum"
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -1,31 +1,37 @@
 class RestaurantsController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
-	before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:index, :show, :new ]
+    before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+
   include CurrentCart
-  before_action :set_cart, except: :index
+  before_action :set_cart, except: [:index, :new]
 
 
-  def index
-    if params[:full_street_address].present?
-      @restaurants = Restaurant.near(params[:full_street_address], 1000)
-    else
-      @restaurants = Restaurant.all
-    end
-	end
+
+  
+def index
+  @restaurants = Restaurant.all
+  if params[:search]
+    @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
+  else
+    @restaurants = Restaurant.all.order("created_at DESC")
+  end
+end
 
   def info 
-  end
+  end  
 
 	def new
     	@restaurant = Restaurant.new
  	end
 
 	def show    
-    @restaurants = Restaurant.all
     @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @foods = Food.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @categories = Category.where(restaurant_id: @restaurant.id).order("created_at DESC")
-
+    @order = Order.where(restaurant_id: @restaurant.id)
+    @cart = Cart.where(restaurant_id: @restaurant.id)
+    @line_items = LineItem.where(restaurant_id: @restaurant.id).order("created_at DESC")
+    
     if @reviews.blank?
       @avg_review = 0
     else
@@ -39,7 +45,6 @@ class RestaurantsController < ApplicationController
 
 	def create
     	@restaurant = Restaurant.new(restaurant_params)
-      @restaurant.restaurant_id = @restaurant.id
 
     	respond_to do |format|
       		if @restaurant.save

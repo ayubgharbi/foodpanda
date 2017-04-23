@@ -1,10 +1,5 @@
+<div class="centerDisplay"  style="color: #fff;">
 <div class="col-md-6 col-md-offset-3">
-	<div class="panel-heading">
-		<h1>Sign up</h1>
-	</div>
-
-	<div class="panel-body">
-	  <%= form_for(@user, url: signup_path) do |f| %>
     <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -15,7 +10,13 @@
       </ul>
     </div>
     <% end %>
-  
+    		<h1 style="position: relative; right: 35px;">Sign up</h1>
+
+  <div class="clear"></div>
+
+	  
+  <%= form_for(@user, url: signup_path) do |f| %>
+
     <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
@@ -37,8 +38,8 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign Up", class: "btn btn-primary" %>
+      <%= f.submit "Sign Up", class: "btn btn-search" %>
     </div>
     <% end %>
-  </div>
+</div>
 </div>
