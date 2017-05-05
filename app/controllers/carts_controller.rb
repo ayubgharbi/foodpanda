@@ -18,7 +18,7 @@ class CartsController < ApplicationController
   # GET /carts/new
   def new
     @cart = Cart.new
-  end
+  end   
 
   # GET /carts/1/edit
   def edit
@@ -71,7 +71,7 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])
+      @cart = Cart.where("restaurant_id = ?", params[:restaurant_id])
     end
 
     def set_restaurant 
