@@ -11,7 +11,6 @@ class FoodsController < ApplicationController
   # GET /foods.json
   def index
     @categories = Category.where(restaurant_id: @restaurant.id).order("created_at DESC")
-    @cart = Cart.where(restaurant_id: @restaurant.id)
     if @category
       @foods = @category.foods
     else

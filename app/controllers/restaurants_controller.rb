@@ -29,8 +29,6 @@ end
     @foods = Food.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @categories = Category.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @order = Order.where(restaurant_id: @restaurant.id)
-    @cart = Cart.where(restaurant_id: @restaurant.id)
-    @line_items = LineItem.where(restaurant_id: @restaurant.id).order("created_at DESC")
     
     if @reviews.blank?
       @avg_review = 0

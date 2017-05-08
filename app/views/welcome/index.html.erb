@@ -3,7 +3,7 @@
 	<div class="main-page-search">
 		<div class="main-search">
 			<p id="search-header">
-				Type in your area to see restaurants delivering to you
+				Select your area to see restaurants delivering to you
 			</p>
 			<%= form_tag(restaurants_path, :method => "get", id: "search-form") do %>
 		    <%= text_field_tag :search, params[:search], placeholder: "Type your area", id:"search", class: "neighborhood", :style => "width: 536px" %>

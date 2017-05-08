@@ -4,8 +4,6 @@ class LineItem < ApplicationRecord
   belongs_to :order, optional: true
   belongs_to :food, optional: true
   belongs_to :cart
-  belongs_to :restaurant
-  belongs_to :user
 
   def total_price
   	food.price * quantity 

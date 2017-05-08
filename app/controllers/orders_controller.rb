@@ -20,8 +20,6 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-    @order.user_id = current_user.id
-    @order.restaurant_id = @restaurant.id
   end
 
   # GET /orders/1/edit

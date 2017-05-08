@@ -1,6 +1,5 @@
 class LineItemsController < ApplicationController
   skip_before_action :authorize, only: [:create, :destroy]
-  before_action :set_restaurant
   include CurrentCart
   before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
@@ -30,10 +29,7 @@ class LineItemsController < ApplicationController
   def create
     food = Food.find(params[:food_id])
     @line_item = @cart.add_food(food) 
-    @line_item.user_id = current_user.id
-    @line_item.restaurant_id = @restaurant.id
     
-
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to restaurant}
@@ -77,11 +73,6 @@ class LineItemsController < ApplicationController
     def set_line_item
       @line_item = LineItem.find(params[:id])
     end
-
-    def set_restaurant 
-      @restaurant = Restaurant.find(params[:restaurant_id])
-    end
-
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params

@@ -41,6 +41,7 @@ $red: #E32523;
 }
 
 .navbar {
+	height: 105px;
 	background-color: #FFF;
 	@include box-shadow;
 	border: none;
@@ -185,22 +186,26 @@ $red: #E32523;
 
 /* header */
 .my-navbar {
-	background: #E32523;
+	padding-top: 25px;
+	background: rgba(30, 25, 25, 0.8);
 	border-radius: 0;
-	border: 0;
+	border-bottom: 3px solid #808080;
 	.navbar-brand {
-		color: #FFF;
+		color: #E32523;
 		text-decoration: none;
 		&:hover {
-			color: #FFF;
+			color: #E32523;
 		}
 	}
 	.navbar-nav {
 		li {
 			a {
-				color: white;
+				color: #fff;
 				text-decoration: none;
 				font-weight: bold;
+				&:hover {
+					color: #808080;
+				};
 			}
 		}	
 	}
@@ -208,15 +213,15 @@ $red: #E32523;
 
 /* footer */ 
 
-footer {
-  height: 40px;
-  background-color: #E32523;
+.my-footer {
+  height: 80px;
+  background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
   color: #FFF;
   font-weight: bold;
   margin: 0 auto !important;
-  padding-top: 12px;
+  padding-top: 35px;
   width: 100% !important;
-  position: absolute;
+  border-top: 2px solid #808080;
   	a {
   		color: #FFF;
   		&:hover {
@@ -346,9 +351,11 @@ footer {
 	.table {
 		display: table;
 		tbody {
-			d0isplay: table-row-group;
+			display: table-row-group;
 			tr {
-				border-top: 2px solid transparent;
+				td {
+					border-top: 0px;
+				}
 				display: table-row;
 				.picture-product {
 					padding: 15px 0px;
@@ -663,7 +670,7 @@ footer {
 			font-family: "myriad-pro",sans-serif;
 			font-size: 23px;
 			padding: 0px 0px 2px 5px;
-			color: #A0410D;
+			color: #808080;
 			margin-top: 1px;
 
 		}	
@@ -738,10 +745,10 @@ footer {
 
 
 .centerDisplay1 {
+	background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
 	width: 920px;
 	margin: 180px auto 200px;
 	height: auto !important;
-	background-color: rgba(0, 0, 0, 0.5);
 	position: relative;
 	padding: 40px 20px 30px;
 	min-height: 150px;
@@ -751,15 +758,15 @@ footer {
 	font-size: 30px;
     font-family: "myriad-pro",sans-serif;
     background-color: rgba(161, 23, 23, 0.9);
-    border: medium none;
-    color: #FFF;
+    border: 2px solid #E32523;
+    color: #E32523;
     cursor: pointer;
     width: 220px;
     text-align: center;
     width: 221px;
     height: 51px;
    	&:hover {
-   		background-color: rgba(161, 23, 23, 0.9);
+   		background-color: transparent;
    	};
 }
 
@@ -791,17 +798,18 @@ footer {
 .btn-search {
 	font-size: 30px;
     font-family: "myriad-pro",sans-serif;
-    background-color: rgba(161, 23, 23, 0.9);
-    border: medium none;
-    color: #FFF;
+    background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
+    border: 3px solid #808080;
+    border-radius: 20px;
+    color: #E32523;
     cursor: pointer;
     width: 220px;
     text-align: center;
     width: 221px;
     height: 51px;
    	&:hover {
-   		background-color: rgba(161, 23, 23, 0.9);
-   		color: #fff;
+   		background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
+   		color: #E32523;
    	};
 }
 
@@ -956,4 +964,12 @@ footer {
 	padding: 40px 20px 30px;
 	min-height: 540px;
 
+}
+
+.head-city {
+	color: #fff;
+	font-weight: bold;
+	position: relative;
+	left: 150px;
+	bottom: 38px;
 }
