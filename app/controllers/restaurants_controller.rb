@@ -9,12 +9,17 @@ class RestaurantsController < ApplicationController
 
   
 def index
-  @restaurants = Restaurant.all
+  @restaurants = Restaurant.all.order("created_at DESC")
   if params[:search]
     @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
   else
     @restaurants = Restaurant.all.order("created_at DESC")
   end
+  if @reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
+    end
 end
 
   def info 
