@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
 	has_many :line_items, dependent: :destroy
+	
 	def add_food(food)
 		current_item = line_items.find_by(food_id: food.id)
 		if current_item
@@ -26,3 +27,4 @@ class Cart < ApplicationRecord
 	   	current_item
 	end
 end
+

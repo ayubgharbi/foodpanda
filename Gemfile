@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+	source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -24,6 +24,7 @@ gem 'geocoder', '~> 1.4', '>= 1.4.3'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_flat_skin'
 gem 'omniauth-facebook', '~> 4.0'
+gem 'paperclip', '~> 5.1'
 
 
 

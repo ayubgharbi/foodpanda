@@ -9,6 +9,8 @@
 	</div>
 	<div class="panel-body" style="color: #fff">
 		<%= form_for(:session, url: login_path) do |f| %>
+
+			<%= link_to "Connect With Facebook", "/auth/facebook" %>
 			<div>
 				<%= f.label :email, 'Email' %>
 				<%= f.email_field :email, class: "form-control" %>

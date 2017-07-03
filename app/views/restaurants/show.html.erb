@@ -33,7 +33,7 @@
               </td>
               <td class="tovar-price td" style="text-align: right;vertical-align:top; color: #FFF">
                 <span style="font-weight: bold"><%= number_to_currency(food.price, unit: "DH ") %></span>
-                <%= button_to '+', line_items_path(food_id: food), remote: true, class: "btn-plus"%>
+                <%= button_to '+', line_items_path(food_id: food), class: "btn-plus", remote: true %>
               </td>
             </tr>
           <% end %>   
@@ -58,7 +58,7 @@
     </div>
   </div>
 </div>
-
+  
 
 <script>
     $('.star-rating').raty({

@@ -1,6 +1,4 @@
 class LineItem < ApplicationRecord
-  after_update :check_qty, if: "qty_changed?"
-
   belongs_to :order, optional: true
   belongs_to :food, optional: true
   belongs_to :cart

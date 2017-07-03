@@ -5,8 +5,7 @@ class Restaurant < ApplicationRecord
 	has_many :reviews
 	has_many :opening_hours
 	has_one :user
-	has_many :line_items
-	has_many :carts
+	belongs_to :area
 
 	validates :name, :address, :city, :area, :estimated_delivery_time,  presence: true
 
@@ -23,5 +22,7 @@ class Restaurant < ApplicationRecord
   	def full_street_address
   		[area, address, city].join(', ')
 	end
+
+	
 end
  

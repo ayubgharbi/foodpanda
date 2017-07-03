@@ -2,7 +2,8 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
 	after_destroy :ensure_an_admin_remains
-
+  
+  has_many :authorizations 
   has_many :reviews, dependent: :destroy
   has_many :foods  
   has_many :orders, dependent: :destroy
@@ -19,6 +20,18 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   validates :role, presence: true
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end 
+  end  
+
 
   # Returns the hash digest of the given string. 
   def User.digest(string)

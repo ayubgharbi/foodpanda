@@ -12,9 +12,16 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
+    get 'auth/:provider/callback' => 'sessions#fb_create'
+    get 'auth/failure' => redirect('/')
+    get 'signout_fb' => 'sessions#fb_destroy'
+
+
 
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
+
+
 
 
   resources :users do 
@@ -23,9 +30,10 @@ Rails.application.routes.draw do
   
   
 
-  resources :line_items 
+  resources :areas 
+  resources :line_items
+  resources :carts
   resources :restaurants do 
-      resources :carts
       resources :reviews, except: [:show]
       resources :orders
       resources :categories do 
@@ -33,6 +41,7 @@ Rails.application.routes.draw do
       end
       resources :foods
       resources :opening_hours
+      get  '/info',  to: 'restaurants#info'   
   end
 
   root 'welcome#index'

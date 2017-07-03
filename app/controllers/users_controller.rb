@@ -58,6 +58,9 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
+    session[:user_id] = nil
+    log_out
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -80,6 +83,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role, restaurant_attributes: [:name, :address, :city, :area, :image, :rating, :estimated_delivery_time ])
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role, :password, :uid, :provider, :oauth_token, :oauth_expires_at)
     end
 end

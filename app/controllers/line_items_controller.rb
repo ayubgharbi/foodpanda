@@ -4,6 +4,7 @@ class LineItemsController < ApplicationController
   before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
+
   # GET /line_items
   # GET /line_items.json
   def index
@@ -28,7 +29,13 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     food = Food.find(params[:food_id])
-    @line_item = @cart.add_food(food) 
+    if food.restaurant_id != @cart.restaurant_id 
+      @cart.destroy
+      @line_item = @cart.add_food(food)
+    else 
+      @line_item = @cart.add_food(food)
+    end 
+
     
     respond_to do |format|
       if @line_item.save
@@ -73,6 +80,12 @@ class LineItemsController < ApplicationController
     def set_line_item
       @line_item = LineItem.find(params[:id])
     end
+
+    def make_sure_foods_belongs_one_restaurant
+    if @cart.line_item.restaurant_id != @restaurant.id
+      @cart.line_item.destroy
+    end
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params

@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   skip_before_action :authorize, only: [:create, :update, :destroy]
+  before_action :set_restaurant, pnly: [:create]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
@@ -27,6 +28,8 @@ class CartsController < ApplicationController
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
+    @cart.restaurant_id = @restaurant.id
+
 
     respond_to do |format|
       if @cart.save
@@ -68,6 +71,10 @@ class CartsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
       @cart = Cart.find(params[:id])
+    end
+
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
