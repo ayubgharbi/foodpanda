@@ -13,7 +13,7 @@
     		<h1 style="position: relative; right: 35px;">Sign up</h1>
 
   <div class="clear"></div>
-
+  <%= link_to "Connect With Facebook", "/auth/facebook" %>
 	  
   <%= form_for(@user, url: signup_path) do |f| %>
 
@@ -38,7 +38,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign Up", class: "btn btn-search" %>
+      <%= f.submit "Sign Up", class: "btn btn-search2" %>
     </div>
     <% end %>
 </div>

@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show, :new ]
+  skip_before_action :authorize, only: [:index, :show, :new, :info ]
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :info]
   include CurrentCart
   before_action :set_cart, only: [:show]
@@ -20,8 +20,7 @@ def index
     end
 end
 
-  def info 
-  end  
+
 
 	def new
     	@restaurant = Restaurant.new
@@ -80,6 +79,9 @@ end
       		format.json { head :no_content }
     	end
   	end
+
+  def info 
+  end  
 
 	private
     	def set_restaurant

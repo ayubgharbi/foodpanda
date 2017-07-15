@@ -12,7 +12,7 @@
             <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
           </li>
           <li>
-            <%= link_to 'Info', restaurant_reviews_path(@restaurant) %> 
+            <%= link_to 'Info', restaurant_info_path(@restaurant) %> 
           </li>
       </ul>
       </div>
@@ -32,7 +32,7 @@
                 <p style="color: #FFF;"><%= sanitize(food.description) %></p>
               </td>
               <td class="tovar-price td" style="text-align: right;vertical-align:top; color: #FFF">
-                <span style="font-weight: bold"><%= number_to_currency(food.price, unit: "DH ") %></span>
+                <span style="font-weight: bold"><%= number_to_currency(food.price, unit: "") %> DH</span>
                 <%= button_to '+', line_items_path(food_id: food), class: "btn-plus", remote: true %>
               </td>
             </tr>

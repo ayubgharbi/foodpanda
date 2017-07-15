@@ -40,8 +40,8 @@ Rails.application.routes.draw do
         resources :foods
       end
       resources :foods
-      resources :opening_hours
-      get  '/info',  to: 'restaurants#info'   
+      resources :opening_hours   
+      get 'info', to: 'restaurants#info'
   end
 
   root 'welcome#index'
