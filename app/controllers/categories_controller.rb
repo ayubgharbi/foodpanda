@@ -2,9 +2,7 @@ class CategoriesController < InheritedResources::Base
   	before_action :set_category, only: [:show, :edit, :update, :destroy]
   	before_action :set_restaurant
 
-  	def index
-  		@categories = Category.all
-  	end
+  	
 
   	def show 
   	end

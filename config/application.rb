@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 ENV['RAILS_ADMIN_THEME'] = 'material_theme'
 
-module JustEat
+module TanjaFood
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

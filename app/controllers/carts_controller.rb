@@ -1,6 +1,5 @@
 class CartsController < ApplicationController
   skip_before_action :authorize, only: [:create, :update, :destroy]
-  before_action :set_restaurant, pnly: [:create]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
@@ -28,7 +27,6 @@ class CartsController < ApplicationController
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
-    @cart.restaurant_id = @restaurant.id
 
 
     respond_to do |format|
@@ -73,9 +71,6 @@ class CartsController < ApplicationController
       @cart = Cart.find(params[:id])
     end
 
-    def set_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params

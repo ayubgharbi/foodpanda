@@ -1,7 +1,6 @@
-$('#notice').hide();
 
 if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
 
 $('#cart').html("<%=j render(@cart) %>");
 
-$('#current_item').css({'background-color':'#E32523'}).animate({'background-color':'transparent'}, 1000)
+$('#current_item').css({'background-color':'#E32523'}).animate({'background-color':'transparent'}, 1000);

@@ -270,6 +270,7 @@ DEPENDENCIES
   paperclip (~> 5.1)
   puma (~> 3.0)
   rails (~> 5.0.1)
+  ransack (~> 1.7)
   rename
   sass-rails (~> 5.0)
   spring

@@ -27,11 +27,11 @@
 
 body {
 	font-family: 'PT Sans', sans-serif;
-	background: url(back-image.jpeg) no-repeat center center fixed;
-	 -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	background: url(back-image1.jpg) no-repeat center center;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 $red: #E32523;
@@ -82,6 +82,7 @@ $red: #E32523;
 		max-width: 100%;
 		border-radius: 5px 5px 0 0;
 		overflow: hidden;
+		height: 125px;
 	}
 	img {
 		width: 100%;
@@ -243,7 +244,7 @@ $red: #E32523;
 /* show page */
 
 .centerDisplay {
-	border-radius: 10px;
+	border-radius: 5px;
 	width: 920px;
 	margin: 45px auto 45px;
 	height: auto !important;
@@ -410,7 +411,6 @@ $red: #E32523;
 		}
 	}
 	#cart {
-		
 		font-size: smaller;
 		color: white;
 		table {
@@ -662,11 +662,21 @@ $red: #E32523;
 	.main-search {
 		background-color: transparent;
 		padding-left: 20px;
-		width: 100%;	
+		width: 100%;
+		position: relative;
+		bottom: 20px;
+		h3 {
+			color: #FFF;
+			font-weight: bold;
+			text-align: center;
+			position: relative;
+			bottom: 20px;
+		}	
 		p {
 			    color: #FFF;
 		    	font-size: 24px;
 		    	margin-bottom: 20px;
+		    	margin-top: 20px;
 		}
 		.neighborhood {
 			padding: 8px 5px;
@@ -677,7 +687,6 @@ $red: #E32523;
 			padding: 0px 0px 2px 5px;
 			color: #808080;
 			margin-top: 1px;
-
 		}	
 		.ui-helper-hidden-accessibl {
 			    border: 0px none;
@@ -736,28 +745,32 @@ $red: #E32523;
 									position: relative;
 									left: 5px;
 									.product__title__name { 
-										font-weight: 300; 
+										font-weight: bold; 
 									} 
 								} 
 								.product__price { 
 									text-align: right; 
-									font-weight: 300; 
+									font-weight: bold; 
 									white-space: nowrap; 
 								} 
 							} 
 						} 
 					} 
-
+.check-sentence {
+	a {
+		text-decoration: none;		
+	}
+}
 
 .centerDisplay1 {
 	background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
-	width: 920px;
-	margin: 10px auto 171px;
-	height: auto !important;
+	width: 530px;
+	margin: 0px auto 0px;
+	height: 150px;
 	position: relative;
+	bottom: 60px;
 	padding: 40px 20px 30px;
-	min-height: 150px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .btn-search {
@@ -804,7 +817,7 @@ $red: #E32523;
 .btn-search {
 	font-size: 30px;
     font-family: "myriad-pro",sans-serif;
-    background: transparent;
+    background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
     border: 3px solid #808080;
     border-radius: 20px;
     color: #E32523;
@@ -814,7 +827,7 @@ $red: #E32523;
     width: 380px;
     height: 60px;
    	&:hover {
-   		background: transparent;
+   		background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
    		color: #E32523;
    	};
 }
@@ -822,7 +835,7 @@ $red: #E32523;
 .btn-search2 {
 	font-size: 30px;
     font-family: "myriad-pro",sans-serif;
-    background: transparent;
+    background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
     border: 3px solid #808080;
     border-radius: 20px;
     color: #E32523;
@@ -832,25 +845,25 @@ $red: #E32523;
     width: 410px;
     height: 60px;
    	&:hover {
-   		background: transparent;
+   		background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
    		color: #E32523;
    	};
 }
 
 .btn-search1 {
-	font-size: 30px;
+	font-size: 20px;
     font-family: "myriad-pro",sans-serif;
-    background: transparent;
+    background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
     border: 3px solid #808080;
     border-radius: 20px;
     color: #E32523;
     cursor: pointer;
     width: 220px;
     text-align: center;
-    width: 221px;
-    height: 60px;
+    width: 160px;
+    height: 45px;
    	&:hover {
-   		background: transparent;
+   		background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
    		color: #E32523;
    	};
 }
@@ -872,19 +885,19 @@ $red: #E32523;
 
 .cart__summary { 
 	padding: 10px; 
-	font-weight: 300; 
+	font-weight: bold; 
 	color: #fff;
 	position: relative;
 	right: 10px; 
 	table { 
 		width: 100%; 
-		font-size: 13px; 
+		font-size: 12px; 
 		line-height: 16px; 
 		tr { 
 			td:first-of-type { 
 				display: none; 
 			} 
-			font-weight: 300; 
+			font-weight: bold; 
 			td { 
 				padding: 7px; 
 			} 
@@ -897,6 +910,8 @@ $red: #E32523;
 				text-align: center; 
 				font-size: 25px; 
 				text-align: right; 
+				font-weight: bold;
+				color: #fff;
 			} 
 		} 
 	} 
@@ -1031,20 +1046,178 @@ $red: #E32523;
   border-radius: 10px;
 }
 
+.centerDisplay4{
+  width: 825px;
+  margin: 100px auto 0px;
+  height: auto !important;
+  background-color: rgba(30, 25, 25, 0.8);
+  position: relative;
+  bottom: 80px;
+  padding: 40px 20px 30px;
+  min-height: 100px;
+  padding-bottom: 0px;
+  color: white;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.centerDisplay5{
+  width: 825px;
+  margin: 100px auto 0px;
+  height: 700px;
+  background-color: rgba(30, 25, 25, 0.8);
+  position: relative;
+  bottom: 80px;
+  padding: 40px 20px 30px;
+  padding-bottom: 0px;
+  color: white;
+  text-align: center;
+  border-radius: 3px;
+}
 
 .welcome-heading {
+	margin: 100px auto 50px;
   h1 {
+  	font-size: 50px;
     color: white;
-    font-size: 25px;
     text-align: center;
     font-family: 'Changa', sans-serif;
     position: relative;
-    bottom: 20px;
     font-weight: bold;
+  }
+  p {
+  	text-align: center;
+  	color: white;
+  	font-size: 24px;
+  	font-weight: bold;
   }
 }
 
 #search-header {
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 18px;
+}
+
+
+.facebook-login {
+	position: relative;
+	bottom: 10px;
+}
+
+.see-more {
+	position: relative;
+	right: 480px;
+	bottom: 18px;
+	color: #808080;
+	font-weight: bold;
+	background: transparent;
+	text-decoration: none; 
+	&:hover {
+		color: white;
+		background: transparent;
+		text-decoration: none; 
+	}
+}
+
+#write-review {
+	a {		
+		position: relative;
+		top: 10px;
+		color: white;
+		text-decoration: none;
+		background: transparent;
+		font-weight: bold;
+		&:hover{
+			color: #808080;
+		};
+	}
+}	
+
+#logo {
+    font-family: 'Lobster', cursive;
+    color: #E32523;
+    font-size: 30px;
+}
+
+
+.area-dropdown {
+	position: relative;
+	right: 70px;
+  .dropdown-toggle {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: left;
+
+  }
+  .dropdown-menu {
+    background: rgba(30, 25, 25, 0.8);
+    &:hover {
+      background: rgba(30, 25, 25, 0.8);
+    };
+    li {
+      text-align: left;
+    }
+    a {
+   	  font-weight: bold;
+      color: white;
+      font-size: 15px;
+      &:hover {
+        color: #E32523;
+        background: rgba(30, 25, 25, 0.8);
+      };
+    }
+  }
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 110px;
+    overflow-x: hidden;
+    text-align: right;
+}
+
+
+.restaurant-info {
+	color: white;
+	font-weight: bold;
+	margin-bottom: 30px;
+	position: relative;
+	left: 50px;
+	top: 20px;
+	h5 {
+		font-weight: bold;
+		color: #fff;
+	}
+	p {
+		color: #808080;
+	}
+	td {
+		color: #808080;
+	}
+	th {
+		color: #808080;
+	}
+} 
+
+.restaurant-maps {
+	img {
+		width: 280px;
+		height: 250px;
+		position: relative;
+		left: 35px;
+		margin: 30px auto 10px;
+		border-left: 2px solid #808080;
+		border-bottom: 2px solid #808080;
+		border-radius: 25%;
+	}
+}
+
+.table-head1 {
+	position: relative;
+	left: 10px;
+}
+
+.table-head2 {
+	position: relative;
+	left: 20px;
 }

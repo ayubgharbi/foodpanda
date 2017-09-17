@@ -5,9 +5,9 @@ class Restaurant < ApplicationRecord
 	has_many :reviews
 	has_many :opening_hours
 	has_one :user
-	belongs_to :area
+	has_and_belongs_to_many :areas
 
-	validates :name, :address, :city, :area, :estimated_delivery_time,  presence: true
+	validates :name, :address, :estimated_delivery_time,  presence: true
 
 	has_attached_file :image, styles: { large: "600x600>", medium: "180x195>", thumb: "100x100#" }
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

@@ -29,13 +29,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     food = Food.find(params[:food_id])
-    if food.restaurant_id != @cart.restaurant_id 
-      @cart.destroy
-      @line_item = @cart.add_food(food)
-    else 
-      @line_item = @cart.add_food(food)
-    end 
-
+    @line_item = @cart.add_food(food)
     
     respond_to do |format|
       if @line_item.save
@@ -68,7 +62,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to @restaurant, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to @line_item, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
       format.js   { render :layout => false }
     end

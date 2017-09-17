@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show, :new, :info ]
+  skip_before_action :authorize, only: [:index, :show, :new, :info]
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :info]
   include CurrentCart
   before_action :set_cart, only: [:show]
@@ -8,11 +8,10 @@ class RestaurantsController < ApplicationController
   
 def index
   @restaurants = Restaurant.all.order("created_at DESC")
-  if params[:search]
-    @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
-  else
-    @restaurants = Restaurant.all.order("created_at DESC")
-  end
+  @search = Restaurant.ransack(params[:q])
+  @restaurants = @search.result(distinct: true)
+
+
   if @reviews.blank?
       @avg_review = 0
     else
@@ -22,15 +21,10 @@ end
 
 
 
-	def new
-    	@restaurant = Restaurant.new
- 	end
-
-	def show    
+def show    
     @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @foods = Food.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @categories = Category.where(restaurant_id: @restaurant.id).order("created_at DESC")
-    @order = Order.where(restaurant_id: @restaurant.id)
 
         
     if @reviews.blank?
@@ -40,23 +34,27 @@ end
     end
   end
 
+	def new
+    	@restaurant = Restaurant.new
+ 	end
+  
+  def create
+      @restaurant = Restaurant.new(restaurant_params)
+
+      respond_to do |format|
+          if @restaurant.save
+            format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
+            format.json { render :show, status: :created, location: @restaurant }
+        else
+            format.html { render :new }
+            format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+          end
+      end
+  end
 
 	def edit
 	end
 
-	def create
-    	@restaurant = Restaurant.new(restaurant_params)
-
-    	respond_to do |format|
-      		if @restaurant.save
-        		format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
-        		format.json { render :show, status: :created, location: @restaurant }
-     		else
-        		format.html { render :new }
-        		format.json { render json: @restaurant.errors, status: :unprocessable_entity }
-      		end
-    	end
-  	end
 
 
 	def update
@@ -80,8 +78,14 @@ end
     	end
   	end
 
-  def info 
-  end  
+   def info
+    @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
+    if @reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
+    end
+   end 
 
 	private
     	def set_restaurant
@@ -89,6 +93,6 @@ end
     	end
 
     	def restaurant_params
-     		params.require(:restaurant).permit(:name, :address, :city, :area, :image, :rating, :estimated_delivery_time)
+     		params.require(:restaurant).permit(:name, :address, :city, :image, :rating, :estimated_delivery_time, area_ids:[])
    		end
 end

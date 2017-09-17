@@ -21,15 +21,7 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
-
-
-
-  resources :users do 
-    resources :restaurants
-  end
-  
-  
-
+  resources :users
   resources :areas 
   resources :line_items
   resources :carts
@@ -41,8 +33,8 @@ Rails.application.routes.draw do
       end
       resources :foods
       resources :opening_hours   
-      get 'info', to: 'restaurants#info'
   end
+  get 'restaurants/info/:id', to: 'restaurants#info', as: :restaurant_info
 
   root 'welcome#index'
 

@@ -12,6 +12,11 @@
     </div>
   <% end %>
   <div class="panel-body">
+  
+    <div class="field">
+      <%= f.label :additional_instructions %>
+      <%= f.text_area :additional_instructions, rows: 3, cols: 40, class: "form-control" %>
+    </div>
     <div class="field">
       <%= f.label :address %>
       <%= f.text_area :address, rows: 3, cols: 40, class: "form-control" %>

@@ -13,7 +13,7 @@
 	<td class="product__title">
 		<span class="product__title__name"><%= line_item.food.title %></span>
 	</td>
-	<td class="product__price"><%= number_to_currency(line_item.total_price, unit: "MAD ") %></td>
-	
+	<td class="product__price"><%= number_to_currency(line_item.total_price, unit: " ") %> DH</td>
 	 <td><%= button_to 'X', line_item_path(@restaurant, line_item), :method => :delete, :confirm => 'Are You Sure', class: "btn-x delete_pony" %></td>
 </tr> 
+

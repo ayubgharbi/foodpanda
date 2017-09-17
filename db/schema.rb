@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611171323) do
+ActiveRecord::Schema.define(version: 20170730145058) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20170611171323) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "areas_restaurants", id: false, force: :cascade do |t|
+    t.integer "area_id",       null: false
+    t.integer "restaurant_id", null: false
   end
 
   create_table "authorizations", force: :cascade do |t|
@@ -95,10 +100,11 @@ ActiveRecord::Schema.define(version: 20170611171323) do
     t.text     "address"
     t.string   "email"
     t.integer  "pay_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "restaurant_id"
     t.integer  "user_id"
+    t.text     "additional_instructions"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -118,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170611171323) do
     t.string   "area"
     t.decimal  "delivery_fee"
     t.decimal  "delivery_minimum"
+    t.integer  "area_id"
   end
 
   create_table "reviews", force: :cascade do |t|

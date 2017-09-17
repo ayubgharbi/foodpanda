@@ -1,3 +1,4 @@
+
 <div class="cart__header__head__delivery-time"> 
     <div class="cart__header__head__delivery-time__label">Estimated delivery time</div> 
         <div class="cart__header__head__delivery-time__time"> 
@@ -22,31 +23,34 @@
             <tr class="subtotal"> 
                 <td></td> 
                 <td>Subtotal</td> 
-                <td class="price"><%= number_to_currency(cart.total_price, unit: "MAD ") %></td> 
+                <td class="price"><%= number_to_currency(cart.total_price, unit: " ")%> DH</td> 
             </tr> 
             <tr class="deliverey-fee"> 
                 <td></td> 
                 <td class="title">Delivery fee</td> 
-                <td class="price">MAD <%= @restaurant.delivery_fee %></td> 
+                <td class="price"><%= number_to_currency(@restaurant.delivery_fee, unit: " ")%> DH</td> 
             </tr> 
             <tr class="vat"> 
                 <td></td> 
                 <td class="title">+ Vat</td> 
-                <td class="price">MAD 3.11</td> 
+                <td class="price">3.11 DH</td> 
             </tr> 
             <tr class="total"> 
                 <td></td> 
                 <td class="title">Total</td> 
-                <td class="total-price"><%= number_to_currency(cart.total_price + @restaurant.delivery_fee , unit: "MAD ") %></td> 
+                <td class="total-price"><%= number_to_currency(@restaurant.delivery_fee + 3.11 + cart.total_price, unit: " ")%> DH</td> 
+                
             </tr> 
         </tbody> 
     </table> 
 </div> 
 
 
-<div class="cart__checkout"> 
-   <%= link_to "Proceed to checkout", new_restaurant_order_path(@restaurant), method: :get, class: "btn btn-primary btn-block" %> 
+<div class="cart__checkout">    
+        <%= link_to "Proceed to checkout", new_restaurant_order_path(@restaurant), method: :get, class: "btn btn-primary btn-block" %> 
 </div>
+
+
 
 <% if !logged_in? %> 
 <h5 class="check-sentence">Please <%= link_to "log in", login_path %> or <%= link_to "register", new_user_path %> to place your order</h5>
@@ -56,11 +60,11 @@
     <ul class="cart__empty__elements"> 
         <li> 
             <span class="title">Delivery fee:</span> 
-            <span class="value"><%= @restaurant.delivery_fee %> MAD</span> 
+            <span class="value"><%= number_to_currency(@restaurant.delivery_fee, unit: " ") %>DH</span> 
         </li>
         <li> 
             <span class="title">Delivery minimum:</span> 
-            <span class="value"><%= @restaurant.delivery_minimum %> MAD</span> 
+            <span class="value"><%= number_to_currency(@restaurant.delivery_minimum, unit: " ") %>DH</span> 
         </li>  
     </ul> 
 </div> 

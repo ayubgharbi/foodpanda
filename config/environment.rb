@@ -4,7 +4,7 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-JustEat::Application.configure do
+TanjaFood::Application.configure do
     config.action_mailer.delivery_method = :smtp
     
     config.action_mailer.smtp_settings = { 

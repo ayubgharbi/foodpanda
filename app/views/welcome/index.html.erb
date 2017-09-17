@@ -1,8 +1,5 @@
-<div class="centerDisplay3">
 <div class="welcome-heading"> 
-<h1>Order Your Favorite Food Online Now From more than 500 restaurants in Tangier
-</h1> 
-</div> 
+ 
 </div>
 
 <div class="centerDisplay1">
@@ -11,13 +8,69 @@
 			<p id="search-header">
 				Select your area to see restaurants delivering to you
 			</p>
-			<%= form_tag(restaurants_path, :method => "get", id: "search-form") do %>
-		    <%= text_field_tag :search, params[:search], placeholder: "Type your area", id:"search", class: "neighborhood", :style => "width: 536px" %>
-		    <%= submit_tag "Search", :name => nil, class: "btn-search1" %>
-		<% end %>
+			<ul>
+	          <li class="dropdown area-dropdown">
+	            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 440px;">
+	             area
+	              <span class="caret"></span>
+	            </button>
+
+	            <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu1" style="width: 440px;">
+	              <% @areas.each do |area| %>
+	                <li>
+	                  <%= link_to area.name, restaurants_path(area: area.id), class: "link" %>
+	                </li>
+	              <% end %>
+	            </ul>
+	          </li>
+	        </ul>
+		</div>
+	</div>
+
+
+
+</div>
+
+<div class="centerDisplay1">
+	<div class="main-page-search">
+		<div class="main-search">
+			<p id="search-header">
+				Select your area to see restaurants delivering to you
+			</p>
+			<ul>
+	        
+	              <%= search_form_for @search do |f| %>
+
+<%= f.select :areas_id_in, options_from_collection_for_select(Area.all, :id, :name), include_blank: "no preference" %>
+<%= f.submit "Search" %>
+
+ <% end %> 
+	        </ul>
 		</div>
 	</div>
 </div>
 
 
 
+
+
+<div class="centerDisplay4">
+  <div class="container">
+    <div class="clear"></div>
+
+    <div class="row">
+    <% @restaurantss.each do |restaurant| %>
+      <div class="col-md-2 col-xs-3 col-sm-3">
+        <div class="restaurant">
+          <div class="image_wrapper" style="background-color: transparent">
+            <%= link_to restaurant do %>
+              <%= image_tag restaurant.image.url(:large) %>
+            <% end %> 
+          </div>    
+        </div>
+      </div> 
+    <% end %>
+  </div>
+  <%= link_to "See more restaurants", restaurants_path, class: "see-more" %>
+  </div>
+</div>

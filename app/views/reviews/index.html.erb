@@ -12,10 +12,11 @@
             <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
           </li>
           <li>
-            <%= link_to 'Info', restaurant_reviews_path(@restaurant) %> 
+            <%= link_to 'Info', restaurant_info_path(@restaurant) %> 
           </li>
       </ul>
       </div>
+
       <div id="reviews">
         <div class="vendor-reviews">
           <div class="vendor-reviews__inner">
@@ -35,9 +36,12 @@
             </ul>
           </div>
         </div>
-         <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
       </div>
-     
+      
+      <div id="write-review">
+        <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), id: "write-review" %>
+      </div>
+      
     </div>
     <div class="col-md-5 col-xs-5">
       <div class="logo-restaurant">
