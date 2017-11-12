@@ -26,8 +26,8 @@
 }
 
 body {
-	font-family: 'PT Sans', sans-serif;
-	background: url(back-image1.jpg) no-repeat center center;
+	font-family: 'Indie Flower', cursive;
+	background: #fff;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -35,6 +35,11 @@ body {
 }
 
 $red: #E32523;
+$green: #A8E323;
+
+.red {
+	color: $red;
+}
  
 #order-heading {
 	margin: 0;
@@ -44,7 +49,6 @@ $red: #E32523;
 }
 
 .navbar {
-	height: 105px;
 	background-color: #FFF;
 	@include box-shadow;
 	border: none;
@@ -53,7 +57,7 @@ $red: #E32523;
 		text-transform: uppercase;
 		letter-spacing: -1px;
 		font-weight: bold;
-		font-size: 25px;
+		font-size: 22px;
 		a {
 			color: $red;
 			&:hover {
@@ -125,33 +129,35 @@ $red: #E32523;
 	}
 }
 
-
-
 .jumbotron {
-	margin-bottom: 0;
-	height: 583px;
-	background: url(dog.jpg);
+	padding-top: 80px;
+	font-family: 'Indie Flower', cursive;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(519509.jpg) no-repeat center center;
+	background-position: 0% 25%;
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: calc(100% - 0px) calc(100% + 120px); 
+	color: white;
+	text-shadow: black 0.3em 0.3em 0.3em;
+	height: 500px;
 	text-align: center;
-	h1 {
-		font-size: 50px;
-		font-weight: 900;
-		color: #FFF;
-		position: relative;
-		top: 50px;
-	}
-	h2 {
-		font-weight: bold;
-		color: #FFF;
-		font-size: 24px;
-		position: relative;
-		top: 40px;
+	p {
+		font-family: 'Indie Flower', cursive;	
 	}
 }
 
-
+#jumbotron1 {
+	margin-bottom: 0px;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(519509.jpg) no-repeat center center;
+	background-position: 0% 25%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: white;
+	text-shadow: black 0.3em 0.3em 0.3em;
+	height: 200px;
+	text-align: center;
+	position: relative;
+	bottom: 8px;
+}
 
 
 
@@ -207,6 +213,7 @@ $red: #E32523;
 				color: #fff;
 				text-decoration: none;
 				font-weight: bold;
+				font-family: 'Indie Flower', cursive;
 				&:hover {
 					color: #808080;
 				};
@@ -218,14 +225,12 @@ $red: #E32523;
 /* footer */ 
 
 .my-footer {
-  height: 80px;
-  background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
-  color: #FFF;
-  font-weight: bold;
-  margin: 0 auto !important;
+  height: 50px;
+  background: #fff;
+  color: #808080;
+  margin: 20px auto !important;
   padding-top: 35px;
   width: 100% !important;
-  border-top: 2px solid #808080;
   position: relative;
   	a {
   		color: #FFF;
@@ -246,19 +251,19 @@ $red: #E32523;
 .centerDisplay {
 	border-radius: 5px;
 	width: 920px;
-	margin: 45px auto 45px;
+	margin: 80px 40px 45px 100px;
 	height: auto !important;
-	background-color: rgba(30, 25, 25, 0.8);
+	background-color: #fff;
 	position: relative;
-	padding: 40px 20px 30px;
+	padding: 30px 40px 30px 40px;
 	min-height: 470px;
-	h1 {
+	border: 2px solid #e7e7e7;
+	h2 {
 		margin-top: -5px;
 		float: left;
 		margin-left: 35px;
 		line-height: 34px;
-		color: #FFF;
-		font-weight: bold;
+		color: $red;
 	}
 	#reviews { 
 	.vendor-reviews { 
@@ -307,7 +312,7 @@ $red: #E32523;
 					padding-left: 10px; 
 					padding-right: 10px; 
 					.reviews__review__review__title {
-						color: #FFF; 
+						color: black; 
 						font-weight: 700; 
 					} 
 				} 
@@ -320,18 +325,19 @@ $red: #E32523;
 				border-bottom: 0px;
 				width: 550px; 
 				margin-left: 0px; 
-				padding-left: 10px; 
+				position: relative;
+				right: 5px;				
 				li { 
 					font-weight: bold; 
 					font-size: 14px; 
 					text-align: center; 
 					a { 
-						color: #808080; 
+						color: black; 
 						padding: 15px 25px; 
 						border: 0px none; 
 						text-decoration: none; 
 						&:hover { 
-							color: #808080; 
+							color: black; 
 							background-color: transparent;
 							border: 0px;
 						}; 
@@ -351,8 +357,7 @@ $red: #E32523;
 				}
 			} 
 	.menu-category-title {
-		color: #FFF;
-		font-weight: bold;
+		color: $red;
 	}
 	.table {
 		display: table;
@@ -370,6 +375,7 @@ $red: #E32523;
 						height: 80px;
 						border-bottom: 1px solid #AAA;
 						border-right: 1px solid #AAA;
+						border-radius: 5px;
 					}
 				.name-tovar {
 					font-size: 16px;
@@ -412,7 +418,10 @@ $red: #E32523;
 	}
 	#cart {
 		font-size: smaller;
-		color: white;
+		h2 {
+			color: #E32523;
+		}
+		
 		table {
 			margin-bottom: 10px;
 		}
@@ -425,7 +434,8 @@ $red: #E32523;
 		}
 		.reviews_length {
 			display: inline-block;
-			color: #FFF;
+			color: #808080;
+
 		}	
 	}
 	#restaurant-location {
@@ -451,17 +461,16 @@ $red: #E32523;
 }
 
 .cart__header__head__delivery-time { 
-	font-size: 12px; 
+	font-size: 18px; 
 	position: relative;
 	top: 10px;
 	.cart__header__head__delivery-time__label { 
 		float: left; 
 		padding-top: 10px; 
-		color: #fff; 
-		font-weight: bold;
+		color: black; 
 	} 
 	.cart__header__head__delivery-time__time { 
-		color: #fff; 
+		color: $red; 
 		float: right; 
 		text-align: center; 
 		position: relative;
@@ -486,13 +495,13 @@ $red: #E32523;
 	a { 
 		padding: 10px; 
 		&:hover { 
-			background-color: #CF110F; 
+			background-color: $green; 
 		}; 
 	} 
 	.btn-primary { 
-		background-color: #E32523; 
+		background-color: $green; 
 		border-color: #CF110F; 
-		color: #FFF; 
+		color: black; 
 		text-decoration: none; 
 	} 
 	.btn { 
@@ -511,154 +520,8 @@ $red: #E32523;
 	} 
 }  
 						
-/* welcome */ 
-
-.join {
-	height: 500px;
-	background: #FFF none repeat scroll 0% 0%;
-		.what24 {
-			margin: 60px 0px 0px 20px;
-			h4 {
-				color: #000;
-				font-size: 30px;
-				font-weight: bold;
-				margin: 0px 0px 30px;
-			}
-			p {
-				color: #000;
-				font-size: 15px;
-				line-height: 24px;
-			}
-		}
-		.knopka {
-			margin: 20px 0px 0px;
-			text-align: center;
-			font-size: 28px;
-			color: #FFF;
-			line-height: 30px;
-			span.knopka {
-				background-color: rgba(161, 23, 23, 0.9);
-				width: 212px;
-				height: 47px;
-				display: block;
-				line-height: 47px;
-				text-align: center;font-size: 24px;
-				color: #FFF;
-				font-weight: bold;
-				margin: 0px auto 20px;
-				border-radius: 10px;
-				cursor: pointer;
-			}
-			a {
-				&:hover {
-					text-decoration: none;
-				}	
-			}	
-			
-		}
-}
-
-.hide-bullets {
-	list-style:none;
-	margin-left: -40px;
-	margin-top:20px;
-}
-
-.carousel .item {
-  height: 500px;
-  width: 640px;
-}
-
-.item img {
-   position: absolute;
-   top: 0;
-   left: 0;
-   min-height: 500px;
-   width: 640px;
-}
-
-.gor-meny-head {
-	position: relative;
-	top: -80px;
-	height: 40px;
-	right: 60px;
-	#nav {
-		margin: 0px;
-		display: table;
-		border-collapse: separate;
-		position: relative;
-		left: -2px;
-		top: -2px;
-		width: 964px;
-		height: 40px;
-		border: medium none;
-		border-spacing: 2px;
-		background-image: none;
-		li {
-			list-style: outside none;
-			float: none;
-			height: 40px;
-			border: medium none;
-			background-color: rgba(161, 23, 23, 0.9);
-			margin-right: 2px;
-			display: table-cell;
-			text-align: center;
-			a {
-				list-style: outside none none;
-				padding: 0px;
-				background-image: none;
-				height: 40px;
-				color: #FFF;
-				line-height: 40px;
-				font-weight: bold;
-				font-weight: 18px;
-				text-align: center;
-				display: block;
-				width: 100%;
-				text-decoration: none;
-				span {
-					text-align: center;
-				}
-				&:hover {
-				background-color: rgba(161, 23, 23, 0.9);
-			};
-			}
-			
-		}
-		li.live {
-			background-color: rgba(255, 152, 0, 0.8);
-			a {
-				&:hover {
-					background-color: rgba(255, 152, 0, 0.8);		
-				};
-			}
-		}
-	}
-}
-
-.img-res {
-	width: 70px;
-	height: 70px;
-	margin-bottom: 20px;
-	position: relative;
-	left: 20px;
-	background: transparent !important;
-}
-
-.img-pub {
-	width: 280px;
-	height: 280px;
-	margin-bottom: 40px;
-	position: relative;
-	bottom: 40px;
-}
-
-.restaurant-popular {
-	margin-bottom: 40px;
-}
-
 .main-page-search {
-	top: -350px;
+	margin-top: 100px;
 	.main-search {
 		background-color: transparent;
 		padding-left: 20px;
@@ -682,7 +545,6 @@ $red: #E32523;
 			padding: 8px 5px;
 			margin-right: 20px;
 			border: medium none;
-			font-family: "myriad-pro",sans-serif;
 			font-size: 23px;
 			padding: 0px 0px 2px 5px;
 			color: #808080;
@@ -700,7 +562,6 @@ $red: #E32523;
 		}
 		.main-search-submit {
 		    font-size: 30px;
-		    font-family: "myriad-pro",sans-serif;
 		    padding: 5px;
 		    background-color: rgba(161, 23, 23, 0.9);
 		    border: medium none;
@@ -718,7 +579,7 @@ $red: #E32523;
 						padding-right: 30px;	 
 						table { 
 							width: 100%; 
-							font-size: 13px; 
+							font-size: 18px; 
 							line-height: 16px; 
 							background-color: transparent; 
 							.product { 
@@ -745,13 +606,15 @@ $red: #E32523;
 									position: relative;
 									left: 5px;
 									.product__title__name { 
-										font-weight: bold; 
+										font-family: 'Indie Flower', cursive; 
+										font-size: 18px; 
 									} 
 								} 
 								.product__price { 
 									text-align: right; 
-									font-weight: bold; 
 									white-space: nowrap; 
+									font-family: 'Indie Flower', cursive; 
+									font-size: 18px; 
 								} 
 							} 
 						} 
@@ -765,29 +628,13 @@ $red: #E32523;
 .centerDisplay1 {
 	background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
 	width: 530px;
-	margin: 0px auto 0px;
+	margin: 40px auto 0px;
 	height: 150px;
 	position: relative;
-	bottom: 60px;
 	padding: 40px 20px 30px;
 	border-radius: 5px;
 }
 
-.btn-search {
-	font-size: 30px;
-    font-family: "myriad-pro",sans-serif;
-    background-color: rgba(161, 23, 23, 0.9);
-    border: 2px solid #E32523;
-    color: #E32523;
-    cursor: pointer;
-    width: 220px;
-    text-align: center;
-    width: 221px;
-    height: 51px;
-   	&:hover {
-   		background-color: transparent;
-   	};
-}
 
 
 .cart__empty { 
@@ -816,9 +663,8 @@ $red: #E32523;
 
 .btn-search {
 	font-size: 30px;
-    font-family: "myriad-pro",sans-serif;
-    background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
-    border: 3px solid #808080;
+    background: transparent;
+    border: 1px solid #808080;
     border-radius: 20px;
     color: #E32523;
     cursor: pointer;
@@ -827,16 +673,15 @@ $red: #E32523;
     width: 380px;
     height: 60px;
    	&:hover {
-   		background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
+   		background: transparent;
    		color: #E32523;
    	};
 }
 
 .btn-search2 {
 	font-size: 30px;
-    font-family: "myriad-pro",sans-serif;
-    background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
-    border: 3px solid #808080;
+    background: transparent;
+    border: 1px solid #808080;
     border-radius: 20px;
     color: #E32523;
     cursor: pointer;
@@ -845,48 +690,36 @@ $red: #E32523;
     width: 410px;
     height: 60px;
    	&:hover {
-   		background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
+   		background: transparent;
    		color: #E32523;
    	};
 }
 
 .btn-search1 {
-	font-size: 20px;
-    font-family: "myriad-pro",sans-serif;
-    background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
-    border: 3px solid #808080;
+	font-size: 19px;
+	font-family: 'Indie Flower', cursive;
+    background: #fff;
+    border: 1px solid #808080;
     border-radius: 20px;
     color: #E32523;
     cursor: pointer;
     width: 220px;
     text-align: center;
-    width: 160px;
+    width: 120px;
     height: 45px;
+    position: relative;
+    right: 80px;
    	&:hover {
-   		background: rgba(30, 25, 25, 0.8) none repeat scroll 0% 0%;
+   		background: #fff;
    		color: #E32523;
    	};
 }
 
-.btn-plus {
-	position: relative;
-	left: 6px;
-    font-weight: bold;
-    background: transparent;
-    border: 3px solid #FFF;
-	color: #FFF;
-	border-radius: 50%;
-	font-weight: bold;
-	&:hover {
-		border: 3px solid #E32523;
-		color: #E32523;
-	};
-}
+
 
 .cart__summary { 
 	padding: 10px; 
-	font-weight: bold; 
-	color: #fff;
+	color: black;
 	position: relative;
 	right: 10px; 
 	table { 
@@ -897,9 +730,11 @@ $red: #E32523;
 			td:first-of-type { 
 				display: none; 
 			} 
-			font-weight: bold; 
+			
 			td { 
 				padding: 7px; 
+				font-family: 'Indie Flower', cursive;
+				font-size: 19px;
 			} 
 			.price { 
 				white-space: nowrap; 
@@ -911,7 +746,7 @@ $red: #E32523;
 				font-size: 25px; 
 				text-align: right; 
 				font-weight: bold;
-				color: #fff;
+				color: $red;
 			} 
 		} 
 	} 
@@ -964,7 +799,7 @@ $red: #E32523;
 
 
 .check-sentence {
-	color: #fff;
+	color: black;
 	font-weight: bold;
 	position: relative;
 	left: 15px;
@@ -1016,11 +851,12 @@ $red: #E32523;
 	width: 920px;
 	margin: 45px auto 45px;
 	height: auto !important;
-	background-color: rgba(30, 25, 25, 0.8);
 	position: relative;
 	padding: 40px 20px 30px;
 	min-height: 540px;
-
+	h2 {
+		color: black;
+	}
 }
 
 .head-city {
@@ -1081,7 +917,6 @@ $red: #E32523;
   	font-size: 50px;
     color: white;
     text-align: center;
-    font-family: 'Changa', sans-serif;
     position: relative;
     font-weight: bold;
   }
@@ -1096,6 +931,7 @@ $red: #E32523;
 #search-header {
 	font-weight: bold;
 	font-size: 18px;
+	text-align: left;
 }
 
 
@@ -1106,14 +942,12 @@ $red: #E32523;
 
 .see-more {
 	position: relative;
-	right: 480px;
-	bottom: 18px;
 	color: #808080;
 	font-weight: bold;
 	background: transparent;
 	text-decoration: none; 
 	&:hover {
-		color: white;
+		color: #E32523;
 		background: transparent;
 		text-decoration: none; 
 	}
@@ -1123,7 +957,7 @@ $red: #E32523;
 	a {		
 		position: relative;
 		top: 10px;
-		color: white;
+		color: #808080;
 		text-decoration: none;
 		background: transparent;
 		font-weight: bold;
@@ -1134,9 +968,9 @@ $red: #E32523;
 }	
 
 #logo {
-    font-family: 'Lobster', cursive;
+    font-family: 'Indie Flower', cursive;
     color: #E32523;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 
@@ -1178,24 +1012,24 @@ $red: #E32523;
 
 
 .restaurant-info {
-	color: white;
+	color: #808080;
 	font-weight: bold;
 	margin-bottom: 30px;
 	position: relative;
-	left: 50px;
+	left: 20px;
 	top: 20px;
 	h5 {
 		font-weight: bold;
-		color: #fff;
+		color: $red;
 	}
 	p {
-		color: #808080;
+		color: black;
 	}
 	td {
-		color: #808080;
+		color: black;
 	}
 	th {
-		color: #808080;
+		color: black;
 	}
 } 
 
@@ -1220,4 +1054,281 @@ $red: #E32523;
 .table-head2 {
 	position: relative;
 	left: 20px;
+}
+
+#q_areas_id_in {
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+	width: 300px;
+	height: 37px;
+	position: relative;
+	right: 90px;
+	font-family: 'Indie Flower', cursive;
+	option {
+		color: black;
+		background: #fff;
+		padding: 3px;
+	}
+}
+
+.restaurant-title {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  position: relative;
+  bottom: 25px;
+  background: #E32523;
+  border-radius: 5px;	
+}
+
+
+label {
+	color: black;
+}
+
+select {
+	color: black;
+}
+
+.fb-page {
+	position: relative;
+	top: 20px;
+	left: 30px;
+}
+
+/*#####################
+Additional Styles (required)
+#####################*/
+.carousel-control.left, .carousel-control.right {
+	background-image:none !important;
+}
+.carousel-inner .item img {
+	width:100%;
+	height:100%;
+}
+.carousel-indicators {
+	bottom:5px;
+	left:0;
+	width:auto;
+	padding:5px 25px 5px 25px;
+	margin-left:0;
+	background:rgba(0,0,0,0.7);
+}
+.carousel-indicators li {
+	border-radius:0;
+	width:8px;
+	height:8px;
+	background:#fff;
+}
+.carousel-indicators .active {
+	width:10px;
+	height:10px;
+	background: $red;
+	border-color: $red;
+}
+.carousel-control {
+	background:	$red;
+	color:#fff;
+	padding: 4px 0;
+	width:26px;
+	top:auto;	
+	left:auto;
+	bottom:12px;
+	opacity:0.85;
+}
+.carousel-control.right {
+	right:10px;
+}
+.carousel-control.left {
+	right: 46px;
+}
+.carousel-caption {
+	top:auto;
+	width:auto;
+	right:auto;
+	bottom:60px;
+	left:0;
+	padding:20px;
+	background:rgba(0,0,0,0.70);
+	text-align:left;
+  	height:auto;
+	max-width:50%;
+}
+
+@media only screen and (min-width: 40.063em) { /* medium */
+  #myCarousel {
+    width: 100%;
+  }
+}
+
+#myCarousel {
+    margin-top: 22px;
+    font-family: 'Indie Flower', cursive;
+    p {
+    	font-family: 'Indie Flower', cursive;
+    }
+}
+
+.carousel-image {
+  width: 100%;
+  max-height: 400px !important;
+  min-height: 400px !important;
+}
+
+.service-image {
+  width: 140px;
+  height: 140px;
+  -webkit-transition: all .3s ease-out;
+      -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+      transition: all .3s ease-out;
+    &:hover {
+      transform: scale(1.075);
+      cursor: pointer;
+    }
+}
+
+.services {
+  text-align: center;
+  h1 {
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 18px;
+    color: #777;
+    font-family: 'Indie Flower', cursive;
+  }
+  
+}
+.popular-restaurant {
+	text-align: center;
+	img {
+		width: 150px;
+		height: 150px;
+		margin-bottom: 20px;
+		border-radius: 50%;
+		-webkit-transition: all .3s ease-out;
+	     -moz-transition: all .3s ease-out;
+	    -o-transition: all .3s ease-out;
+	     transition: all .3s ease-out;
+	    &:hover {
+	      transform: scale(1.075);
+	      cursor: pointer;
+	    }
+	}
+}
+
+.restaurant-show-page {
+	margin-top: 60px;
+	.vendor-tabs { 
+		font-family: 'Indie Flower', cursive;
+		border-bottom: 0px;
+		width: 550px; 
+		margin-left: 0px; 
+		position: relative;
+		right: 5px;	
+		p {
+			font-family: 'Indie Flower', cursive;	
+		}		
+		h4 {
+			color: black;
+		}	
+		li { 
+			font-size: 18px; 
+			text-align: center; 
+			a { 
+				color: black; 
+				padding: 15px 25px; 
+				border: 0px none; 
+				text-decoration: none; 
+				&:hover { 
+					color: black; 
+					background-color: transparent;
+					border: 0px;
+					}; 
+				} 
+			} 
+		li.active { 
+			font-weight: bold; 
+			font-size: 14px; 
+			text-align: center; 
+			margin-left: 5px; 
+			a { 
+				color: #E32523; 
+    			border-bottom: 2px solid #E32523; 
+    			text-decoration: none; 
+    			background-color: transparent;
+			} 
+		}
+	} 
+	.food-image {
+		width: 80px;
+		height: 80px;
+		border-bottom: 1px solid #AAA;
+		border-right: 1px solid #AAA;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		margin-top: 25px;
+		-webkit-transition: all .3s ease-out;
+      	-moz-transition: all .3s ease-out;
+    	-o-transition: all .3s ease-out;
+      	transition: all .3s ease-out;
+    	&:hover {
+      		transform: scale(1.075);
+      		cursor: pointer;
+    	}
+	}
+	.menu-category-title {
+		color: $red;
+	}
+	.food-title {
+		color: black;
+		&:hover {
+      		cursor: pointer;
+    	}
+	}
+	.food-price {
+		color: $red;
+		font-family: 'Indie Flower', cursive;	
+		font-size: 25px;
+		font-weight: bold;
+		&:hover {
+      		cursor: pointer;
+    	}
+	}
+	.food-description {
+		font-family: 'Indie Flower', cursive; 
+		font-size: 16px;
+		background: $green;
+		padding: 10px;
+		color: black;
+		max-width: 320px;
+		border-radius: 5px;
+		&:hover {
+      		cursor: pointer;
+    	}
+	}
+	.price {
+		margin-top: 20px;
+	}
+	.right-side {
+		text-align: center;
+	}
+}
+
+.btn-plus {
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid #808080;
+	color: #808080;
+	border-radius: 50%;
+	font-weight: bold;
+	&:hover {
+		border: 2px solid #E32523;
+		color: #E32523;
+		background: transparent;
+		text-decoration: none;
+	};
 }

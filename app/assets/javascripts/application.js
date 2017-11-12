@@ -47,3 +47,8 @@ $('.vendor-tabs li').click(function(e) {
                 $('#carousel-text').html($('#slide-content-'+id).html());
         });
 });
+
+
+  $('#myCarousel').carousel({
+        interval:   3000
+    });

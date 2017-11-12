@@ -7,12 +7,20 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
   </head>
 
   <body class='<%= controller.controller_name %>'>
-
+  
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 
     <%= render "layouts/header" %>
    
@@ -37,3 +45,6 @@
   };
   firebase.initializeApp(config);
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap"
+                                       async defer></script>

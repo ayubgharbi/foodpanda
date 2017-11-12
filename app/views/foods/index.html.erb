@@ -1,7 +1,7 @@
 <div class="centerDisplay">
   <div class="row">
     <div class="col-md-7 col-xs-7">
-      <h1><%= @restaurant.name %></h1>
+      <h2 style="font-family: 'Lobster', cursive;position: relative; right: 42px; border-bottom: 3px solid #E32523;"><%= @restaurant.name %></h2>
       <div class="clear"></div>
       <div class="vendor-tabs">
       <ul class="nav nav-tabs vendor-tabs">
@@ -27,11 +27,11 @@
                 <%= image_tag(food.image_url) %>
               </td>
               <td class="name-tovar td" style="vertical-align:top; width: 330px; text-align: left">
-                <span class="tovar-title" style="color: white; font-weight: bold;"><%= food.title %></span>
+                <span class="tovar-title" style="color: #808080; font-weight: bold;"><%= food.title %></span>
                 <br>
-                <p style="color: #FFF;"><%= sanitize(food.description) %></p>
+                <p style="color: #808080;"><%= sanitize(food.description) %></p>
               </td>
-              <td class="tovar-price td" style="text-align: right;vertical-align:top; color: #FFF">
+              <td class="tovar-price td" style="text-align: right;vertical-align:top; color: #808080">
                 <span style="font-weight: bold"><%= number_to_currency(food.price, unit: "") %> DH</span>
                 <%= button_to '+', line_items_path(@restaurant, food_id: food), remote: true, class: "btn-plus" %>
               </td>

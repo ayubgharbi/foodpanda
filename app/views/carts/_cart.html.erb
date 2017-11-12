@@ -1,6 +1,6 @@
 
 <div class="cart__header__head__delivery-time"> 
-    <div class="cart__header__head__delivery-time__label">Estimated delivery time</div> 
+    <div class="cart__header__head__delivery-time__label">Livraison dans environ </div> 
         <div class="cart__header__head__delivery-time__time"> 
             <span class="delivery_time_minutes"><%= @restaurant.estimated_delivery_time %></span> 
             <span class="delivery_time_label">minutes</span> 
@@ -8,7 +8,7 @@
 </div> 
  
 <div class="clear"></div> 
-<h2>Your order</h2>
+<h2>Votre commande </h2>
 <div class="cart__products" style="max-height: none;"> 
     <table> 
         <tbody> 
@@ -22,12 +22,12 @@
         <tbody> 
             <tr class="subtotal"> 
                 <td></td> 
-                <td>Subtotal</td> 
+                <td>Sous total</td> 
                 <td class="price"><%= number_to_currency(cart.total_price, unit: " ")%> DH</td> 
             </tr> 
             <tr class="deliverey-fee"> 
                 <td></td> 
-                <td class="title">Delivery fee</td> 
+                <td class="title">Frais de livraison</td> 
                 <td class="price"><%= number_to_currency(@restaurant.delivery_fee, unit: " ")%> DH</td> 
             </tr> 
             <tr class="vat"> 
@@ -47,7 +47,7 @@
 
 
 <div class="cart__checkout">    
-        <%= link_to "Proceed to checkout", new_restaurant_order_path(@restaurant), method: :get, class: "btn btn-primary btn-block" %> 
+        <%= link_to "Passer la commande", new_restaurant_order_path(@restaurant), method: :get, class: "btn btn-primary btn-block" %> 
 </div>
 
 
@@ -59,11 +59,11 @@
 <div class="cart__empty cart__empty--outside"> 
     <ul class="cart__empty__elements"> 
         <li> 
-            <span class="title">Delivery fee:</span> 
+            <span class="title">Frais de livraison:</span> 
             <span class="value"><%= number_to_currency(@restaurant.delivery_fee, unit: " ") %>DH</span> 
         </li>
         <li> 
-            <span class="title">Delivery minimum:</span> 
+            <span class="title">minimum de livraison:</span> 
             <span class="value"><%= number_to_currency(@restaurant.delivery_minimum, unit: " ") %>DH</span> 
         </li>  
     </ul> 

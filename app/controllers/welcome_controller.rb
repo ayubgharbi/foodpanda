@@ -7,5 +7,6 @@ class WelcomeController < ApplicationController
 
   	@search = Restaurant.ransack(params[:q])
   	@restaurants = @search.result(distinct: true)
+
   end
 end

@@ -5,12 +5,12 @@
 	<% end %>
 
 	<div class="panel-heading">
-		<h2 style="color: #fff">Log In</h2>
+		<h2 style="color: #E32523">Se connecter</h2>
 	</div>
-	<div class="panel-body" style="color: #fff">
+	<div class="panel-body" style="color: black">
 		<%= form_for(:session, url: login_path) do |f| %>
 			<%= link_to "/auth/facebook" do %>
-			    <%= image_tag 'login-facebook.png', width: 380, height: 50, alt: 'Connect with facebook', class: "facebook-login" %>
+			    <%= image_tag 'login-facebook.png', width: 300, height: 40, alt: 'Connect with facebook', class: "facebook-login" %>
 			<% end %>
 
 			<div>

@@ -1,76 +1,144 @@
-<div class="welcome-heading"> 
- 
+<div class="jumbotron">
+
+  <h1>Commander un repas en ligne</h1>
+  <p>Plus de 100 restaurants vous attendent avec des offres exclusives</p>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    <div class="main-page-search">
+    <div class="main-search">
+      <p id="search-header">
+        Choisissez votre quartier
+      </p>
+      <ul>
+        <%= search_form_for @search do |f| %>
+          <%= f.select :areas_id_in, options_from_collection_for_select(Area.all, :id, :name), include_blank: "Quartier" %>
+          <%= f.submit "TROUVER!", class: "btn-search1" %>
+        <% end %> 
+      </ul>
+    </div>
+   </div>  
+  </div>
 </div>
-
-<div class="centerDisplay1">
-	<div class="main-page-search">
-		<div class="main-search">
-			<p id="search-header">
-				Select your area to see restaurants delivering to you
-			</p>
-			<ul>
-	          <li class="dropdown area-dropdown">
-	            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 440px;">
-	             area
-	              <span class="caret"></span>
-	            </button>
-
-	            <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu1" style="width: 440px;">
-	              <% @areas.each do |area| %>
-	                <li>
-	                  <%= link_to area.name, restaurants_path(area: area.id), class: "link" %>
-	                </li>
-	              <% end %>
-	            </ul>
-	          </li>
-	        </ul>
-		</div>
-	</div>
-
-
-
-</div>
-
-<div class="centerDisplay1">
-	<div class="main-page-search">
-		<div class="main-search">
-			<p id="search-header">
-				Select your area to see restaurants delivering to you
-			</p>
-			<ul>
-	        
-	              <%= search_form_for @search do |f| %>
-
-<%= f.select :areas_id_in, options_from_collection_for_select(Area.all, :id, :name), include_blank: "no preference" %>
-<%= f.submit "Search" %>
-
- <% end %> 
-	        </ul>
-		</div>
-	</div>
+	
 </div>
 
 
+<div class="container marketing">
+        <div class="services">
+        <div class="row">
+           <div class="col-lg-3">
+            <%= image_tag "search.svg", class: "service-image" %>
+            <h2 class="red">1. Cherchez</h2>
+            <p>Trouvez les restaurants qui vous livrent</p>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <%= image_tag "select.svg", class: "service-image" %>
+            <h2 class="red">2. Choisissez</h2>
+            <p>Parcourez des centaines de menus pour trouver la nourriture qui vous plait</p>
+          </div>
 
+          <div class="col-lg-3 col-sm-6">
+            <%= image_tag "confirm.png", class: "service-image" %>
+            <h2 class="red">3. Confirmez</h2>
+            <p>Le restaurant va vous appeler pour confirmer votre commande</p>
+          </div>
 
-
-<div class="centerDisplay4">
-  <div class="container">
-    <div class="clear"></div>
-
-    <div class="row">
-    <% @restaurantss.each do |restaurant| %>
-      <div class="col-md-2 col-xs-3 col-sm-3">
-        <div class="restaurant">
-          <div class="image_wrapper" style="background-color: transparent">
-            <%= link_to restaurant do %>
-              <%= image_tag restaurant.image.url(:large) %>
-            <% end %> 
-          </div>    
+          <div class="col-lg-3 col-sm-6">
+            <%= image_tag "enjoy.svg", class: "service-image" %>
+            <h2 class="red">4. Dégustez</h2>
+            <p>La nourriture est préparée et livrée chez vous par le restaurant</p>
+          </div>
         </div>
-      </div> 
-    <% end %>
+
+
+          
+        </div>
+        </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-7">
+      <div id="myCarousel" class="carousel slide">
+    
+      <div class="carousel-inner">
+        <article class="item active">
+          <%= image_tag "carousel1.jpg", class: "carousel-image" %>
+          <div class="carousel-caption">
+            <h3 class="red">Burger Story</h3>
+            <p>Le meilleur coin où l'on peut engloutir un BON burger ? Cherchez pas c'est le Burger Story ! </p>
+          </div>
+        </article>
+        <article class="item">
+          <%= image_tag "carousel2.png", class: "carousel-image" %>
+          <div class="carousel-caption">
+            <h3 class="red">Garden</h3>
+            <p>Découvrez Garden, Bar à Salades et composez vous-même votre salade sur mesure ! </p>
+          </div>
+        </article>
+          
+        <article class="item">
+          <%= image_tag "carousel3.jpg", class: "carousel-image" %>
+          <div class="carousel-caption">
+            <h3 class="red">hot dog</h3>
+            <p>Amateurs de hot dog c'est pour vous ⛔ ! Quoi de plus tentant qu'un succulent hot dog de chez The Factory</p>
+          </div>
+        </article>                      
+      </div>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+      </ol>        
+      <!-- Controls -->
+      <div class="carousel-controls">
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <span class="fa fa-angle-double-left"></span>
+          </a>
+          <a class="carousel-control right" href="#myCarousel" data-slide="next">
+            <span class="fa fa-angle-double-right"></span>
+          </a>
+      </div>
+    </div>
+
+    </div>
+
+        <div class="col-md-5">
+        <div class="popular-restaurant">
+          <h1>Restaurants populaires</h1>
+          <% @restaurantss.each do |restaurant| %>
+            <div class="col-md-6 col-sm-6">
+              <%= link_to do %>
+                <%= image_tag restaurant.image.url(:large) %>
+              <% end %> 
+            </div> 
+          <% end %>  
+          </div> 
+    </div>
   </div>
-  <%= link_to "See more restaurants", restaurants_path, class: "see-more" %>
-  </div>
+        
 </div>
+
+
+
+
+  
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+</script>
+
+

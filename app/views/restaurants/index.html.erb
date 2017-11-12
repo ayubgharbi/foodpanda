@@ -1,11 +1,9 @@
-<div class="centerDisplay">
   <div class="container">
-    <h1 style="position: relative; left: 250px;">Restaurants</h1>
-    <div class="clear"></div>
-
+  <h1 style="position: relative; left: 260px;">Restaurants</h1>
+  <div class="clear"></div>
     <div class="row">
     <% @restaurants.each do |restaurant| %>
-      <div class="col-md-2 col-xs-6 col-sm-6">
+      <div class="col-md-2 col-xs-2 col-sm-2">
         <div class="restaurant">
           <div class="image_wrapper" style="background-color: transparent">
             <%= link_to restaurant do %>
@@ -13,8 +11,8 @@
             <% end %> 
           </div>    
         </div>
+        <p class="restaurant-title"><%= restaurant.name %></p>
       </div> 
     <% end %>
   </div>
-</div>
 </div>

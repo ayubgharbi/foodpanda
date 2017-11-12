@@ -21,7 +21,7 @@ end
 
 
 
-def show    
+  def show    
     @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @foods = Food.where(restaurant_id: @restaurant.id).order("created_at DESC")
     @categories = Category.where(restaurant_id: @restaurant.id).order("created_at DESC")
