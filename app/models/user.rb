@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  before_save { self.email = email.downcase }
 	after_destroy :ensure_an_admin_remains
   
   has_many :authorizations 
@@ -13,13 +12,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :restaurant
 	
 	validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :role, presence: true
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|

@@ -1,5 +1,7 @@
-<div class="centerDisplay">
-<div class="col-md-6 col-md-offset-3">
+<div class="jumbotron" id="jumbotron1">
+</div>
+<div class="container">
+<div class="col-md-5 col-md-offset-3">
     <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,10 +12,12 @@
       </ul>
     </div>
     <% end %>
-    		<h1 style="position: relative; right: 35px; color: #E32523;">S'inscrire</h1>
+    		<h1 style="color: #E32523;">S'inscrire</h1>
 
   <div class="clear"></div>
-  <%= link_to "Connect With Facebook", "/auth/facebook" %>
+  <%= link_to "/auth/facebook" do %>
+    <%= image_tag 'facebook.png', width: 300, height: 40, alt: 'Connect with facebook', class: "facebook-login" %>
+  <% end %>
 	  
   <%= form_for(@user, url: signup_path) do |f| %>
 
@@ -29,17 +33,17 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :password, "Mot de passe" %>
       <%= f.password_field :password, class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %>
+      <%= f.label :password_confirmation, "Confirmer le mot de passe" %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign Up", class: "btn btn-search2" %>
+      <%= f.submit "S'inscrire", class: "btn btn-search2" %>
     </div>
     <% end %>
 </div>

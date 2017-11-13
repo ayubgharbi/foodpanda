@@ -1,40 +1,42 @@
-<div class="centerDisplay">
-<div class="col-md-6 col-md-offset-3">
-	<% if flash[:alert] %>
-		<p id="notice"><%= flash[:alert] %></p>
-	<% end %>
-
-	<div class="panel-heading">
-		<h2 style="color: #E32523">Se connecter</h2>
-	</div>
-	<div class="panel-body" style="color: black">
-		<%= form_for(:session, url: login_path) do |f| %>
-			<%= link_to "/auth/facebook" do %>
-			    <%= image_tag 'login-facebook.png', width: 300, height: 40, alt: 'Connect with facebook', class: "facebook-login" %>
-			<% end %>
-
-			<div>
-				<%= f.label :email, 'Email' %>
-				<%= f.email_field :email, class: "form-control" %>
-			</div>
-
-			<div>
-				<%= f.label :password, 'Password' %>
-				<%= f.password_field :password, class: "form-control" %> 
-			</div>
-
-			<div>
-				<%= f.label :remember_me, class: "checkbox inline" do %>
-        			<%= f.check_box :remember_me %>
-        			<span>Remember me</span>
-      			<% end %>
-			</div>
-
-			<div>
-				<%= f.submit "Log in", class: "btn btn-search" %>
-			</div>
+<div class="jumbotron" id="jumbotron1">
+</div>
+<div class="container">
+	<div class="col-md-5 col-md-offset-3">
+		<% if flash[:alert] %>
+			<p id="notice"><%= flash[:alert] %></p>
 		<% end %>
-	</div>
-	<p>New user? <%= link_to "Sign up now!", new_user_path %></p>
-</div> 
+
+		<div class="panel-heading">
+			<h2 style="color: #E32523">Se connecter</h2>
+		</div>
+		<div class="panel-body" style="color: black">
+			<%= form_for(:session, url: login_path) do |f| %>
+				<%= link_to "/auth/facebook" do %>
+				    <%= image_tag 'facebook.png', width: 300, height: 40, alt: 'Connect with facebook', class: "facebook-login" %>
+				<% end %>
+
+				<div>
+					<%= f.label :email, 'Email' %>
+					<%= f.email_field :email, class: "form-control" %>
+				</div>
+
+				<div>
+					<%= f.label :password, 'Mot de passe' %>
+					<%= f.password_field :password, class: "form-control" %> 
+				</div>
+
+				<div>
+					<%= f.label :remember_me, class: "checkbox inline" do %>
+	        			<%= f.check_box :remember_me %>
+	        			<span>Remember me</span>
+	      			<% end %>
+				</div>
+
+				<div>
+					<%= f.submit "Se connecter", class: "btn btn-search" %>
+				</div>
+			<% end %>
+		</div>
+		<p style="font-family: 'Indie Flower', cursive;">Nouveau utilisateur? <%= link_to "S'inscrire maintenant", new_user_path, class: "add-link-login" %></p>
+	</div> 
 </div>
