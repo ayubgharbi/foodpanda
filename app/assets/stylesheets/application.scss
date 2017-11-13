@@ -76,6 +76,7 @@ $green: #A8E323;
 	}
 }
 
+
 .restaurant {
 	background: white;
 	border-radius: 10px;
@@ -1165,9 +1166,10 @@ Additional Styles (required)
 .popular-restaurant {
 	text-align: center;
 	img {
-		width: 150px;
-		height: 150px;
-		margin-bottom: 20px;
+		width: 130px;
+		height: 130px;
+		margin-bottom: 30px;
+		margin-top: 20px;
 		border-radius: 50%;
 		-webkit-transition: all .3s ease-out;
 	     -moz-transition: all .3s ease-out;
@@ -1371,3 +1373,12 @@ Additional Styles (required)
     height: 400px;
     width: 100%;
 }
+
+.add-link {
+		font-size: 20px;
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+			background: transparent;
+		};
+	}

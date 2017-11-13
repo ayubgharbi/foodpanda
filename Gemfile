@@ -27,6 +27,8 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1'
 gem 'ransack', '~> 1.7'
 gem 'active_skin'
+gem 'i18n', '~> 0.7.0'
+
 
 
 group :development, :test do

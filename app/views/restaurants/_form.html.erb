@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-  <%= f.label "Delivery areas" %><br />
+  <%= f.label :delivery_areas %><br />
   <%= f.collection_check_boxes :area_ids, Area.all, :id, :name do |b| %>
     <div class="collection-check-box">
       <%= b.check_box %>
@@ -52,7 +52,7 @@
   </div>
     
   <div class="actions">
-    <%= f.submit "Sign Up", class: "btn btn-search" %>
+    <%= f.submit class: "btn btn-search" %>
   </div>
 
 <% end %>

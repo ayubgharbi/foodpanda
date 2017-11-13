@@ -14,17 +14,17 @@
   <div class="panel-body">
   
     <div class="field">
-      <%= f.label :additional_instructions %>
+      <%= f.label :additional_instructions, "Instructions additionnelles" %>
       <%= f.text_area :additional_instructions, rows: 3, cols: 40, class: "form-control" %>
     </div>
     <div class="field">
-      <%= f.label :address %>
+      <%= f.label :address , "Votre addresse" %>
       <%= f.text_area :address, rows: 3, cols: 40, class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :pay_type %>
-      <%= f.select :pay_type, Order.pay_types.keys, prompt: 'Select a payment method', class: "form-control" %>
+      <%= f.label :pay_type, "méthode de paiement" %>
+      <%= f.select :pay_type, Order.pay_types.keys, prompt: 'Choisissez une méthode de paiement', class: "form-control" %>
     </div>
 
     <div class="actions">

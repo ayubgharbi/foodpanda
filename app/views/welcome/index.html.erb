@@ -114,9 +114,7 @@
           <h1>Restaurants populaires</h1>
           <% @restaurantss.each do |restaurant| %>
             <div class="col-md-6 col-sm-6">
-              <%= link_to do %>
                 <%= image_tag restaurant.image.url(:large) %>
-              <% end %> 
             </div> 
           <% end %>  
           </div> 
