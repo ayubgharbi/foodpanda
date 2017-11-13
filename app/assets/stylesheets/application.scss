@@ -169,6 +169,13 @@ $green: #A8E323;
 .restaurant-info {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	font-family: 'Indie Flower', cursive;
+	td {
+		font-family: 'Indie Flower', cursive;
+	}
+	p {
+		font-family: 'Indie Flower', cursive;
+	}
 }
 
 
@@ -265,62 +272,7 @@ $green: #A8E323;
 		line-height: 34px;
 		color: $red;
 	}
-	#reviews { 
-	.vendor-reviews { 
-		.vendor-reviews__inner { 
-			.reviews { 
-				list-style: outside none none; 
-				padding: 0px; 
-				margin: 0px; 
-				.reviews__review { 
-					height: 129px; 
-					margin: 0px; 
-					padding-top: 25px; 
-					padding-bottom: 25px; 
-					font-size: 14px; 
-					.reviews__review__date { 
-						height: 40px; 
-						float: left; 
-						width: 16.6667%; 
-						position: relative; 
-						min-height: 1px; 
-						padding-right: 10px; 
-						padding-left: 0px; 
-						font-weight: 300; 
-						margin-top: 5px; 
 
-						.reviews__review__date__date { 
-							display: block; 
-							color: #E32523;
-							font-weight: bold; 
-						} 
-						.reviews__review__date__author { 
-							display: block; 
-							color: #808080; 
-					
-						} 
-					} 
-				.reviews__review:first-of-type { 
-					padding-top: 0px; 
-					height: 84px; 
-				}	 
-				.reviews__review__review { 
-					float: left; 
-					width: 83.3333%; 
-					position: relative; 
-					min-height: 1px; 
-					padding-left: 10px; 
-					padding-right: 10px; 
-					.reviews__review__review__title {
-						color: black; 
-						font-weight: 700; 
-					} 
-				} 
-				} 
-			} 
-		} 
-	} 
-} 
 	.vendor-tabs { 
 				border-bottom: 0px;
 				width: 550px; 
@@ -470,16 +422,19 @@ $green: #A8E323;
 		color: black; 
 	} 
 	.cart__header__head__delivery-time__time { 
-		color: $red; 
+		color: black; 
 		float: right; 
 		text-align: center; 
 		position: relative;
 		right: 40px;
+		background: $green;
+		padding: 5px;
+		border-radius: 5px;
+		cursor: pointer;
 		.delivery_time_minutes { 
 			display: block; 
 			margin: auto; 
-			font-size: 40px; 
-			font-weight: 300; 
+			font-size: 30px; 
 			line-height: 100%; 
 		} 
 		.delivery_time_label { 
@@ -495,7 +450,7 @@ $green: #A8E323;
 	a { 
 		padding: 10px; 
 		&:hover { 
-			background-color: $green; 
+			background-color: #A9ED0F; 
 		}; 
 	} 
 	.btn-primary { 
@@ -652,10 +607,14 @@ $green: #A8E323;
 			.title { 
 				display: block; 
 				font-weight: 700; 
+				font-family: 'Indie Flower', cursive; 
+				font-size: 18px;
 			} 
 			.value { 
 				display: block; 
 				font-weight: 300; 
+				font-family: 'Indie Flower', cursive; 
+				font-size: 16px;
 			} 
 		} 
 	} 
@@ -1018,7 +977,7 @@ $green: #A8E323;
 	position: relative;
 	left: 20px;
 	top: 20px;
-	h5 {
+	h4 {
 		font-weight: bold;
 		color: $red;
 	}
@@ -1029,7 +988,8 @@ $green: #A8E323;
 		color: black;
 	}
 	th {
-		color: black;
+		color: $green;
+		font-size: 16px;
 	}
 } 
 
@@ -1316,19 +1276,98 @@ Additional Styles (required)
 	.right-side {
 		text-align: center;
 	}
+	.add-link {
+		font-size: 20px;
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+			background: transparent;
+		};
+	}
 }
 
 .btn-plus {
     font-weight: bold;
     background: transparent;
-    border: 2px solid #808080;
-	color: #808080;
+    border: 2px solid black;
+	color: black;
 	border-radius: 50%;
 	font-weight: bold;
+	-webkit-transition: all .3s ease-out;
+      	-moz-transition: all .3s ease-out;
+    	-o-transition: all .3s ease-out;
+      	transition: all .3s ease-out;
 	&:hover {
 		border: 2px solid #E32523;
 		color: #E32523;
 		background: transparent;
 		text-decoration: none;
+		transform: scale(1.075);
+      		cursor: pointer;
 	};
+}
+
+	#reviews { 
+	.vendor-reviews { 
+		.vendor-reviews__inner { 
+			.reviews { 
+				list-style: outside none none; 
+				padding: 0px; 
+				margin: 0px; 
+				.reviews__review { 
+					height: 129px; 
+					margin: 0px; 
+					padding-top: 25px; 
+					padding-bottom: 25px; 
+					font-size: 14px; 
+					.reviews__review__date { 
+						height: 40px; 
+						float: left; 
+						width: 16.6667%; 
+						position: relative; 
+						min-height: 1px; 
+						padding-right: 10px; 
+						padding-left: 0px; 
+						font-weight: 300; 
+						margin-top: 5px; 
+
+						.reviews__review__date__date { 
+							display: block; 
+							color: #E32523;
+							font-weight: bold; 
+							font-family: 'Indie Flower', cursive;
+						} 
+						.reviews__review__date__author { 
+							display: block; 
+							color: #808080; 
+							font-family: 'Indie Flower', cursive;
+					
+						} 
+					} 
+				.reviews__review:first-of-type { 
+					padding-top: 0px; 
+					height: 84px; 
+				}	 
+				.reviews__review__review { 
+					float: left; 
+					width: 83.3333%; 
+					position: relative; 
+					min-height: 1px; 
+					padding-left: 10px; 
+					padding-right: 10px; 
+					.reviews__review__review__title {
+						color: black; 
+						font-family: 'Indie Flower', cursive;
+						font-size: 18px;
+					} 
+				} 
+				} 
+			} 
+		} 
+	} 
+} 
+
+#map {
+    height: 400px;
+    width: 100%;
 }

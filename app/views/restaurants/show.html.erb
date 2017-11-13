@@ -11,13 +11,15 @@
                 <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
               </li>
               <li>
-                <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
+                <%= link_to 'Commentaires', restaurant_reviews_path(@restaurant) %> 
               </li>
               <li>
                 <%= link_to 'Info', restaurant_info_path(@restaurant) %> 
               </li>
           </ul>
         </div> 
+        <%= link_to "Ajouter une categorie", new_restaurant_category_path(@restaurant), class: "add-link" %>
+        <%= link_to "Ajouter un produit", new_restaurant_food_path(@restaurant), class: "add-link" %>
         <% @categories.each do |category| %>
           <% if !category.foods.blank? %>
             <h3 class="menu-category-title"><%= category.name %></h3>
@@ -40,7 +42,7 @@
             <% end %>   
           <% end %>
         <% end %>
-
+        
     </div>
     <div class="col-md-4 col-sm-4">
     <div class="right-side">

@@ -1,3 +1,3 @@
 ActiveAdmin.register Restaurant do
-	permit_params :name, :address, :city, :area, :estimated_delivery_time, :delivery_fee, :delivery_minimum
+	permit_params :name, :address, :city, :image, :rating, :estimated_delivery_time, area_ids:[]
 end

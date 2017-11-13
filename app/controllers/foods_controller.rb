@@ -46,7 +46,6 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
     @food.user_id = current_user.id 
     @food.restaurant_id = @restaurant.id
-     @food.category_id = params[:category_id]
 
     respond_to do |format|
       if @food.save
@@ -119,7 +118,7 @@ class FoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.require(:food).permit(:title, :description, :image_url, :price)
+      params.require(:food).permit(:title, :description, :image_url, :price, :category_id)
     end
 end
   

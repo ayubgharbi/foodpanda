@@ -26,7 +26,7 @@ gem 'active_admin_flat_skin'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1'
 gem 'ransack', '~> 1.7'
-
+gem 'active_skin'
 
 
 group :development, :test do

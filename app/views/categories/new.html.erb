@@ -1,5 +1,12 @@
-<h1>New Category</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>New Category</h1>
 
-<%= render 'form', category: @category %>
+			<%= render 'form', category: @category %>
 
-<%= link_to 'Back', restaurant_path(@restaurant) %>
+			<%= link_to 'Back', restaurant_path(@restaurant), class: "add-link" %>
+				
+		</div>
+	</div>
+</div>

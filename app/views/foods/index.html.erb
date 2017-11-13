@@ -1,48 +1,51 @@
-<div class="centerDisplay">
+<div class="restaurant-show-page">
+<div class="jumbotron" id="jumbotron1">
+</div>
+<div class="container">
+<h2><%= @restaurant.name %></h2>
   <div class="row">
-    <div class="col-md-7 col-xs-7">
-      <h2 style="font-family: 'Lobster', cursive;position: relative; right: 42px; border-bottom: 3px solid #E32523;"><%= @restaurant.name %></h2>
-      <div class="clear"></div>
-      <div class="vendor-tabs">
-      <ul class="nav nav-tabs vendor-tabs">
-          <li class="<%=is_active('index')%>">
-            <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
-          </li>
-          <li>
-            <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
-          </li>
-          <li>
-            <%= link_to 'Info', restaurant_info_path(@restaurant) %> 
-          </li>
-      </ul>
-      </div>
-      <% @categories.each do |category| %>
-        <% if !category.foods.blank? %>
-        <h3 class="menu-category-title"><%= category.name %></h3>
-        <table class="table">
-          <tbody class="tbody">
-          <% category.foods.each do |food| %>   
-            <tr>
-              <td class="picture-product td" style="width:80px; vertical-align:top;">
-                <%= image_tag(food.image_url) %>
-              </td>
-              <td class="name-tovar td" style="vertical-align:top; width: 330px; text-align: left">
-                <span class="tovar-title" style="color: #808080; font-weight: bold;"><%= food.title %></span>
-                <br>
-                <p style="color: #808080;"><%= sanitize(food.description) %></p>
-              </td>
-              <td class="tovar-price td" style="text-align: right;vertical-align:top; color: #808080">
-                <span style="font-weight: bold"><%= number_to_currency(food.price, unit: "") %> DH</span>
-                <%= button_to '+', line_items_path(@restaurant, food_id: food), remote: true, class: "btn-plus" %>
-              </td>
-            </tr>
-          <% end %>   
-          </tbody>
-        </table>
+    <div class="col-md-8 col-md-4">
+        <div class="vendor-tabs">
+          <ul class="nav nav-tabs vendor-tabs">
+              <li class="<%=is_active('index')%>">
+                <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
+              </li>
+              <li>
+                <%= link_to 'Commentaires', restaurant_reviews_path(@restaurant) %> 
+              </li>
+              <li>
+                <%= link_to 'Info', restaurant_info_path(@restaurant) %> 
+              </li>
+          </ul>
+        </div> 
+        <%= link_to "Ajouter une categorie", new_restaurant_category_path(@restaurant), class: "add-link" %>
+        <%= link_to "Ajouter un produit", new_restaurant_food_path(@restaurant), class: "add-link" %>
+        <% @categories.each do |category| %>
+          <% if !category.foods.blank? %>
+            <h3 class="menu-category-title"><%= category.name %></h3>
+            <% category.foods.each do |food| %>   
+              <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                  <%= image_tag(food.image_url, class: "food-image") %>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <h3 class="food-title"><%= food.title %></h3>
+                  <p class="food-description"><%= sanitize(food.description) %></p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                <p class="price">
+                  <span class="food-price"><%= number_to_currency(food.price, unit: "") %> DH</span>
+                  <span><%= button_to '+', line_items_path(food_id: food), remote: true, class: "btn-plus" %></span>
+                </p>
+                </div>
+              </div>
+            <% end %>   
+          <% end %>
         <% end %>
-      <% end %>
+        
     </div>
-    <div class="col-md-5 col-xs-5">
+    <div class="col-md-4 col-sm-4">
+    <div class="right-side">
       <div class="logo-restaurant">
         <%= image_tag @restaurant.image.url(:medium) , class: "vendor-image" %>
       </div>
@@ -50,14 +53,18 @@
         <div class="star-rating" data-score= <%= @avg_review %> ></div>
         <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
       </div>
+      </div>
       <% if @cart %>
         <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
           <%= render @cart %>
         <% end %>
-      <% end %>
+      <% end %>  
     </div>
   </div>
 </div>
+</div>
+
+  
 
 <script>
     $('.star-rating').raty({

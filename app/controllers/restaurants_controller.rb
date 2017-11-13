@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   skip_before_action :authorize, only: [:index, :show, :new, :info]
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :info]
   include CurrentCart
-  before_action :set_cart, only: [:show]
+  before_action :set_cart, only: [:show, :info]
 
 
   

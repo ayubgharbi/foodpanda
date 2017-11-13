@@ -7,7 +7,6 @@ class ReviewsController < ApplicationController
 
   def index 
     @reviews = Review.where(restaurant_id: @restaurant.id).order("created_at DESC")
-    @cart = Cart.where(restaurant_id: @restaurant.id)
     if @reviews.blank?
       @avg_review = 0
     else

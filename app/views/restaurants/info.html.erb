@@ -1,24 +1,26 @@
-<div class="centerDisplay">
+<div class="restaurant-show-page">
+<div class="jumbotron" id="jumbotron1">
+</div>
+<div class="container">
+<h2><%= @restaurant.name %></h2>
   <div class="row">
-    <div class="col-md-7 col-xs-7">
-      <h2 style="font-family: 'Lobster', cursive;position: relative; right: 42px; border-bottom: 3px solid #E32523;"><%= @restaurant.name %></h2>
-      <div class="clear"></div>
-      <div class="vendor-tabs">
-      <ul class="nav nav-tabs vendor-tabs">
-          <li>
-            <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
-          </li>
-          <li>
-            <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> 
-          </li>
-          <li  class="<%=is_active('info')%>">
-            <%= link_to 'Info', restaurant_info_path(@restaurant) %> 
-          </li>
-      </ul>
-      </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="vendor-tabs">
+          <ul class="nav nav-tabs vendor-tabs">
+              <li>
+                <%= link_to 'Menu', restaurant_foods_path(@restaurant) %> 
+              </li>
+              <li>
+                <%= link_to 'Commentaires', restaurant_reviews_path(@restaurant) %> 
+              </li>
+              <li class="<%=is_active('info')%>">
+                <%= link_to 'Info', restaurant_info_path(@restaurant) %> 
+              </li>
+          </ul>
+        </div> 
 
-      <div class="restaurant-info">
-      <h5>Delivery Time:</h5>
+        <div class="restaurant-info">
+      <h4>Delivery Time:</h4>
       <table>
         <tr>
           <th class="table-head">Day</th>
@@ -33,13 +35,35 @@
           </tr>
         <% end %>
       </table>
-      <h5>Address:</h5>
+      <h4>Address:</h4>
       <p><%= @restaurant.address %></p>
 
-      <h5>Phone number:</h5>
+      <h4>Phone number:</h4>
       </div>
-</div>
-    <div class="col-md-5 col-xs-5">
+    </div>
+    <div class="col-md-4 col-sm-6">
+        <div id="map"></div>
+      <script>
+        function initMap() {
+          var uluru = {lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %> };
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+      </script>
+      <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXYYNHt5bguptWTF27gBIdRe4Vmz05rUw&callback=initMap">
+</script>
+ 
+
+    </div>
+    <div class="col-md-4 col-sm-6">
+    <div class="right-side">
       <div class="logo-restaurant">
         <%= image_tag @restaurant.image.url(:medium) , class: "vendor-image" %>
       </div>
@@ -47,11 +71,18 @@
         <div class="star-rating" data-score= <%= @avg_review %> ></div>
         <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
       </div>
-
+      </div>
+      <% if @cart %>
+        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+          <%= render @cart %>
+        <% end %>
+      <% end %>  
     </div>
   </div>
 </div>
-  
+</div>
+
+
 
 <script>
     $('.star-rating').raty({
@@ -62,6 +93,7 @@
       }
     });
 </script>
+
 
 
 

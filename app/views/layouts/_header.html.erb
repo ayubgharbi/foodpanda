@@ -15,9 +15,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+        <li style="font-family: 'Indie Flower', cursive;"><h4 class="red" style="position: relative; top: 5px;">+212 618 054 143</h4></li>
           <% if logged_in? %>
           <li style="font-family: 'Indie Flower', cursive;"><%= link_to 'Logout',   logout_path, method: :delete %></li>
           <% else %>
+
           <li style="font-family: 'Indie Flower', cursive;"><%= link_to "Se connecter", login_path %></li>
           <li style="font-family: 'Indie Flower', cursive;"><%= link_to "S'inscrire", new_user_path %></li>  
           <% end %>
