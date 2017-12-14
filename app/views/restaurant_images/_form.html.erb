@@ -1,0 +1,21 @@
+<%= form_for([@restaurant, @restaurant_image]) do |f| %>
+  <% if @restaurant_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant_image.errors.count, "error") %> prohibited this @restaurant_image from being saved:</h2>
+
+      <ul>
+      <% @restaurant_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn button-red" %>
+  </div>
+<% end %>

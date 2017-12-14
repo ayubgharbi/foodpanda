@@ -48,35 +48,6 @@ $green: #A8E323;
 	color: #226;
 }
 
-.navbar {
-	background-color: #FFF;
-	@include box-shadow;
-	border: none;
-	margin-bottom : 0px;
-	.navbar-brand {
-		text-transform: uppercase;
-		letter-spacing: -1px;
-		font-weight: bold;
-		font-size: 22px;
-		a {
-			color: $red;
-			&:hover {
-				color: $red;
-				background-color: white;
-				text-decoration: underline;
-			}
-		}
-	}
-	li {
-		a {
-			&:hover {
-				background-color: #FFF;
-			}
-		}
-	}
-}
-
-
 .restaurant {
 	background: white;
 	border-radius: 10px;
@@ -133,7 +104,7 @@ $green: #A8E323;
 .jumbotron {
 	padding-top: 80px;
 	font-family: 'Indie Flower', cursive;
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(519509.jpg) no-repeat center center;
+	background: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.43)), url(519509.jpg) no-repeat center center;
 	background-position: 0% 25%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -144,11 +115,20 @@ $green: #A8E323;
 	p {
 		font-family: 'Indie Flower', cursive;	
 	}
+	h1 {
+		text-align: center;
+		font-size: 80px;
+	}
+
+	h2 {
+		color: white;
+	}
+
 }
 
 #jumbotron1 {
 	margin-bottom: 0px;
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(519509.jpg) no-repeat center center;
+	background: url(519509.jpg) no-repeat center center;
 	background-position: 0% 25%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -202,31 +182,38 @@ $green: #A8E323;
 }
 
 
-/* header */
+.navbar {
+  background: #fff;
+  border: none;
+}
+
 .my-navbar {
-	padding-top: 25px;
-	background: rgba(30, 25, 25, 0.8);
-	border-radius: 0;
-	border-bottom: 3px solid #808080;
-	.navbar-brand {
-		color: #E32523;
-		text-decoration: none;
-		&:hover {
-			color: #E32523;
+	background: #fff;
+  .navbar-brand {
+		text-transform: uppercase;
+		letter-spacing: -1px;
+		font-weight: bold;
+		font-size: 22px;
+		a {
+			background: #fff;
+			color: $red;
+			&:hover {
+				color: $red;
+				background-color: white;
+				text-decoration: underline;
+			}
 		}
 	}
-	.navbar-nav {
-		li {
-			a {
-				color: #fff;
-				text-decoration: none;
-				font-weight: bold;
-				font-family: 'Indie Flower', cursive;
-				&:hover {
-					color: #808080;
-				};
+	li {
+		background: #fff;
+		a {
+			background: #fff;
+			&:hover {
+				background-color: #FFF;
+				position: relative;
+				top: 1px;
 			}
-		}	
+		}
 	}
 }
 
@@ -477,7 +464,7 @@ $green: #A8E323;
 }  
 						
 .main-page-search {
-	margin-top: 100px;
+	margin-top: 60px;
 	.main-search {
 		background-color: transparent;
 		padding-left: 20px;
@@ -656,22 +643,21 @@ $green: #A8E323;
 }
 
 .btn-search1 {
-	font-size: 19px;
+	font-size: 25px;
 	font-family: 'Indie Flower', cursive;
     background: #fff;
-    border: 1px solid #808080;
+	padding: 10px;
     border-radius: 20px;
-    color: #E32523;
+    color: $red;
     cursor: pointer;
-    width: 220px;
     text-align: center;
-    width: 120px;
-    height: 45px;
+    width: 150px;
+    height: 55px;
     position: relative;
     right: 80px;
    	&:hover {
    		background: #fff;
-   		color: #E32523;
+   		color: $red;
    	};
 }
 
@@ -890,14 +876,15 @@ $green: #A8E323;
 
 #search-header {
 	font-weight: bold;
-	font-size: 18px;
 	text-align: left;
+
 }
 
 
 .facebook-login {
 	position: relative;
 	bottom: 10px;
+	border-radius: 5px;
 }
 
 .see-more {
@@ -927,10 +914,11 @@ $green: #A8E323;
 	}
 }	
 
-#logo {
+.logo {
     font-family: 'Indie Flower', cursive;
     color: #E32523;
     font-size: 25px;
+    cursor: pointer;
 }
 
 
@@ -1044,11 +1032,6 @@ $green: #A8E323;
   border-radius: 5px;	
 }
 
-
-label {
-	color: black;
-}
-
 select {
 	color: black;
 }
@@ -1125,7 +1108,7 @@ Additional Styles (required)
 }
 
 #myCarousel {
-    margin-top: 22px;
+    margin-top: 30px;
     font-family: 'Indie Flower', cursive;
     p {
     	font-family: 'Indie Flower', cursive;
@@ -1136,6 +1119,7 @@ Additional Styles (required)
   width: 100%;
   max-height: 400px !important;
   min-height: 400px !important;
+  border-radius: 10px;
 }
 
 .service-image {
@@ -1157,8 +1141,9 @@ Additional Styles (required)
     margin-bottom: 20px;
   }
   p {
-    font-size: 18px;
-    color: #777;
+    font-size: 19px;
+    padding: 5px;
+    border-radius: 5px;
     font-family: 'Indie Flower', cursive;
   }
   
@@ -1166,17 +1151,14 @@ Additional Styles (required)
 .popular-restaurant {
 	text-align: center;
 	img {
-		width: 130px;
-		height: 130px;
+		width: 125px;
+		height: 125px;
 		margin-bottom: 30px;
 		margin-top: 20px;
+		margin-right: 15px;
 		border-radius: 50%;
-		-webkit-transition: all .3s ease-out;
-	     -moz-transition: all .3s ease-out;
-	    -o-transition: all .3s ease-out;
-	     transition: all .3s ease-out;
+
 	    &:hover {
-	      transform: scale(1.075);
 	      cursor: pointer;
 	    }
 	}
@@ -1335,9 +1317,11 @@ Additional Styles (required)
 
 						.reviews__review__date__date { 
 							display: block; 
-							color: #E32523;
-							font-weight: bold; 
+							color: black;
 							font-family: 'Indie Flower', cursive;
+							background: $green;
+							padding: 5px;
+							font-size: 20px;
 						} 
 						.reviews__review__date__author { 
 							display: block; 
@@ -1391,3 +1375,56 @@ Additional Styles (required)
 		background: transparent;
 	};
 }
+
+.restaurant-index-page {
+	.restaurant-index-image {
+		width: 120px;
+		height: 100px;
+		margin-top: 20px;
+		-webkit-transition: all .3s ease-out;
+      	-moz-transition: all .3s ease-out;
+    	-o-transition: all .3s ease-out;
+      	transition: all .3s ease-out;
+		&:hover {
+			transform: scale(1.075);
+      		cursor: pointer;
+		};
+	}
+	h3 {
+		background: $green;
+		padding: 5px;
+	}
+	a {
+		color: black;
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.gallery-image {
+  width: 100%;
+  margin-top: 20px;
+  min-height: 300px;
+  max-height: 300px;	
+  cursor: pointer;
+  margin-bottom: 20px;
+  -webkit-transition: all .3s ease-out;
+      -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+      transition: all .3s ease-out;
+    &:hover {
+      transform: scale(1.075);
+      cursor: pointer;
+    }
+}
+
+.logo-img {
+	width: 35px;
+	height: 35px;
+	position: relative;
+	bottom: 3px;
+	left: 3px;
+}
+

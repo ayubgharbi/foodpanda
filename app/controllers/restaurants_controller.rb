@@ -93,6 +93,6 @@ end
     	end
 
     	def restaurant_params
-     		params.require(:restaurant).permit(:name, :address, :city, :image, :rating, :estimated_delivery_time, area_ids:[])
+     		params.require(:restaurant).permit(:name, :address, :city, :image, :rating, :longitude, :latitude, :estimated_delivery_time, :phone_number, area_ids:[])
    		end
 end

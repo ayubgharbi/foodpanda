@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   resources :restaurants do 
+      resources :restaurant_images
       resources :reviews, except: [:show]
       resources :orders
       resources :categories do 

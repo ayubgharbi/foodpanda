@@ -6,6 +6,7 @@ class Restaurant < ApplicationRecord
 	has_many :opening_hours
 	has_one :user
 	has_and_belongs_to_many :areas
+	has_many :restaurant_images
 
 	validates :name, :address, :estimated_delivery_time,  presence: true
 

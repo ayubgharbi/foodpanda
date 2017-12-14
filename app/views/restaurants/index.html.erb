@@ -1,18 +1,41 @@
+<div class="restaurant-index-page">
+  <div class="jumbotron" id="jumbotron1">
+  </div>
+
   <div class="container">
-  <h1 style="position: relative; left: 260px;">Restaurants</h1>
-  <div class="clear"></div>
-    <div class="row">
-    <% @restaurants.each do |restaurant| %>
-      <div class="col-md-2 col-xs-2 col-sm-2">
-        <div class="restaurant">
-          <div class="image_wrapper" style="background-color: transparent">
-            <%= link_to restaurant do %>
-              <%= image_tag restaurant.image.url(:large) %>
-            <% end %> 
-          </div>    
-        </div>
-        <p class="restaurant-title"><%= restaurant.name %></p>
-      </div> 
-    <% end %>
+    <h1>Restaurants</h1>
+      <% @restaurants.each_slice(2) do |restaurants| %>
+        <div class="row">
+          <% restaurants.each do |restaurant| %>  
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-3">
+                  <%= link_to restaurant do %>
+                    <%= image_tag restaurant.image.url(:large), class: "restaurant-index-image" %>
+                  <% end %> 
+                </div>    
+                <div class="col-md-9">
+                  <%= link_to restaurant do %>
+                    <h3><%= restaurant.name %></h3>
+                    <div class="cart__empty cart__empty--outside"> 
+                      <ul class="cart__empty__elements"> 
+                          <li> 
+                              <span class="title">Frais de livraison:</span> 
+                              <span class="value"><%= number_to_currency(restaurant.delivery_fee, unit: " ") %>DH</span> 
+                          </li>
+                          <li> 
+                              <span class="title">minimum de livraison:</span> 
+                              <span class="value"><%= number_to_currency(restaurant.delivery_minimum, unit: " ") %>DH</span> 
+                          </li>  
+                      </ul> 
+                    </div> 
+                  <% end %>
+                </div>
+            </div>  
+          </div>
+        <% end %>
+      </div>  
+    <% end %>      
   </div>
 </div>
+

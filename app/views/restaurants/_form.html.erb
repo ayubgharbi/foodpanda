@@ -36,6 +36,12 @@
   <% end %>
 </div>
 
+
+  <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, class: "form-control" %>
+  </div>
+
   <div class="field">
     <%= f.label :estimated_delivery_time %><br>
     <%= f.number_field :estimated_delivery_time, class: "form-control" %>
@@ -49,6 +55,16 @@
   <div class="field">
     <%= f.label :delivery_minimum %><br>
     <%= f.number_field :delivery_minimum, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.number_field :longitude, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.number_field :latitude, class: "form-control" %>
   </div>
     
   <div class="actions">

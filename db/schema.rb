@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730145058) do
+ActiveRecord::Schema.define(version: 20171114154543) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -107,6 +107,16 @@ ActiveRecord::Schema.define(version: 20170730145058) do
     t.text     "additional_instructions"
   end
 
+  create_table "restaurant_images", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "restaurant_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -125,6 +135,8 @@ ActiveRecord::Schema.define(version: 20170730145058) do
     t.decimal  "delivery_fee"
     t.decimal  "delivery_minimum"
     t.integer  "area_id"
+    t.integer  "cart_id"
+    t.string   "phone_number"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -149,6 +161,7 @@ ActiveRecord::Schema.define(version: 20170730145058) do
     t.string   "provider"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

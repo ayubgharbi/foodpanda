@@ -11,7 +11,6 @@ class User < ApplicationRecord
   belongs_to :restaurant
   accepts_nested_attributes_for :restaurant
 	
-	validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
 
 
   def self.from_omniauth(auth)

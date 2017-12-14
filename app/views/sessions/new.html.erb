@@ -9,7 +9,7 @@
 		<div class="panel-heading">
 			<h2 style="color: #E32523">Se connecter</h2>
 		</div>
-		<div class="panel-body" style="color: black">
+		<div class="panel-body">
 			<%= form_for(:session, url: login_path) do |f| %>
 				<%= link_to "/auth/facebook" do %>
 				    <%= image_tag 'facebook.png', width: 300, height: 40, alt: 'Connect with facebook', class: "facebook-login" %>

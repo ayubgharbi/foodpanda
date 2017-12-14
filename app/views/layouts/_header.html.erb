@@ -8,14 +8,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-<a class="navbar-brand" id="logo" href="/">Just Eat</a>
+<%= link_to root_path, class: "navbar-brand" do %>
+   <p class="logo"><%= image_tag("267876.svg", class: "logo-img", id: "navbar-logo") %>
+   Tanja food
+   </p>
+<% end %>
     </div>
 
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background: #fff;">
         <ul class="nav navbar-nav navbar-right">
-        <li style="font-family: 'Indie Flower', cursive;"><h4 class="red" style="position: relative; top: 5px;">+212 618 054 143</h4></li>
+        <li style="font-family: 'Indie Flower', cursive; position: relative; top: 7px; right: 10px;">
+            <p class="logo"><%= image_tag("tjf.png", class: "logo-img", id: "navbar-logo") %></p>
+        </li>
+        <li style="font-family: 'Indie Flower', cursive;"><h4 class="red" style="position: relative; top: 5px; cursor: pointer">+212 618 054 143</h4></li>
+        
           <% if logged_in? %>
           <li style="font-family: 'Indie Flower', cursive;"><%= link_to 'Logout',   logout_path, method: :delete %></li>
           <% else %>
