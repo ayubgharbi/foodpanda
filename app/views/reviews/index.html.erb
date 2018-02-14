@@ -1,10 +1,11 @@
 <div class="restaurant-show-page">
-<div class="jumbotron" id="jumbotron1">
-</div>
+
 <div class="container">
-<h2><%= @restaurant.name %></h2>
+  <div class="restaurant-index-wrapper">
+
+<h1><%= @restaurant.name %></h1>
   <div class="row">
-    <div class="col-md-8 col-md-4">
+    <div class="col-md-8">
         <div class="vendor-tabs">
           <ul class="nav nav-tabs vendor-tabs">
               <li>
@@ -18,7 +19,6 @@
               </li>
           </ul>
         </div>
-        <%= link_to "Ajouter un commentaire", new_restaurant_review_path(@restaurant), class: "add-link" %> 
         <div id="reviews">
             <div class="vendor-reviews">
               <div class="vendor-reviews__inner">
@@ -44,7 +44,7 @@
 
         
     </div>
-    <div class="col-md-4 col-sm-4">
+    <div class="col-md-4">
     <div class="right-side">
       <div class="logo-restaurant">
         <%= image_tag @restaurant.image.url(:medium) , class: "vendor-image" %>
@@ -63,7 +63,7 @@
   </div>
 </div>
 </div>
-
+</div>
   
 
 <script>

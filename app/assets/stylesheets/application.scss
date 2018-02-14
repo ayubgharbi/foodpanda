@@ -154,9 +154,11 @@ $green: #A8E323;
 	font-family: 'Indie Flower', cursive;
 	td {
 		font-family: 'Indie Flower', cursive;
+	 	color: #fff;
 	}
 	p {
 		font-family: 'Indie Flower', cursive;
+		color: #fff;
 	}
 }
 
@@ -286,7 +288,7 @@ $green: #A8E323;
 				} 
 				li.active { 
 					font-weight: bold; 
-					font-size: 14px; 
+					font-size: 24px; 
 					text-align: center; 
 					margin-left: 5px; 
 					a { 
@@ -408,15 +410,14 @@ $green: #A8E323;
 	.cart__header__head__delivery-time__label { 
 		float: left; 
 		padding-top: 10px; 
-		color: black; 
+		color: #fff; 
 	} 
 	.cart__header__head__delivery-time__time { 
-		color: black; 
+		color: #fff; 
 		float: right; 
 		text-align: center; 
 		position: relative;
 		right: 40px;
-		background: $green;
 		padding: 5px;
 		border-radius: 5px;
 		cursor: pointer;
@@ -463,6 +464,13 @@ $green: #A8E323;
 		width: 330px; 
 	} 
 }  
+
+#btn-checkout { 
+		background-color: $green; 
+		border-color: #CF110F; 
+		color: black; 
+		text-decoration: none; 
+	} 
 						
 .main-page-search {
 	margin-top: 60px;
@@ -666,7 +674,7 @@ $green: #A8E323;
 
 .cart__summary { 
 	padding: 10px; 
-	color: black;
+	color: #fff;
 	position: relative;
 	right: 10px; 
 	table { 
@@ -746,7 +754,7 @@ $green: #A8E323;
 
 
 .check-sentence {
-	color: black;
+	color: #fff;
 	font-weight: bold;
 	position: relative;
 	left: 15px;
@@ -970,10 +978,10 @@ $green: #A8E323;
 		color: $red;
 	}
 	p {
-		color: black;
+		color: #fff;
 	}
 	td {
-		color: black;
+		color: #fff;
 	}
 	th {
 		color: $green;
@@ -1165,6 +1173,9 @@ Additional Styles (required)
 }
 
 .restaurant-show-page {
+	background: url(519509.jpg) no-repeat 100% 100%;
+	background-size: cover;
+	color: #fff;
 	.vendor-tabs { 
 		font-family: 'Indie Flower', cursive;
 		border-bottom: 0px;
@@ -1176,18 +1187,18 @@ Additional Styles (required)
 			font-family: 'Indie Flower', cursive;	
 		}		
 		h4 {
-			color: black;
+			color: #fff;
 		}	
 		li { 
 			font-size: 18px; 
 			text-align: center; 
 			a { 
-				color: black; 
+				color: #fff; 
 				padding: 15px 25px; 
 				border: 0px none; 
 				text-decoration: none; 
 				&:hover { 
-					color: black; 
+					color: #fff; 
 					background-color: transparent;
 					border: 0px;
 					}; 
@@ -1195,7 +1206,7 @@ Additional Styles (required)
 			} 
 		li.active { 
 			font-weight: bold; 
-			font-size: 14px; 
+			font-size: 18px; 
 			text-align: center; 
 			margin-left: 5px; 
 			a { 
@@ -1224,16 +1235,16 @@ Additional Styles (required)
     	}
 	}
 	.menu-category-title {
-		color: $red;
+		color: #fff;
 	}
 	.food-title {
-		color: black;
+		color: #fff;
 		&:hover {
       		cursor: pointer;
     	}
 	}
 	.food-price {
-		color: $red;
+		color: $green;
 		font-family: 'Indie Flower', cursive;	
 		font-size: 25px;
 		font-weight: bold;
@@ -1243,10 +1254,11 @@ Additional Styles (required)
 	}
 	.food-description {
 		font-family: 'Indie Flower', cursive; 
-		font-size: 16px;
-		background: $green;
+		font-size: 17px;
+		background: transparent;
+		border: 2px solid #fff;
 		padding: 10px;
-		color: black;
+		color: white;
 		max-width: 320px;
 		border-radius: 5px;
 		&:hover {
@@ -1272,8 +1284,8 @@ Additional Styles (required)
 .btn-plus {
     font-weight: bold;
     background: transparent;
-    border: 2px solid black;
-	color: black;
+    border: 2px solid #fff;
+	color: #fff;
 	border-radius: 50%;
 	font-weight: bold;
 	-webkit-transition: all .3s ease-out;
@@ -1281,8 +1293,8 @@ Additional Styles (required)
     	-o-transition: all .3s ease-out;
       	transition: all .3s ease-out;
 	&:hover {
-		border: 2px solid #E32523;
-		color: #E32523;
+		border: 2px solid $green;
+		color: $green;
 		background: transparent;
 		text-decoration: none;
 		transform: scale(1.075);
@@ -1316,16 +1328,19 @@ Additional Styles (required)
 
 						.reviews__review__date__date { 
 							display: block; 
-							color: black;
+							color: #fff;
 							font-family: 'Indie Flower', cursive;
-							background: $green;
+							background: transparent;
 							padding: 5px;
 							font-size: 20px;
+							border: 2px solid #fff;
+							border-radius: 5px;
 						} 
 						.reviews__review__date__author { 
 							display: block; 
-							color: #808080; 
+							color: $green; 
 							font-family: 'Indie Flower', cursive;
+							font-size: 14px;
 					
 						} 
 					} 
@@ -1341,7 +1356,7 @@ Additional Styles (required)
 					padding-left: 10px; 
 					padding-right: 10px; 
 					.reviews__review__review__title {
-						color: black; 
+						color: #fff; 
 						font-family: 'Indie Flower', cursive;
 						font-size: 18px;
 					} 
@@ -1353,8 +1368,10 @@ Additional Styles (required)
 } 
 
 #map {
-    height: 400px;
+	margin-top: 20px;
+    height: 350px;
     width: 100%;
+    border-radius: 5px;
 }
 
 .add-link {
@@ -1820,7 +1837,6 @@ Additional Styles (required)
 
 a {
 	text-decoration: none;
-	background: transparent !important;
 }
 
 
@@ -1854,3 +1870,15 @@ label {
 #jumb {
 	min-height: auto;
 }
+
+.logo-restaurant {
+		font-size: 14pt;
+		text-align: center;
+		margin-top: -10px;
+		img {
+			padding-bottom: 15px;
+			height: 195px;
+			width: 180px;
+			border-radius: 25%;
+		}
+	}
