@@ -1,0 +1,75 @@
+
+
+<div class="jumbotron">
+<div class="container">
+  <h1>Commander un repas en ligne</h1>
+  <p>Plus de 20 restaurants vous attendent avec des offres exclusives</p>
+<div class="row">
+  <div class="col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    <div class="main-page-search">
+    <div class="main-search">
+      <h2 id="search-header">
+        Choisissez votre quartier
+      </h2>
+      <ul class="search-dropdown">
+        <%= search_form_for @search do |f| %>
+          <%= f.select :areas_id_in, options_from_collection_for_select(Area.all, :id, :name), include_blank: "Quartier" %>
+          <%= f.submit "TROUVER!", class: "btn-search1" %>
+        <% end %> 
+      </ul>
+    </div>
+   </div>  
+  </div>
+</div>
+	
+</div>
+</div>
+
+<div class="container marketing">
+        <div class="services">
+        <div class="row">
+           <div class="col-md-3 col-sm-6">
+            <%= image_tag "search2.svg", class: "service-image" %>
+            <h2 class="red">1. Cherchez</h2>
+            <p>Trouvez les restaurants qui vous livrent</p>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <%= image_tag "select.svg", class: "service-image" %>
+            <h2 class="red">2. Choisissez</h2>
+            <p>Parcourez des centaines de menus pour trouver la nourriture qui vous plait</p>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <%= image_tag "confirm1.png", class: "service-image" %>
+            <h2 class="red">3. Confirmez</h2>
+            <p>Le restaurant va vous appeler pour confirmer votre commande</p>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <%= image_tag "enjoy1.svg", class: "service-image" %>
+            <h2 class="red">4. Dégustez</h2>
+            <p>La nourriture est préparée et livrée chez vous par le restaurant</p>
+          </div>
+        </div>
+
+
+          
+        </div>
+        </div>
+
+
+
+  
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+</script>
+
+

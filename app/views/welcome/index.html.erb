@@ -1,15 +1,16 @@
-<div class="jumbotron">
+        <section id="home" class="home">
 
+<div class="jumbotron">
+<div class="container">
   <h1>Commander un repas en ligne</h1>
-  <p>Plus de 20 restaurants vous attendent avec des offres exclusives</p>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+  <div class="col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-3 col-xs-10 col-xs-offset-1">
     <div class="main-page-search">
     <div class="main-search">
       <h2 id="search-header">
         Choisissez votre quartier
       </h2>
-      <ul>
+      <ul class="search-dropdown">
         <%= search_form_for @search do |f| %>
           <%= f.select :areas_id_in, options_from_collection_for_select(Area.all, :id, :name), include_blank: "Quartier" %>
           <%= f.submit "TROUVER!", class: "btn-search1" %>
@@ -19,66 +20,70 @@
    </div>  
   </div>
 </div>
-	
-</div>
-
-
-<div class="container marketing">
-        <div class="services">
-        <div class="row">
-           <div class="col-md-3 col-sm-6">
-            <%= image_tag "search.svg", class: "service-image" %>
-            <h2 class="red">1. Cherchez</h2>
-            <p>Trouvez les restaurants qui vous livrent</p>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <%= image_tag "select.svg", class: "service-image" %>
-            <h2 class="red">2. Choisissez</h2>
-            <p>Parcourez des centaines de menus pour trouver la nourriture qui vous plait</p>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-            <%= image_tag "confirm.png", class: "service-image" %>
-            <h2 class="red">3. Confirmez</h2>
-            <p>Le restaurant va vous appeler pour confirmer votre commande</p>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-            <%= image_tag "enjoy.svg", class: "service-image" %>
-            <h2 class="red">4. Dégustez</h2>
-            <p>La nourriture est préparée et livrée chez vous par le restaurant</p>
-          </div>
-        </div>
-
-
-          
-        </div>
-        </div>
-<div class="container">
-<div class="popular-restaurant">
-          <h1>Restaurants populaires</h1>
-        <div class="row">
-          <% @restaurantss.each do |restaurant| %>
-            <div class="col-md-2 col-sm-2">
-                <%= image_tag restaurant.image.url(:large) %>
-            </div> 
-          <% end %>  
-          </div> 
-  </div>
-</div>
-
-
   
+</div>
+</div>
 
 
-<script>
-    $('.star-rating').raty({
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-        return $(this).attr('data-score');
-      }
-    });
-</script>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="counter" class="counter">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="main_counter sections">
+                        <div class="single_left_counter_bg">
+                            <div class="col-sm-12 col-xs-12">
+                                <div class="single_counter_left">
+                                    <h2>OUR <br /> NUMBERS <br /></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-xs-12">
+                            <div class="single_counter_right_area text-center">
+                                <div class="row">
+                                    <div class="col-sm-4 ">
+                                        <div class="single_counter_right">
+                                            <i class="fa fa-star"></i>
+                                            <h2 class="statistic-counter">14</h2>
+                                            <p>Reviews</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="single_counter_right">
+                                            <i class="fa fa-life-ring"></i>
+                                            <h2 class="statistic-counter">1,423</h2>
+                                            <p>Recipes</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="single_counter_right">
+                                            <i class="fa fa-thumbs-up"></i>
+                                            <h2 class="statistic-counter">1867</h2>
+                                            <p>Likes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
 

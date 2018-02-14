@@ -1,38 +1,165 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-<%= link_to root_path, class: "navbar-brand" do %>
+
+
+
+<% unless current_page?(root_path) %>
+
+    <header id="main_menu" class="header navbar-fixed-top">      
+            <div class="agileits_top_menu">
+                <div class="w3l_header_left">
+                        <ul>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="mailto:info@example.com">+212 618 054 143</a></li>
+                        </ul>
+                    </div>
+                    <div class="w3l_header_right">
+                        <div class="w3ls-social-icons text-left">
+                            <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
+                            <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                <div class="clearfix"> </div>
+            </div>         
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="nave_menu">
+                            <nav class="navbar navbar-default" id="navmenu">
+                                <div class="container-fluid">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <%= link_to root_path, class: "navbar-brand" do %>
    <p class="logo"><%= image_tag("267876.svg", class: "logo-img", id: "navbar-logo") %>
    Tanja food
    </p>
 <% end %>
-    </div>
+                                    </div>
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
 
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background: #fff;">
-        <ul class="nav navbar-nav navbar-right">
-        <li style="font-family: 'Indie Flower', cursive; position: relative; top: 7px; right: 10px;">
-            <p class="logo"><%= image_tag("tjf.png", class: "logo-img", id: "navbar-logo") %></p>
-        </li>
-        <li style="font-family: 'Indie Flower', cursive;"><h4 class="red" style="position: relative; top: 5px; cursor: pointer">+212 618 054 143</h4></li>
-        
-          <% if logged_in? %>
-          <li style="font-family: 'Indie Flower', cursive;"><%= link_to 'Logout',   logout_path, method: :delete %></li>
-          <% else %>
 
-          <li style="font-family: 'Indie Flower', cursive;"><%= link_to "Se connecter", login_path %></li>
-          <li style="font-family: 'Indie Flower', cursive;"><%= link_to "S'inscrire", new_user_path %></li>  
-          <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                     
+
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li style="font-family: 'Indie Flower', cursive;"><%= link_to "Accueil", root_path, id: "jumbotron" %></li>
+                                             <% if logged_in? %>
+                                              <li style="font-family: 'Indie Flower', cursive;"><%= link_to 'Logout',   logout_path, method: :delete %></li>
+                                              <% else %>
+
+                                              <li style="font-family: 'Indie Flower', cursive;"><%= link_to "Se connecter", login_path %></li>
+                                              <li style="font-family: 'Indie Flower', cursive;"><%= link_to "S'inscrire", new_user_path %></li>  
+                                              <% end %>
+                                            <li>
+                                                <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-search"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <form class="navbar-form" role="search">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" placeholder="Search">
+                                                            </div>
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                        
+                                    </div>
+
+                                </div>
+                            </nav>
+                        </div>  
+                    </div>
+
+                </div>
+
+            </div>
+        </header> 
+
+<% else %>
+    
+<header id="main_menu" class="header navbar-fixed-top">    
+        <div class="agileits_top_menu">
+            <div class="w3l_header_left">
+                    <ul>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="mailto:info@example.com">+212 618 054 143</a></li>
+                    </ul>
+                </div>
+                <div class="w3l_header_right">
+                    <div class="w3ls-social-icons text-left">
+                        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
+                        <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            <div class="clearfix"> </div>
+        </div>        
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="nave_menu">
+                            <nav class="navbar navbar-default" id="navmenu">
+                                <div class="container-fluid">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <%= link_to root_path, class: "navbar-brand" do %>
+   <p class="logo"><%= image_tag("267876.svg", class: "logo-img", id: "navbar-logo") %>
+   Tanja food
+   </p>
+<% end %>
+                                    </div>
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li style="font-family: 'Indie Flower', cursive;"><a href="#home">Accueil</a></li>
+                                            <li style="font-family: 'Indie Flower', cursive;"><a href="#counter">compteur</a></li>
+                                              <% if logged_in? %>
+                                              <li style="font-family: 'Indie Flower', cursive;"><%= link_to 'Logout',   logout_path, method: :delete %></li>
+                                              <% else %>
+
+                                              <li style="font-family: 'Indie Flower', cursive;"><%= link_to "Se connecter", login_path %></li>
+                                              <li style="font-family: 'Indie Flower', cursive;"><%= link_to "S'inscrire", new_user_path %></li>  
+                                              <% end %>
+
+                                            
+                                        </ul>
+
+
+                                    </div>
+
+                                </div>
+                            </nav>
+                        </div>  
+                    </div>
+
+                </div>
+
+            </div>
+        </header> <!--End of header -->
+
+
+<% end %>
 

@@ -15,7 +15,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'rename'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
@@ -29,6 +28,7 @@ gem 'ransack', '~> 1.7'
 gem 'active_skin'
 gem 'i18n', '~> 0.7.0'
 gem 'omniauth'
+gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 
 
 

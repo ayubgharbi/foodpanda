@@ -2,9 +2,11 @@
 <div class="jumbotron" id="jumbotron1">
 </div>
 <div class="container">
+        <%= link_to "Ajouter une categorie", new_restaurant_category_path(@restaurant), class: "add-link" %>
+        <%= link_to "Ajouter un produit", new_restaurant_food_path(@restaurant), class: "add-link" %>
 <h2><%= @restaurant.name %></h2>
   <div class="row">
-    <div class="col-md-8 col-md-4">
+    <div class="col-md-8">
         <div class="vendor-tabs">
           <ul class="nav nav-tabs vendor-tabs">
               <li class="<%=is_active('show')%>">
@@ -18,8 +20,7 @@
               </li>
           </ul>
         </div> 
-        <%= link_to "Ajouter une categorie", new_restaurant_category_path(@restaurant), class: "add-link" %>
-        <%= link_to "Ajouter un produit", new_restaurant_food_path(@restaurant), class: "add-link" %>
+
         <% @categories.each do |category| %>
           <% if !category.foods.blank? %>
             <h3 class="menu-category-title"><%= category.name %></h3>
@@ -44,7 +45,7 @@
         <% end %>
         
     </div>
-    <div class="col-md-4 col-sm-4">
+    <div class="col-md-4">
     <div class="right-side">
       <div class="logo-restaurant">
         <%= image_tag @restaurant.image.url(:medium) , class: "vendor-image" %>
