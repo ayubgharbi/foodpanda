@@ -26,7 +26,7 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1'
 gem 'ransack', '~> 1.7'
 gem 'active_skin'
-gem 'i18n', '~> 0.7.0'
+gem 'i18n', '~> 0.8.0'
 gem 'omniauth'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 
